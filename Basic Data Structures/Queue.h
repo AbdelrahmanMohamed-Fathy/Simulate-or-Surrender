@@ -14,9 +14,8 @@ public:
    /** Adds a new entry to the back of this queue.
     @post  If the operation was successful, newEntry is at the
        back of the queue.
-    @param newEntry  The object to be added as a new entry.
-    @return  True if the addition is successful or false if not. */
-   virtual bool enqueue(const T& newEntry);
+    @param newEntry  The object to be added as a new entry. */
+   virtual void enqueue(const T& newEntry);
    
    /** Copies the front item of the queue to the passed parameter and removes it from queue
     @post  If the operation was successful, the front of the queue

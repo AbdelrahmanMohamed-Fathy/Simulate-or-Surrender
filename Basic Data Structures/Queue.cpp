@@ -1,15 +1,23 @@
 #include "Queue.h"
 
 template<class T>
-inline bool Queue<T>::isEmpty() const
+bool Queue<T>::isEmpty() const
 {
-    return false;
+    if(Tail && Head) return false;
+    return true;
 }
 
 template <class T>
-bool Queue<T>::enqueue(const T &newEntry)
+void Queue<T>::enqueue(const T &newEntry)
 {
-    return false;
+    Node<T>* TempHolder = new Node<T>
+    TempHolder->Data = newEntry;
+    if(isEmpty())
+    {
+        Head=TempHolder;
+        return;
+    }
+    
 }
 
 template <class T>
