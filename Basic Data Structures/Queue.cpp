@@ -8,17 +8,19 @@ bool Queue<T>::isEmpty() const
 }
 
 template <class T>
-void Queue<T>::enqueue(const T &newEntry)
+bool Queue<T>::enqueue(const T &newEntry)
 {
     Node<T>* TempHolder = new Node<T>;
+    if (!TempHolder) return false;
     TempHolder->Data = newEntry;
     if(isEmpty())
     {
         Head = TempHolder;
-        return;
+        return true;
     }
     Tail->Next = TempHolder;
     Tail = TempHolder;
+    return true
 }
 
 template <class T>
