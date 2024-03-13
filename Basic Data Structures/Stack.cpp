@@ -8,12 +8,14 @@ bool Stack<T>::isEmpty() const
 }
 
 template<typename T>
-void Stack<T>::push(const T & newEntry)
+bool Stack<T>::push(const T & newEntry)
 {
     Node<T>* TempNode = new Node<T>;
+    if (!TempNode) return false;
     TempNode->Data = newEntry;
     TempNode->Next = Head;
     Head = TempNode;
+    return true
 }
 
 template<typename T>

@@ -1,27 +1,29 @@
 #include "Queue.h"
 
-template<class T>
+template<typename T>
 bool Queue<T>::isEmpty() const
 {
     if(Tail && Head) return false;
     return true;
 }
 
-template <class T>
-void Queue<T>::enqueue(const T &newEntry)
+template <typename T>
+bool Queue<T>::enqueue(const T &newEntry)
 {
     Node<T>* TempHolder = new Node<T>;
+    if (!TempHolder) return false;
     TempHolder->Data = newEntry;
     if(isEmpty())
     {
         Head = TempHolder;
-        return;
+        return true;
     }
     Tail->Next = TempHolder;
     Tail = TempHolder;
+    return true
 }
 
-template <class T>
+template <typename T>
 bool Queue<T>::dequeue(T &FrontEntry)
 {
     if (isEmpty())
@@ -36,7 +38,7 @@ bool Queue<T>::dequeue(T &FrontEntry)
     return true;
 }
 
-template <class T>
+template <typename T>
 bool Queue<T>::peek(T &FrontEntry) const
 {
     if (isEmpty())
@@ -48,7 +50,7 @@ bool Queue<T>::peek(T &FrontEntry) const
     return true;
 }
 
-template <class T>
+template <typename T>
 Queue<T>::~Queue()
 {
     while(Head)
