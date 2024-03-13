@@ -1,6 +1,6 @@
 #pragma once
 #include "Node.h"
-#include "../ADTs/StackADT.h"
+#include "ADTs/StackADT.h"
 
 template<typename T>
 class Stack : public StackADT<T>
