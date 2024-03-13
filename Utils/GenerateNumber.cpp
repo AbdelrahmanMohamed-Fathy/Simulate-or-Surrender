@@ -3,5 +3,5 @@
 
 int GenerateNumber(int min=0, int max=100)
 {
-    return min + ( rand() % (max-min+1) );
+    return min + (rand() % (max - min + 1));
 }
