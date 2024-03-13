@@ -1,5 +1,9 @@
-#include "Utils/GenerateNumber.cpp"
+#include "Generator.cpp"
+#include <iostream>
+using namespace std;
+
 void main()
 {
-    srand(time(NULL));
+    
+    unsigned int seed= time(NULL);
 }
