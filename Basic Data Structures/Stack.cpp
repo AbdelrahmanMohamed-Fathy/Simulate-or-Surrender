@@ -15,6 +15,7 @@ bool Stack<T>::push(const T & newEntry)
     TempNode->Data = newEntry;
     TempNode->Next = Head;
     Head = TempNode;
+    count++;
     return true
 }
 
@@ -30,6 +31,7 @@ bool Stack<T>::pop(T & TopEntry)
     Node<T>* TempHolder = Head;
     Head = Head->Next;
     delete TempHolder;
+    count--;
     return true;
 }
 

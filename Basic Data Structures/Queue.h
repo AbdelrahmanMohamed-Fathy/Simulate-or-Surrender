@@ -8,6 +8,7 @@ class Queue : public QueueADT<T>
 private:
    Node<T>* Head = NULL;
    Node<T>* Tail = NULL;
+   unsigned int count = 0;
 public:
    virtual bool isEmpty() const;
    

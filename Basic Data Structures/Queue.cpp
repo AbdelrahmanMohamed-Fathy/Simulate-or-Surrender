@@ -20,6 +20,7 @@ bool Queue<T>::enqueue(const T &newEntry)
     }
     Tail->Next = TempHolder;
     Tail = TempHolder;
+    count++;
     return true
 }
 
@@ -35,6 +36,7 @@ bool Queue<T>::dequeue(T &FrontEntry)
     Node<T>* TempHolder = Head;
     Head = Head->Next;
     delete TempHolder;
+    count--;
     return true;
 }
 

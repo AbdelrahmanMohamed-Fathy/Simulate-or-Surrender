@@ -7,6 +7,7 @@ class Stack : public StackADT<T>
 {
 private:
    Node<T>* Head = NULL;
+   int count = 0;
 public:
    virtual bool isEmpty() const;
    
