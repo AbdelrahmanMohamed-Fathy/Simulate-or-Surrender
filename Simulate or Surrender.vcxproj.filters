@@ -48,6 +48,12 @@
     <ClCompile Include="utils\GenerateNumber.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Units\AlienUnits\AlienUnitsPack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Units\EarthUnits\EarthUnitsPack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basic data structures\Node.h">
@@ -65,7 +71,7 @@
     <ClInclude Include="basic data structures\adts\StackADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="units\Unit_Interface.h">
+    <ClInclude Include="Unit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="units\alienunits\alien drone\Alien_Drone.h">

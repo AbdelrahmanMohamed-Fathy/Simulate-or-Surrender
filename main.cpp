@@ -4,6 +4,5 @@ using namespace std;
 
 void main()
 {
-    
     unsigned int seed = time(NULL);
 }

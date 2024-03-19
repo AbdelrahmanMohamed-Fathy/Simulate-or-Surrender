@@ -126,6 +126,8 @@
     <ClCompile Include="units\alienunits\alien drone\Alien_Drone.cpp" />
     <ClCompile Include="units\alienunits\alien monster\Alien_Monster.cpp" />
     <ClCompile Include="units\alienunits\alien soldier\Alien_Soldier.cpp" />
+    <ClCompile Include="Units\AlienUnits\AlienUnitsPack.cpp" />
+    <ClCompile Include="Units\EarthUnits\EarthUnitsPack.cpp" />
     <ClCompile Include="units\earthunits\human gunnery\Human_Gunnery.cpp" />
     <ClCompile Include="units\earthunits\human soldier\Human_Soldier.cpp" />
     <ClCompile Include="units\earthunits\human tank\Human_Tank.cpp" />
@@ -143,7 +145,7 @@
     <ClInclude Include="units\earthunits\human gunnery\Human_Gunnery.h" />
     <ClInclude Include="units\earthunits\human soldier\Human_Soldier.h" />
     <ClInclude Include="units\earthunits\human tank\Human_Tank.h" />
-    <ClInclude Include="units\Unit_Interface.h" />
+    <ClInclude Include="Unit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
