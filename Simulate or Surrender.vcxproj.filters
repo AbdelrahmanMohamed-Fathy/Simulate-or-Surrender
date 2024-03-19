@@ -27,31 +27,10 @@
     <ClCompile Include="basic data structures\Stack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="units\alienunits\alien drone\Alien_Drone.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="units\alienunits\alien monster\Alien_Monster.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="units\alienunits\alien soldier\Alien_Soldier.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="units\earthunits\human gunnery\Human_Gunnery.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="units\earthunits\human soldier\Human_Soldier.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="units\earthunits\human tank\Human_Tank.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="utils\GenerateNumber.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Units\AlienUnits\AlienUnitsPack.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Units\EarthUnits\EarthUnitsPack.cpp">
+    <ClCompile Include="Basic Data Structures\Bag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,22 +53,7 @@
     <ClInclude Include="Unit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="units\alienunits\alien drone\Alien_Drone.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="units\alienunits\alien monster\Alien_Monster.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="units\alienunits\alien soldier\Alien_Soldier.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="units\earthunits\human gunnery\Human_Gunnery.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="units\earthunits\human soldier\Human_Soldier.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="units\earthunits\human tank\Human_Tank.h">
+    <ClInclude Include="Basic Data Structures\Bag.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

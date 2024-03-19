@@ -1,16 +1,3 @@
-enum UnitType;
-//any created unit should inherit this interface
-class Unit
-{
-    protected:
-        int ID;
-        int Tj;
-        UnitType Type;
-        int Health;
-        int Power;
-        int Attack_Capacity;
-};
-
 enum UnitType
 {
     HSoldier,
@@ -19,4 +6,15 @@ enum UnitType
     ASoldier,
     AMonster,
     ADrone
+};
+
+class Unit
+{
+private:
+    int ID;
+    int Tj;
+    UnitType Type;
+    int Health;
+    int Power;
+    int Attack_Capacity;
 };

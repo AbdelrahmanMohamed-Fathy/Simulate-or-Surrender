@@ -1,6 +1,6 @@
 #pragma once
 #include "Node.h"
-#include "../ADTs/QueueADT.h"
+#include "ADTs/QueueADT.h"
 
 template<typename T>
 class Queue : public QueueADT<T>
