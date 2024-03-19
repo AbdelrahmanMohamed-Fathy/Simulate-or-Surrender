@@ -19,7 +19,7 @@ bool Queue<T>::enqueue(const T &newEntry)
         return true;
     }
     Tail->Next = TempHolder;
-    Tail = TempHolder;
+    Tail = TempHolder; 
     return true
 }
 
