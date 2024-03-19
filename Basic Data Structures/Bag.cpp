@@ -42,8 +42,7 @@ bool Bag<T>::remove(T& element)
 {
 	int x=GenerateNumber(0, count);
 	element = Elements[x];
-	Elements[x] = nullptr;
-	count--;
+	Elements[x] = Elements[count--];
 }
 
 template<typename T>
