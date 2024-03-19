@@ -31,7 +31,8 @@ bool DEQueue<T>::dequeue(T& Front, T& Back)
 	Node<T>* dele = Tail;
 	Tail = temp;
 	delete dele;
-	delete temp = nullptr;
+	temp = nullptr;
+	count - 2;
 	return true;
 }
 
