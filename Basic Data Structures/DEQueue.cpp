@@ -32,7 +32,7 @@ bool DEQueue<T>::dequeue(T& Front, T& Back)
 	Tail = temp;
 	delete dele;
 	temp = nullptr;
-	count - 2;
+	count -= 2;
 	return true;
 }
 

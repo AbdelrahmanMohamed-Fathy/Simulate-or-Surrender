@@ -1,4 +1,4 @@
-template <class T>
+template <typename T>
 struct Node
 {
     T Data = NULL;

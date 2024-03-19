@@ -1,5 +1,4 @@
-#include"Bag.h"
-#include"../Utils/GenerateNumber.cpp"
+#include "Bag.h"
 
 template<typename T>
 Bag<T>::Bag()
@@ -40,7 +39,7 @@ bool Bag<T>::AddElement(T& element)
 template<typename T>
 bool Bag<T>::remove(T& element)
 {
-	int x=GenerateNumber(0, count);
+	int x = GenerateNumber(0, count);
 	element = Elements[x];
 	Elements[x] = Elements[count--];
 }

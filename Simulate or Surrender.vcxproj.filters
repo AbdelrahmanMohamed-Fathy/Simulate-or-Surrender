@@ -33,6 +33,9 @@
     <ClCompile Include="Basic Data Structures\Bag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Basic Data Structures\DEQueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basic data structures\Node.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Basic Data Structures\Bag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Basic Data Structures\DEQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -91,7 +91,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -120,6 +120,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Basic Data Structures\Bag.cpp" />
+    <ClCompile Include="Basic Data Structures\DEQueue.cpp" />
     <ClCompile Include="basic data structures\Queue.cpp" />
     <ClCompile Include="basic data structures\Stack.cpp" />
     <ClCompile Include="Generator.cpp" />
@@ -130,6 +131,7 @@
     <ClInclude Include="basic data structures\adts\QueueADT.h" />
     <ClInclude Include="basic data structures\adts\StackADT.h" />
     <ClInclude Include="Basic Data Structures\Bag.h" />
+    <ClInclude Include="Basic Data Structures\DEQueue.h" />
     <ClInclude Include="basic data structures\Node.h" />
     <ClInclude Include="basic data structures\Queue.h" />
     <ClInclude Include="basic data structures\Stack.h" />
