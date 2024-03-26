@@ -8,17 +8,17 @@ class earthArmy
 {
 private:
 	gameManager* gm;
-	queue<> soldiers;
-	stack<> tanks;
-	priQueue<> gunners;
+	//queue<> soldiers;
+	//stack<> tanks;
+	//priQueue<> gunners;
 	unsigned int nextFreeID;
 public:
 	earthArmy();
 
 	//Getters:
-	queue<>* getSoldiers();
-	stack<>* getTanks();
-	priQueue<>* getGunners();
+	//queue<>* getSoldiers();
+	//stack<>* getTanks();
+	//priQueue<>* getGunners();
 
 	//Adders:
 	void addSoldier();

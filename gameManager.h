@@ -4,6 +4,7 @@
 #include "units/unit_Interface.h"
 #include "utils/victoryScreens.cpp"
 #include "generator.h"
+#include <conio.h>
 
 class gameManager
 {

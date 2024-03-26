@@ -8,17 +8,17 @@ class alienArmy
 {
 private:
 	gameManager* gm;
-	queue<> soldiers;
-	bag<> monsters;
-	deQueue<> drones;
+	//queue<> soldiers;
+	//bag<> monsters;
+	//deQueue<> drones;
 	unsigned int nextFreeID;
 public:
 	alienArmy();
 
 	//Getters:
-	queue<>* getSoldiers();
-	bag<>* getMonsters();
-	deQueue<>* getDrones();
+	//queue<>* getSoldiers();
+	//bag<>* getMonsters();
+	//deQueue<>* getDrones();
 
 	//Adders:
 	void addSoldier();
@@ -28,6 +28,6 @@ public:
 	//Miscellaneous:
 	bool isEmpty();
 
-	~alienArmy()
+	~alienArmy();
 };
 

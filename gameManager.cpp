@@ -70,7 +70,6 @@ void gameManager::start()
 		cout << "Invalid input, defaulting to case (0)\n";
 		runInteractive();
 	}
-	cout << "Initializing simulation...\n\n";
 }
 
 gameManager::~gameManager()
@@ -82,12 +81,23 @@ gameManager::~gameManager()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void gameManager::runInteractive()
 {
-
+	cout << "Press any key to start simulation.\n";
+	_getch();
+	while (CheckWinner()==0)
+	{
+		cout << "press any key to continue.\n";
+		_getch();
+	}
 }
 
 void gameManager::runSilent()
 {
+	cout << "Press any key to start simulation.\n";
+	_getch();
+	while (CheckWinner() == 0)
+	{
 
+	}
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												File management													//
