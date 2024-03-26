@@ -24,7 +24,7 @@
     <ClCompile Include="utils\generateNumber.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="basicDataStructures\Bag.cpp">
+    <ClCompile Include="basicDataStructures\bag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="basicDataStructures\deQueue.cpp">
@@ -65,7 +65,7 @@
     <ClInclude Include="units\unit_Interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="basicDataStructures\Bag.h">
+    <ClInclude Include="basicDataStructures\bag.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="basicDataStructures\deQueue.h">

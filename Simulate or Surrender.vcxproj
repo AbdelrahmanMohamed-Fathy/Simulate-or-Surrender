@@ -121,7 +121,7 @@
   <ItemGroup>
     <ClCompile Include="units\earthUnits\earthArmy.cpp" />
     <ClCompile Include="units\alienUnits\alienArmy.cpp" />
-    <ClCompile Include="basicDataStructures\Bag.cpp" />
+    <ClCompile Include="basicDataStructures\bag.cpp" />
     <ClCompile Include="basicDataStructures\deQueue.cpp" />
     <ClCompile Include="basicDataStructures\priQueue.cpp" />
     <ClCompile Include="basicDataStructures\queue.cpp" />
@@ -137,7 +137,7 @@
     <ClInclude Include="units\alienUnits\alienArmy.h" />
     <ClInclude Include="basicDataStructures\ADTs\QueueADT.h" />
     <ClInclude Include="basicDataStructures\ADTs\StackADT.h" />
-    <ClInclude Include="basicDataStructures\Bag.h" />
+    <ClInclude Include="basicDataStructures\bag.h" />
     <ClInclude Include="basicDataStructures\deQueue.h" />
     <ClInclude Include="basicDataStructures\nodes\doublyNode.h" />
     <ClInclude Include="basicDataStructures\nodes\node.h" />
