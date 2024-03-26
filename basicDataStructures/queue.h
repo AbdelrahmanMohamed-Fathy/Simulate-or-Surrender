@@ -6,8 +6,8 @@ template<typename T>
 class queue : public QueueADT<T>
 {
 private:
-   node<T>* Head = NULL;
-   node<T>* Tail = NULL;
+   node<T>* Head = nullptr;
+   node<T>* Tail = nullptr;
    unsigned int count = 0;
 public:
    virtual bool isEmpty() const;

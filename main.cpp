@@ -2,5 +2,6 @@
 
 void main()
 {
-	return;
+	gameManager game;
+	game.start();
 }

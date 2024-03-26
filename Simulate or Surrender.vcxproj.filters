@@ -51,6 +51,9 @@
     <ClCompile Include="utils\victoryScreens.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="generator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basicDataStructures\nodes\node.h">
@@ -95,11 +98,14 @@
     <ClInclude Include="units\earthUnits\earthArmy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="generator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Scenarios\strongEarth_strongAliens.txt" />
-    <Text Include="Scenarios\strongEarth_weakAliens.txt" />
-    <Text Include="Scenarios\weakEarth_strongAliens.txt" />
-    <Text Include="Scenarios\weakEarth_weakAliens.txt" />
+    <Text Include="scenarios\strongEarth_strongAliens.txt" />
+    <Text Include="scenarios\strongEarth_weakAliens.txt" />
+    <Text Include="scenarios\weakEarth_strongAliens.txt" />
+    <Text Include="scenarios\weakEarth_weakAliens.txt" />
   </ItemGroup>
 </Project>

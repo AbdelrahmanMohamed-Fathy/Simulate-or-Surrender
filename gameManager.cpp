@@ -2,7 +2,75 @@
 
 void gameManager::start()
 {
+	int x; bool y;
+	string filePath = "scenarios/";
+	cout	<< "Welcome to the simulation, which scenario would you like to run?\n"
+			<< "(0) strongEarth, strongAliens\n"
+			<< "(1) strongEarth, weakAliens\n"
+			<< "(2) weakEarth, StrongAliens\n"
+			<< "(3) weakEarth, weakAliens\n";
+	
+	cin >> x;
+	switch (x)
+	{
+	case 0:
+		filePath += "strongEarth_strongAliens.txt";
+		break;
+	case 1:
+		filePath += "strongEarth_weakAliens.txt";
+		break;
+	case 2:
+		filePath += "weakEarth_strongAliens.txt";
+		break;
+	case 3:
+		filePath += "weakEarth_weakAliens.txt";
+		break;
+	default:
+		cout << "Invalid input, defaulting to case (0)\n";
+	}
 
+	cout	<< "do you wish to run a simple simulation or a grand simulation?\n"
+			<< "(0) Simple simulation\n"
+			<< "(1) Grand simulation\n";
+
+	cin >> y;
+	readInputFile(filePath,y);
+	
+	cout	<< "do you wish to run the test seed or a random seed?\n"
+			<< "(0) test seed\n"
+			<< "(1) random seed\n";
+
+	cin >> x;
+	switch (x)
+	{
+	case 0:
+		srand(100);
+		break;
+	case 1:
+		srand(time(NULL));
+		break;
+	default:
+		cout << "Invalid input, defaulting to case (1)\n";
+	}
+	
+	cout	<< "do you wish to run in interactive mode or silent mode?\n"
+			<< "(0) Interactive mode\n"
+			<< "(1) Silent mode\n";
+
+	cin >> x;
+	switch (x)
+	{
+	case 0:
+		runInteractive();
+		break;
+	case 1:
+		runSilent;
+		break;
+	default:
+		cout << "Invalid input, defaulting to case (0)\n";
+		runInteractive();
+	}
+	cout << "Initializing simulation...\n\n";
 }
 
 gameManager::~gameManager()
@@ -24,7 +92,7 @@ void gameManager::runSilent()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												File management													//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void gameManager::readInputFile(const string filePath)
+void gameManager::readInputFile(const string filePath,bool grandSimulation)
 {
 	ifstream inputFile(filePath,ios::in);
 }

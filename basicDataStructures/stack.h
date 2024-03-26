@@ -6,7 +6,7 @@ template<typename T>
 class stack : public StackADT<T>
 {
 private:
-   node<T>* Head = NULL;
+   node<T>* Head = nullptr;
    unsigned int count = 0;
 public:
    virtual bool isEmpty() const;

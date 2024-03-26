@@ -5,8 +5,8 @@ template<typename T>
 class deQueue
 {
 private:
-	doublyNode<T>* Head = NULL;
-	doublyNode<T>* Tail = NULL;
+	doublyNode<T>* Head = nullptr;
+	doublyNode<T>* Tail = nullptr;
 	unsigned int count = 0;
 public:
 	virtual bool isEmpty() const;

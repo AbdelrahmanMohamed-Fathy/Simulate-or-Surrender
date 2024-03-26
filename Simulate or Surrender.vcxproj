@@ -119,6 +119,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="generator.cpp" />
     <ClCompile Include="utils\victoryScreens.cpp" />
     <ClCompile Include="units\earthUnits\earthArmy.cpp" />
     <ClCompile Include="units\alienUnits\alienArmy.cpp" />
@@ -133,6 +134,7 @@
     <ClCompile Include="utils\generateNumber.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="generator.h" />
     <ClInclude Include="units\earthUnits\earthArmy.h" />
     <ClInclude Include="units\alienUnits\alienArmy.h" />
     <ClInclude Include="basicDataStructures\ADTs\QueueADT.h" />
@@ -149,10 +151,10 @@
     <ClInclude Include="units\unit_Interface.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Scenarios\strongEarth_strongAliens.txt" />
-    <Text Include="Scenarios\strongEarth_weakAliens.txt" />
-    <Text Include="Scenarios\weakEarth_strongAliens.txt" />
-    <Text Include="Scenarios\weakEarth_weakAliens.txt" />
+    <Text Include="scenarios\strongEarth_strongAliens.txt" />
+    <Text Include="scenarios\strongEarth_weakAliens.txt" />
+    <Text Include="scenarios\weakEarth_strongAliens.txt" />
+    <Text Include="scenarios\weakEarth_weakAliens.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

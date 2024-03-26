@@ -3,6 +3,6 @@
 template <typename T>
 struct node
 {
-    T data = NULL;
-    node<T>* next = NULL;
+    T data;
+    node<T>* next = nullptr;
 };

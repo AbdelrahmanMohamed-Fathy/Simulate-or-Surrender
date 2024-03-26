@@ -8,7 +8,7 @@ template <typename T>
 class priQueue
 {
 private:
-    priNode<T>* head = NULL;
+    priNode<T>* head = nullptr;
     unsigned int count = 0;
 public:
     bool enqueue(const T& data, int priority);

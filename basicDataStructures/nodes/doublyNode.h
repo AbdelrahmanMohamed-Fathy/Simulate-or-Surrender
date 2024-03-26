@@ -4,5 +4,5 @@
 template <typename T>
 struct doublyNode : public node<T>
 {
-	node<T>* prev = NULL;
+	node<T>* prev = nullptr;
 };
