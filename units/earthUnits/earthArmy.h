@@ -8,9 +8,10 @@ class earthArmy
 {
 private:
 	gameManager* gm;
-	queue<>* Soldiers;
-	stack<>* Tanks;
-	priQueue<>* Gunners;
+	queue<> Soldiers;
+	stack<> Tanks;
+	priQueue<> Gunners;
+	unsigned int nextFreeID;
 public:
 	earthArmy();
 

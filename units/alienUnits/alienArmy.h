@@ -8,9 +8,10 @@ class alienArmy
 {
 private:
 	gameManager* gm;
-	queue<>* Soldiers;
-	bag<>* Monsters;
-	deQueue<>* Drones;
+	queue<> Soldiers;
+	bag<> Monsters;
+	deQueue<> Drones;
+	unsigned int nextFreeID;
 public:
 	alienArmy();
 

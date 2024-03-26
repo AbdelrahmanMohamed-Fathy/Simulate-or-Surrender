@@ -15,16 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Generator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="utils\generateNumber.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="basicDataStructures\bag.cpp">
+    <ClCompile Include="basicDataStructures\Bag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="basicDataStructures\deQueue.cpp">
@@ -48,9 +45,6 @@
     <ClCompile Include="units\earthUnits\earthArmy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="units\unit_Interface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basicDataStructures\nodes\node.h">
@@ -65,7 +59,7 @@
     <ClInclude Include="units\unit_Interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="basicDataStructures\bag.h">
+    <ClInclude Include="basicDataStructures\Bag.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="basicDataStructures\deQueue.h">

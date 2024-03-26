@@ -4,22 +4,22 @@ using namespace std;
 class unit_Interface
 {
 private:
-    const int ID;
+    const unsigned int ID;
 
     //Attributes:
     int health;
-    int power;
-    int attackCapacity;
+    unsigned int power;
+    unsigned int attackCapacity;
 
     //Time stats:
-    int joinTime;
-    int destructionTime;
-    int firstAttackedTime;
-    int battleTime;
+    unsigned int joinTime;
+    unsigned int destructionTime;
+    unsigned int firstAttackedTime;
+    unsigned int battleTime;
 
     //Delays:
-    int firstAttackDelay;
-    int destructionDelay;
+    unsigned int firstAttackDelay;
+    unsigned int destructionDelay;
 
 public:
     unit_Interface(int iD, int Hp, int Pr, int Ac, int Tj)
@@ -47,3 +47,4 @@ ostream& operator<<(ostream& out, const unit_Interface& unit)
     out << (unit.getID());
     return out;
 }
+                                                                            

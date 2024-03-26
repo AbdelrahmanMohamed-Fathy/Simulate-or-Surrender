@@ -121,13 +121,12 @@
   <ItemGroup>
     <ClCompile Include="units\earthUnits\earthArmy.cpp" />
     <ClCompile Include="units\alienUnits\alienArmy.cpp" />
-    <ClCompile Include="basicDataStructures\bag.cpp" />
+    <ClCompile Include="basicDataStructures\Bag.cpp" />
     <ClCompile Include="basicDataStructures\deQueue.cpp" />
     <ClCompile Include="basicDataStructures\priQueue.cpp" />
     <ClCompile Include="basicDataStructures\queue.cpp" />
     <ClCompile Include="basicDataStructures\stack.cpp" />
     <ClCompile Include="gameManager.cpp" />
-    <ClCompile Include="Generator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="units\unit_Interface.cpp" />
     <ClCompile Include="utils\generateNumber.cpp" />
@@ -137,7 +136,7 @@
     <ClInclude Include="units\alienUnits\alienArmy.h" />
     <ClInclude Include="basicDataStructures\ADTs\QueueADT.h" />
     <ClInclude Include="basicDataStructures\ADTs\StackADT.h" />
-    <ClInclude Include="basicDataStructures\bag.h" />
+    <ClInclude Include="basicDataStructures\Bag.h" />
     <ClInclude Include="basicDataStructures\deQueue.h" />
     <ClInclude Include="basicDataStructures\nodes\doublyNode.h" />
     <ClInclude Include="basicDataStructures\nodes\node.h" />
@@ -147,6 +146,12 @@
     <ClInclude Include="basicDataStructures\stack.h" />
     <ClInclude Include="gameManager.h" />
     <ClInclude Include="units\unit_Interface.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="tests\strongEarth_strongAliens.txt" />
+    <Text Include="tests\strongEarth_weakAliens.txt" />
+    <Text Include="tests\weakEarth_strongAliens.txt" />
+    <Text Include="tests\weakEarth_weakAliens.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
