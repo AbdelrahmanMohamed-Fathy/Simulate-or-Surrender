@@ -13,7 +13,7 @@ public:
 
 	virtual bool enqueueFront(const T& newEntry);
 
-	virtual bool enqueueBack(const T& newEntry)
+	virtual bool enqueueBack(const T& newEntry);
 
 	virtual bool dequeuefront(T& FrontEntry);
 
