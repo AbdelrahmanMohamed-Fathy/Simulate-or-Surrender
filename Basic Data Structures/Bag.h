@@ -1,5 +1,5 @@
 #pragma once
-#include "../Utils/GenerateNumber.cpp"
+#include "../utils/generateNumber.cpp"
 
 template<typename T>
 class Bag {

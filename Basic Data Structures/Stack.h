@@ -1,12 +1,12 @@
 #pragma once
-#include "Node.h"
+#include "nodes/node.h"
 #include "ADTs/StackADT.h"
 
 template<typename T>
-class Stack : public StackADT<T>
+class stack : public StackADT<T>
 {
 private:
-   Node<T>* Head = NULL;
+   node<T>* Head = NULL;
    unsigned int count = 0;
 public:
    virtual bool isEmpty() const;
@@ -17,5 +17,5 @@ public:
    
    virtual bool peek(T& TopEntry) const;
    
-   virtual ~Stack();
+   virtual ~stack();
 };

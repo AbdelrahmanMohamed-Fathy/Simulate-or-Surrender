@@ -120,22 +120,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Basic Data Structures\Bag.cpp" />
-    <ClCompile Include="Basic Data Structures\DEQueue.cpp" />
-    <ClCompile Include="basic data structures\Queue.cpp" />
-    <ClCompile Include="basic data structures\Stack.cpp" />
+    <ClCompile Include="Basic Data Structures\deQueue.cpp" />
+    <ClCompile Include="Basic Data Structures\priQueue.cpp" />
+    <ClCompile Include="Basic Data Structures\queue.cpp" />
+    <ClCompile Include="Basic Data Structures\stack.cpp" />
     <ClCompile Include="Generator.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="utils\GenerateNumber.cpp" />
+    <ClCompile Include="utils\generateNumber.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basic data structures\adts\QueueADT.h" />
     <ClInclude Include="basic data structures\adts\StackADT.h" />
     <ClInclude Include="Basic Data Structures\Bag.h" />
-    <ClInclude Include="Basic Data Structures\DEQueue.h" />
-    <ClInclude Include="basic data structures\Node.h" />
-    <ClInclude Include="basic data structures\Queue.h" />
-    <ClInclude Include="basic data structures\Stack.h" />
-    <ClInclude Include="Unit.h" />
+    <ClInclude Include="Basic Data Structures\deQueue.h" />
+    <ClInclude Include="Basic Data Structures\nodes\doublyNode.h" />
+    <ClInclude Include="Basic Data Structures\nodes\node.h" />
+    <ClInclude Include="Basic Data Structures\nodes\priNode.h" />
+    <ClInclude Include="Basic Data Structures\priQueue.h" />
+    <ClInclude Include="Basic Data Structures\queue.h" />
+    <ClInclude Include="Basic Data Structures\stack.h" />
+    <ClInclude Include="units\unit_Interface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

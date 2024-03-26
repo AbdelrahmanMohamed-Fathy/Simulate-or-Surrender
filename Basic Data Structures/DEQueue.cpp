@@ -1,7 +1,7 @@
-#include "DEQueue.h"
+#include "deQueue.h"
 
 template<typename T>
-bool DEQueue<T>::dequeue(T& Front, T& Back)
+bool deQueue<T>::dequeue(T& Front, T& Back)
 {
 	if (isEmpty())
 	{
@@ -17,18 +17,18 @@ bool DEQueue<T>::dequeue(T& Front, T& Back)
 		return false;
 	}
 
-	Front = Head->Data;
-	Node<T>*delf = Head;
-	Head = Head->Next;
+	Front = Head->data;
+	node<T>*delf = Head;
+	Head = Head->next;
 	delete delf;
 
-	Node<T>* temp = Head;
-	while ((temp->Next)!=Tail)
+	node<T>* temp = Head;
+	while ((temp->next)!=Tail)
 	{
-		temp = temp->Next;
+		temp = temp->next;
 	}
-	Back = Tail->Data;
-	Node<T>* dele = Tail;
+	Back = Tail->data;
+	node<T>* dele = Tail;
 	Tail = temp;
 	delete dele;
 	temp = nullptr;

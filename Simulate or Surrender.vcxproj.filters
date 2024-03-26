@@ -21,30 +21,27 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="basic data structures\Queue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="basic data structures\Stack.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="utils\GenerateNumber.cpp">
+    <ClCompile Include="utils\generateNumber.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Basic Data Structures\Bag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Basic Data Structures\DEQueue.cpp">
+    <ClCompile Include="Basic Data Structures\deQueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Basic Data Structures\queue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Basic Data Structures\stack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Basic Data Structures\priQueue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="basic data structures\Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="basic data structures\Queue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="basic data structures\Stack.h">
+    <ClInclude Include="Basic Data Structures\nodes\node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="basic data structures\adts\QueueADT.h">
@@ -53,13 +50,28 @@
     <ClInclude Include="basic data structures\adts\StackADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Unit.h">
+    <ClInclude Include="units\unit_Interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Basic Data Structures\Bag.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Basic Data Structures\DEQueue.h">
+    <ClInclude Include="Basic Data Structures\deQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Basic Data Structures\stack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Basic Data Structures\queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Basic Data Structures\nodes\doublyNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Basic Data Structures\priQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Basic Data Structures\nodes\priNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

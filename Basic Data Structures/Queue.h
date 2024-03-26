@@ -1,13 +1,13 @@
 #pragma once
-#include "Node.h"
+#include "nodes/node.h"
 #include "ADTs/QueueADT.h"
 
 template<typename T>
-class Queue : public QueueADT<T>
+class queue : public QueueADT<T>
 {
 private:
-   Node<T>* Head = NULL;
-   Node<T>* Tail = NULL;
+   node<T>* Head = NULL;
+   node<T>* Tail = NULL;
    unsigned int count = 0;
 public:
    virtual bool isEmpty() const;
@@ -18,5 +18,5 @@ public:
    
    virtual bool peek(T& FrontEntry) const;
    
-   virtual ~Queue();
+   virtual ~queue();
 };

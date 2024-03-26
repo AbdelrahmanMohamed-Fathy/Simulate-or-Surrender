@@ -1,63 +1,60 @@
-#include "Queue.h"
+#include "queue.h"
 
 template<typename T>
-bool Queue<T>::isEmpty() const
+bool queue<T>::isEmpty() const
 {
-    if(Tail && Head) return false;
-    return true;
+    return (!Head);
 }
 
 template <typename T>
-bool Queue<T>::enqueue(const T &newEntry)
+bool queue<T>::enqueue(const T &newEntry)
 {
-    Node<T>* TempHolder = new Node<T>;
+    node<T>* TempHolder = new node<T>;
     if (!TempHolder) return false;
-    TempHolder->Data = newEntry;
+    TempHolder->data = newEntry;
     if(isEmpty())
     {
         Head = TempHolder;
         return true;
     }
-    Tail->Next = TempHolder;
+    Tail->next = TempHolder;
     Tail = TempHolder;
     count++;
     return true
 }
 
 template <typename T>
-bool Queue<T>::dequeue(T &FrontEntry)
+bool queue<T>::dequeue(T &FrontEntry)
 {
     if (isEmpty())
     {
-        FrontEntry = NULL;
         return false;
     }
-    FrontEntry = Head->Data;
-    Node<T>* TempHolder = Head;
-    Head = Head->Next;
+    FrontEntry = Head->data;
+    node<T>* TempHolder = Head;
+    Head = Head->next;
     delete TempHolder;
     count--;
     return true;
 }
 
 template <typename T>
-bool Queue<T>::peek(T &FrontEntry) const
+bool queue<T>::peek(T &FrontEntry) const
 {
     if (isEmpty())
     {
-        FrontEntry = NULL;
         return false;
     }
-    FrontEntry = Head->Data;
+    FrontEntry = Head->data;
     return true;
 }
 
 template <typename T>
-Queue<T>::~Queue()
+queue<T>::~queue()
 {
     while(Head)
     {
-        Node<T>* TempHolder = Head->Next;
+        node<T>* TempHolder = Head->next;
         delete Head;
         Head = TempHolder;
     }

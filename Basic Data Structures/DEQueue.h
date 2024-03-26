@@ -1,9 +1,25 @@
 #pragma once
-#include"Queue.h"
+#include "nodes/doublyNode.h"
 
 template<typename T>
-class DEQueue : public Queue<T>
+class deQueue
 {
+private:
+	doublyNode<T>* Head = NULL;
+	doublyNode<T>* Tail = NULL;
+	unsigned int count = 0;
 public:
-	virtual bool dequeue(T& FrontEntry, T& BackEntry) override;
-};
+	virtual bool isEmpty() const;
+
+	virtual bool enqueueFront(const T& newEntry);
+
+	virtual bool enqueueBack(const T& newEntry)
+
+	virtual bool dequeuefront(T& FrontEntry);
+
+	virtual bool dequeueback(T& backEntry);
+
+	virtual bool peek(T& FrontEntry) const;
+
+	virtual ~deQueue();
+};;

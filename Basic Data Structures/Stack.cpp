@@ -1,58 +1,55 @@
-#include "Stack.h"
+#include "stack.h"
 
 template<typename T>
-bool Stack<T>::isEmpty() const
+bool stack<T>::isEmpty() const
 {
-    if (Head) return false;
-    return true;
+    return (!Head);
 }
 
 template<typename T>
-bool Stack<T>::push(const T & newEntry)
+bool stack<T>::push(const T & newEntry)
 {
-    Node<T>* TempNode = new Node<T>;
+    node<T>* TempNode = new node<T>;
     if (!TempNode) return false;
-    TempNode->Data = newEntry;
-    TempNode->Next = Head;
+    TempNode->data = newEntry;
+    TempNode->next = Head;
     Head = TempNode;
     count++;
     return true
 }
 
 template<typename T>
-bool Stack<T>::pop(T & TopEntry)
+bool stack<T>::pop(T & TopEntry)
 {
     if(isEmpty())
     {
-        TopEntry=NULL;
         return false;
     }
-    TopEntry = Head->Data;
-    Node<T>* TempHolder = Head;
-    Head = Head->Next;
+    TopEntry = Head->data;
+    node<T>* TempHolder = Head;
+    Head = Head->next;
     delete TempHolder;
     count--;
     return true;
 }
 
 template <typename T>
-bool Stack<T>::peek(T &TopEntry) const
+bool stack<T>::peek(T &TopEntry) const
 {
     if(isEmpty())
     {
-        TopEntry=NULL;
         return false;
     }
-    TopEntry = Head->Data;
+    TopEntry = Head->data;
     return true;
 }
 
 template <typename T>
-Stack<T>::~Stack()
+stack<T>::~stack()
 {
     while(Head)
     {
-        Node<T>* TempHolder = Head->Next;
+        node<T>* TempHolder = Head->next;
         delete Head;
         Head = TempHolder;
     }
