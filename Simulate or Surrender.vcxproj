@@ -129,6 +129,7 @@
     <ClCompile Include="gameManager.cpp" />
     <ClCompile Include="Generator.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="units\unit_Interface.cpp" />
     <ClCompile Include="utils\generateNumber.cpp" />
   </ItemGroup>
   <ItemGroup>

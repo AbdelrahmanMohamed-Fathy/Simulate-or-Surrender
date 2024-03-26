@@ -1,6 +1,4 @@
-#include "Generator.cpp"
-#include <iostream>
-using namespace std;
+#include "gameManager.h"
 
 void main()
 {
