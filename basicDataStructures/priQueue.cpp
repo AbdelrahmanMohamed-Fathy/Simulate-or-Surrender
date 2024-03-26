@@ -8,19 +8,21 @@ bool priQueue<T>::enqueue(const T& data,int priority)
     newNode->data = data;
     newNode->priority = priority
 
-    if (head == nullptr || priority > head->priority) {
+    if (head == nullptr || (priority > head->priority)) {
 
         newNode->next = head;
         head = newNode;
+        count++
         return true;
     }
 
     priNode<T>* current = head;
-    while (current->next && priority <= current->next->priority) {
+    while (current->next && (priority <= (current->next)->priority)) {
         current = current->next;
     }
     newNode->next = current->next;
     current->next = newNode;
+    count++
     return true;
 }
 
@@ -35,6 +37,7 @@ bool priQueue<T>::dequeue(T& topEntry, int& pri)
     priNode<T>* temp = head;
     head = head->next;
     delete temp;
+    count--;
     return true;
 }
 

@@ -7,10 +7,10 @@
 template <typename T>
 class priQueue
 {
+private:
     priNode<T>* head = NULL;
     unsigned int count = 0;
 public:
-    
     bool enqueue(const T& data, int priority);
 
     bool dequeue(T& topEntry, int& pri);

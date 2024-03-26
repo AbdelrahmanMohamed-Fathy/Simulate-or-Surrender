@@ -119,26 +119,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Basic Data Structures\Bag.cpp" />
-    <ClCompile Include="Basic Data Structures\deQueue.cpp" />
-    <ClCompile Include="Basic Data Structures\priQueue.cpp" />
-    <ClCompile Include="Basic Data Structures\queue.cpp" />
-    <ClCompile Include="Basic Data Structures\stack.cpp" />
+    <ClCompile Include="units\earthUnits\earthArmy.cpp" />
+    <ClCompile Include="units\alienUnits\alienArmy.cpp" />
+    <ClCompile Include="basicDataStructures\Bag.cpp" />
+    <ClCompile Include="basicDataStructures\deQueue.cpp" />
+    <ClCompile Include="basicDataStructures\priQueue.cpp" />
+    <ClCompile Include="basicDataStructures\queue.cpp" />
+    <ClCompile Include="basicDataStructures\stack.cpp" />
+    <ClCompile Include="gameManager.cpp" />
     <ClCompile Include="Generator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="utils\generateNumber.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="basic data structures\adts\QueueADT.h" />
-    <ClInclude Include="basic data structures\adts\StackADT.h" />
-    <ClInclude Include="Basic Data Structures\Bag.h" />
-    <ClInclude Include="Basic Data Structures\deQueue.h" />
-    <ClInclude Include="Basic Data Structures\nodes\doublyNode.h" />
-    <ClInclude Include="Basic Data Structures\nodes\node.h" />
-    <ClInclude Include="Basic Data Structures\nodes\priNode.h" />
-    <ClInclude Include="Basic Data Structures\priQueue.h" />
-    <ClInclude Include="Basic Data Structures\queue.h" />
-    <ClInclude Include="Basic Data Structures\stack.h" />
+    <ClInclude Include="units\earthUnits\earthArmy.h" />
+    <ClInclude Include="units\alienUnits\alienArmy.h" />
+    <ClInclude Include="basicDataStructures\ADTs\QueueADT.h" />
+    <ClInclude Include="basicDataStructures\ADTs\StackADT.h" />
+    <ClInclude Include="basicDataStructures\Bag.h" />
+    <ClInclude Include="basicDataStructures\deQueue.h" />
+    <ClInclude Include="basicDataStructures\nodes\doublyNode.h" />
+    <ClInclude Include="basicDataStructures\nodes\node.h" />
+    <ClInclude Include="basicDataStructures\nodes\priNode.h" />
+    <ClInclude Include="basicDataStructures\priQueue.h" />
+    <ClInclude Include="basicDataStructures\queue.h" />
+    <ClInclude Include="basicDataStructures\stack.h" />
+    <ClInclude Include="gameManager.h" />
     <ClInclude Include="units\unit_Interface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

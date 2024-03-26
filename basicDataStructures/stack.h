@@ -1,0 +1,21 @@
+#pragma once
+#include "nodes/node.h"
+#include "ADTs/StackADT.h"
+
+template<typename T>
+class stack : public StackADT<T>
+{
+private:
+   node<T>* Head = NULL;
+   unsigned int count = 0;
+public:
+   virtual bool isEmpty() const;
+   
+   virtual bool push(const T& newEntry);
+   
+   virtual bool pop(T& TopEntry);
+   
+   virtual bool peek(T& TopEntry) const;
+   
+   virtual ~stack();
+};

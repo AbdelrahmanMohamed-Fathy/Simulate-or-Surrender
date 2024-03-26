@@ -24,54 +24,72 @@
     <ClCompile Include="utils\generateNumber.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Basic Data Structures\Bag.cpp">
+    <ClCompile Include="basicDataStructures\Bag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Basic Data Structures\deQueue.cpp">
+    <ClCompile Include="basicDataStructures\deQueue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Basic Data Structures\queue.cpp">
+    <ClCompile Include="basicDataStructures\queue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Basic Data Structures\stack.cpp">
+    <ClCompile Include="basicDataStructures\stack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Basic Data Structures\priQueue.cpp">
+    <ClCompile Include="basicDataStructures\priQueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="units\alienUnits\alienArmy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="units\earthUnits\earthArmy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Basic Data Structures\nodes\node.h">
+    <ClInclude Include="basicDataStructures\nodes\node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="basic data structures\adts\QueueADT.h">
+    <ClInclude Include="basicDataStructures\ADTs\QueueADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="basic data structures\adts\StackADT.h">
+    <ClInclude Include="basicDataStructures\ADTs\StackADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="units\unit_Interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Basic Data Structures\Bag.h">
+    <ClInclude Include="basicDataStructures\Bag.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Basic Data Structures\deQueue.h">
+    <ClInclude Include="basicDataStructures\deQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Basic Data Structures\stack.h">
+    <ClInclude Include="basicDataStructures\stack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Basic Data Structures\queue.h">
+    <ClInclude Include="basicDataStructures\queue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Basic Data Structures\nodes\doublyNode.h">
+    <ClInclude Include="basicDataStructures\nodes\doublyNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Basic Data Structures\priQueue.h">
+    <ClInclude Include="basicDataStructures\priQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Basic Data Structures\nodes\priNode.h">
+    <ClInclude Include="basicDataStructures\nodes\priNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="units\alienUnits\alienArmy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="units\earthUnits\earthArmy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
