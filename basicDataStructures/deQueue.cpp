@@ -1,38 +1,98 @@
 #include "deQueue.h"
 
-template<typename T>
-bool deQueue<T>::dequeue(T& Front, T& Back)
+template  <typename T>
+bool deQueue<T>::isEmpty() const
 {
+	return(!Head);
+}
+
+template<typename T>
+bool deQueue<T>::enqueueFront(const T& frontentry)
+{
+	doublyNode<T>* front = new doublyNode<T>*;
+	if (!front)
+	{
+		return false;
+	}
 	if (isEmpty())
 	{
-		Front = NULL;
-		Back = NULL;
-		return false;
+		Head->data = frontentry;
+		return true;
 	}
-
-	if (Head == Tail)
-	{
-		Front = NULL;
-		Back = NULL;
-		return false;
-	}
-
-	Front = Head->data;
-	node<T>*delf = Head;
-	Head = Head->next;
-	delete delf;
-
-	node<T>* temp = Head;
-	while ((temp->next)!=Tail)
-	{
-		temp = temp->next;
-	}
-	Back = Tail->data;
-	node<T>* dele = Tail;
-	Tail = temp;
-	delete dele;
-	temp = nullptr;
-	count -= 2;
+	front->data = frontentry;
+	front->next = Head;
+	Head = front;
 	return true;
 }
 
+template<typename T>
+bool deQueue<T>::enqueueBack(const T& backentry)
+{
+	doublyNode<T>* back = new doublyNode<T>*;
+	if (!back)
+	{
+		return false;
+	}
+	if (!Tail)
+	{
+		Tail->data = backentry;
+		return true;
+	}
+	back->data = backentry;
+	back->prev = Tail;
+	Tail = back;
+	return true;
+}
+
+template<typename T>
+bool deQueue<T>::dequeuefront(T& front)
+{
+	if (isEmpty())
+	{
+		front = NULL;
+		return false;
+	}
+	front = Head->data;
+	doublyNode<T>* delf = Head;
+	Head = Head->next;
+	delete delf;
+	return true;
+}
+
+template<typename T>
+bool deQueue<T>::dequeueback(T& back)
+{
+	if (!Tail)
+	{
+		back = NULL;
+		return false;
+	}
+	back = Tail->data;
+	doublyNode<T>* delb = Tail;
+	Tail = Tail->prev;
+	delete delb;
+	return true;
+}
+
+template<typename T>
+bool deQueue<T>::peek(T& front) const
+{
+	if (isEmpty())
+	{
+		front = NULL;
+		return false;
+	}
+	front = Head;
+	return true;
+}
+
+template<typename T>
+bool deQueue<T>::~deQueue()
+{
+	while (Head)
+	{
+		doublyNode<T>* TempHolder = Head->next;
+		delete Head;
+		Head = TempHolder;
+	}
+}
