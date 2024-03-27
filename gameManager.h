@@ -12,10 +12,11 @@ private:
 	int TimeStep;
 	earthArmy* humans;
 	alienArmy* aliens;
-	queue<unit_Interface*> deathList;
+	queue<unit_Interface*>* deathList;
 	generator unitGenerator;
 	bool earthVictory; // true if humans are the winner, false if aliens are the winner
 public:
+	gameManager();
 	//Starts the program
 	void start();
 

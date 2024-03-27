@@ -120,6 +120,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="units\earthUnits\humanTank\humanTank.cpp" />
+    <ClCompile Include="units\earthUnits\humanSoldier\humanSoldier.cpp" />
+    <ClCompile Include="units\earthUnits\humanGunner\humanGunner.cpp" />
+    <ClCompile Include="units\alienUnits\alienSoldier\alienSoldier.cpp" />
+    <ClCompile Include="units\alienUnits\alienMonster\alienMonster.cpp" />
+    <ClCompile Include="units\alienUnits\alienDrone\alienDrone.cpp" />
     <ClCompile Include="basicDataStructures\queue.cpp" />
     <ClCompile Include="generator.cpp" />
     <ClCompile Include="utils\victoryScreens.cpp" />
@@ -135,6 +141,12 @@
     <ClCompile Include="utils\generateNumber.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="units\earthUnits\humanTank\humanTank.h" />
+    <ClInclude Include="units\earthUnits\humanSoldier\humanSoldier.h" />
+    <ClInclude Include="units\earthUnits\humanGunner\humanGunner.h" />
+    <ClInclude Include="units\alienUnits\alienSoldier\alienSoldier.h" />
+    <ClInclude Include="units\alienUnits\alienMonster\alienMonster.h" />
+    <ClInclude Include="units\alienUnits\alienDrone\alienDrone.h" />
     <ClInclude Include="basicDataStructures\queue.h" />
     <ClInclude Include="gameManager.h" />
     <ClInclude Include="generator.h" />

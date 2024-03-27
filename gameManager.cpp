@@ -2,6 +2,14 @@
 #include "utils/victoryScreens.cpp"
 #include <conio.h>
 
+
+gameManager::gameManager()
+{
+	humans = new earthArmy();
+	aliens = new alienArmy();
+	deathList = new queue<unit_Interface*>();
+}
+
 void gameManager::start()
 {
 	int x; bool y;
@@ -129,8 +137,8 @@ void gameManager::produceOutputFile()
 		outputFile << alienVictoryScreen;
 
 	unit_Interface* temp = nullptr;
-	//while (deathList.dequeue(temp))
-	//	outputFile << *temp;
+	while (deathList->dequeue(temp))
+		outputFile << *temp;
 
 
 	outputFile.close();

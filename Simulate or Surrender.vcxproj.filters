@@ -54,6 +54,24 @@
     <ClCompile Include="basicDataStructures\queue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="units\alienUnits\alienDrone\alienDrone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="units\alienUnits\alienMonster\alienMonster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="units\alienUnits\alienSoldier\alienSoldier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="units\earthUnits\humanGunner\humanGunner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="units\earthUnits\humanSoldier\humanSoldier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="units\earthUnits\humanTank\humanTank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basicDataStructures\nodes\node.h">
@@ -99,6 +117,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="basicDataStructures\queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="units\alienUnits\alienDrone\alienDrone.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="units\alienUnits\alienMonster\alienMonster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="units\alienUnits\alienSoldier\alienSoldier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="units\earthUnits\humanGunner\humanGunner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="units\earthUnits\humanSoldier\humanSoldier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="units\earthUnits\humanTank\humanTank.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
