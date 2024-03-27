@@ -154,6 +154,7 @@ void gameManager::produceOutputFile()
 	else
 		outputFile << alienVictoryScreen;
 
+	outputFile << "\n\nKilled units:\n";
 	unit_Interface* temp = nullptr;
 	while (deathList->dequeue(temp))
 		outputFile << *temp;
