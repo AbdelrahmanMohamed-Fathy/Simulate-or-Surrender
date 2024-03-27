@@ -16,6 +16,8 @@ public:
    virtual bool pop(T& TopEntry);
    
    virtual bool peek(T& TopEntry) const;
+
+   virtual void print();
    
    virtual ~stack();
 };

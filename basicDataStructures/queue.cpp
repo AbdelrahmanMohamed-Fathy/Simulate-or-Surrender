@@ -49,6 +49,21 @@ bool queue<T>::peek(T &FrontEntry) const
     return true;
 }
 
+template<typename T>
+void queue<T>::print()
+{
+    node <T>* ptr = Head;
+    cout << "[" << ptr->data;
+    ptr = ptr->next;
+
+    while (ptr) {
+        cout << "," << ptr->data;
+        ptr = ptr->next;
+    }
+
+    cout << "]";
+}
+
 template <typename T>
 queue<T>::~queue()
 {

@@ -59,6 +59,21 @@ bool priQueue<T>::isEmpty() const
 }
 
 template<typename T>
+void priQueue<T>::print()
+{
+    priNode <T>* ptr = head;
+    cout << "[" << ptr->data;
+    ptr = ptr->next;
+
+    while (ptr) {
+        cout << "," << ptr->data;
+        ptr = ptr->next;
+    }
+
+    cout << "]";
+}
+
+template<typename T>
 priQueue<T>::~priQueue()
 {
     T tmp;

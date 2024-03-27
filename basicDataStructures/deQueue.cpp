@@ -86,6 +86,21 @@ bool deQueue<T>::peek(T& front) const
 }
 
 template<typename T>
+void deQueue<T>::print()
+{	
+	doublyNode <T>* ptr = Head;
+	cout << "[" << ptr->data;
+	ptr = ptr->next;
+
+	while (ptr) {
+		cout << "," << ptr->data;
+		ptr = ptr->next;
+	}
+
+	cout << "]";
+}
+
+template<typename T>
 deQueue<T>::~deQueue()
 {
 	while (Head)

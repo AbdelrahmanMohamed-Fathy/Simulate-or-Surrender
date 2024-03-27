@@ -45,5 +45,15 @@ bool bag<T>::remove(T& element)
 }
 
 template<typename T>
+void bag<T>::print()
+{
+	cout << "[" << *elements[0];
+	for (int i = 1; i < count; i++) {
+		cout << ","  << *elements[i];
+	}
+	cout << "]" << endl;
+}
+
+template<typename T>
 bag<T>::~bag()
 {}
