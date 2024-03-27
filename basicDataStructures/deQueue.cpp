@@ -9,7 +9,7 @@ bool deQueue<T>::isEmpty() const
 template<typename T>
 bool deQueue<T>::enqueueFront(const T& frontentry)
 {
-	doublyNode<T>* front = new doublyNode<T>*;
+	doublyNode<T>* front = new doublyNode<T>;
 	if (!front)
 	{
 		return false;
@@ -28,7 +28,7 @@ bool deQueue<T>::enqueueFront(const T& frontentry)
 template<typename T>
 bool deQueue<T>::enqueueBack(const T& backentry)
 {
-	doublyNode<T>* back = new doublyNode<T>*;
+	doublyNode<T>* back = new doublyNode<T>;
 	if (!back)
 	{
 		return false;
@@ -79,10 +79,9 @@ bool deQueue<T>::peek(T& front) const
 {
 	if (isEmpty())
 	{
-		front = NULL;
 		return false;
 	}
-	front = Head;
+	front = Head->data;
 	return true;
 }
 

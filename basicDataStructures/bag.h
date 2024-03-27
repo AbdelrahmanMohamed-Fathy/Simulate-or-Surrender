@@ -4,16 +4,16 @@
 template<typename T>
 class bag {
 private:
-	T* Elements[100];
+	T* elements[100];
 	unsigned int count = 0;
 public:
 	bag();
 
-	bool IsEmpty();
+	bool isEmpty();
 
-	bool IsFull();
+	bool isFull();
 
-	bool AddElement(T& element);
+	bool addElement(T& element);
 
 	bool remove(T& element);
 

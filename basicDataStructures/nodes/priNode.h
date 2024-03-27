@@ -1,9 +1,10 @@
 #pragma once
-#include "node.h"
 
 template <typename T>
-struct priNode : public node<T>
+struct priNode
 {
-	int priority;
+    T data;
+    int priority;
+    priNode<T>* next = nullptr;
 };
 

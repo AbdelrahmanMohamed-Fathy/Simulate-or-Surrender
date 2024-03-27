@@ -5,12 +5,12 @@ bag<T>::bag()
 {
 	for (int i = 0; i < 100; i++)
 	{
-		Elements[i] = nullptr;
+		elements[i] = nullptr;
 	}
 }
 
 template<typename T>
-bool bag<T>::IsEmpty()
+bool bag<T>::isEmpty()
 {
 	if(count == 0)
 		return true;
@@ -18,7 +18,7 @@ bool bag<T>::IsEmpty()
 }
 
 template<typename T>
-bool bag<T>::IsFull()
+bool bag<T>::isFull()
 {
 	if (count == 100)
 		return true;
@@ -26,11 +26,11 @@ bool bag<T>::IsFull()
 }
 
 template<typename T>
-bool bag<T>::AddElement(T& element)
+bool bag<T>::addElement(T& element)
 {
 	if (!IsFull())
 	{
-		Elements[count++] = element;
+		elements[count++] = element;
 		return true;
 	}
 	return false;
@@ -40,8 +40,8 @@ template<typename T>
 bool bag<T>::remove(T& element)
 {
 	int x = generateNumber(0, count);
-	element = Elements[x];
-	Elements[x] = Elements[count--];
+	element = elements[x];
+	elements[x] = elements[count--];
 }
 
 template<typename T>

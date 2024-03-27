@@ -1,12 +1,14 @@
 #include "gameManager.h"
 #include "utils/victoryScreens.cpp"
+#include "basicDataStructures/queue.cpp"
 #include <conio.h>
-
 
 gameManager::gameManager()
 {
-	humans = new earthArmy();
-	aliens = new alienArmy();
+	timeStep = 0;
+	earthVictory = true;
+	humans = new earthArmy(this);
+	aliens = new alienArmy(this);
 	deathList = new queue<unit_Interface*>();
 }
 
@@ -36,8 +38,9 @@ void gameManager::start()
 		filePath += "weakEarth_weakAliens.txt";
 		break;
 	case 4:
+		cout << "initiating secret data-structure test";
 		testStructures();
-		break;
+		return;
 	default:
 		cout << "Invalid input, defaulting to case (0)\n";
 	}
@@ -83,11 +86,15 @@ void gameManager::start()
 		cout << "Invalid input, defaulting to case (0)\n";
 		runInteractive();
 	}
+	return;
 }
 
 gameManager::~gameManager()
 {
 	produceOutputFile();
+	delete humans;
+	delete aliens;
+	delete deathList;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Modes														//
@@ -96,11 +103,13 @@ void gameManager::runInteractive()
 {
 	cout << "Press any key to start simulation.\n";
 	_getch();
-	//while (CheckWinner()==0)
-	//{
-	//	cout << "press any key to continue.\n";
-	//	_getch();
-	//}
+	while (CheckWinner()==0)
+	{
+		print();
+		runStep(true);
+		cout << "press any key to continue.\n";
+		_getch();
+	}
 	return;
 }
 
@@ -108,10 +117,10 @@ void gameManager::runSilent()
 {
 	cout << "Press any key to start simulation.\n";
 	_getch();
-	//while (CheckWinner() == 0)
-	//{
-	//
-	//}
+	while (CheckWinner() == 0)
+	{
+		runStep(false);
+	}
 	return;
 }
 
@@ -125,6 +134,9 @@ void gameManager::testStructures()
 void gameManager::readInputFile(const string filePath,bool grandSimulation)
 {
 	ifstream inputFile(filePath,ios::in);
+
+
+
 	inputFile.close();
 }
 
@@ -161,19 +173,41 @@ alienArmy* gameManager::getAlienArmy()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int gameManager::CheckWinner()
 {
-	//if (deathList.isEmpty())
-	//{
-	//	return 0;
-	//}
-	//if (aliens.isEmpty())
-	//{
-	//	earthVictory = true;
-	//	return 1;
-	//}
-	//if (humans.isEmpty())
-	//{
-	//	earthVictory = false;
-	//	return 2;
-	//}
+	if (deathList->isEmpty())
+	{
+		return 0;
+	}
+	if (aliens->isEmpty())
+	{
+		earthVictory = true;
+		return 1;
+	}
+	if (humans->isEmpty())
+	{
+		earthVictory = false;
+		return 2;
+	}
 	return 0;
+}
+
+void gameManager::runStep(bool printed)
+{
+	generate();
+	fight(printed);
+	timeStep++;
+}
+
+void gameManager::print()
+{
+}
+
+void gameManager::generate()
+{
+
+}
+
+void gameManager::fight(bool printed)
+{
+	humans->attack(aliens, printed);
+	aliens->attack(humans, printed);
 }

@@ -7,6 +7,7 @@
 #include "humanGunner/humanGunner.h"
 
 class gameManager;
+class alienArmy;
 
 class earthArmy
 {
@@ -17,7 +18,7 @@ private:
 	priQueue<humanGunner*>* gunners;
 	unsigned int nextFreeID;
 public:
-	//earthArmy();
+	earthArmy(gameManager* GM);
 
 	//Getters:
 	queue<humanSoldier*>* getSoldiers();
@@ -32,7 +33,8 @@ public:
 	//Miscellaneous:
 	bool isEmpty();
 	void print();
+	void attack(alienArmy* aliens, bool printed);
 
-	//~earthArmy();
+	~earthArmy();
 };
 

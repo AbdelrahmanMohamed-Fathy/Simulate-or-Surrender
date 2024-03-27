@@ -7,6 +7,7 @@
 #include "alienDrone/alienDrone.h"
 
 class gameManager;
+class earthArmy;
 
 class alienArmy
 {
@@ -17,7 +18,7 @@ private:
 	deQueue<alienDrone*>* drones;
 	unsigned int nextFreeID;
 public:
-	//alienArmy();
+	alienArmy(gameManager* GM);
 
 	//Getters:
 	queue<alienSoldier*>* getSoldiers();
@@ -26,12 +27,13 @@ public:
 
 	//Adders:
 	void addSoldier();
-	void addTank();
-	void addGunner();
+	void addMonster();
+	void addDrone();
 
 	//Miscellaneous:
 	bool isEmpty();
 	void print();
+	void attack(earthArmy* humans, bool printed);
 
 	~alienArmy();
 };

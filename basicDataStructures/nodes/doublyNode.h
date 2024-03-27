@@ -1,8 +1,9 @@
 #pragma once
-#include "node.h"
 
 template <typename T>
-struct doublyNode : public node<T>
+struct doublyNode
 {
-	node<T>* prev = nullptr;
+	T data;
+	doublyNode<T>* next = nullptr;
+	doublyNode<T>* prev = nullptr;
 };

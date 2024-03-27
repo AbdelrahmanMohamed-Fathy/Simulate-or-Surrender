@@ -15,7 +15,7 @@ bool stack<T>::push(const T & newEntry)
     TempNode->next = Head;
     Head = TempNode;
     count++;
-    return true
+    return true;
 }
 
 template<typename T>

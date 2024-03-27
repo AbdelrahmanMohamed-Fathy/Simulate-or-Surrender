@@ -1,15 +1,13 @@
 #pragma once
 #include "units/alienUnits/alienArmy.h"
 #include "units/earthUnits/earthArmy.h"
-#include "basicDataStructures/queue.cpp"  //what the actual fuck
 #include "units/unit_Interface.h"
 #include "generator.h"
-
 
 class gameManager
 {
 private:
-	int TimeStep;
+	int timeStep;
 	earthArmy* humans;
 	alienArmy* aliens;
 	queue<unit_Interface*>* deathList;
@@ -35,6 +33,10 @@ public:
 
 	//Miscellaneous:
 	int CheckWinner();
+	void runStep(bool printed);
+	void print();
+	void generate();
+	void fight(bool printed);
 
 	~gameManager();
 };
