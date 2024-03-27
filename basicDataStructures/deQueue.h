@@ -20,6 +20,8 @@ public:
 	virtual bool dequeueback(T& backEntry);
 
 	virtual bool peek(T& FrontEntry) const;
+	
+	virtual void print();
 
 	virtual ~deQueue();
 };;

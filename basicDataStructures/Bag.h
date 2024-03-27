@@ -17,5 +17,7 @@ public:
 
 	bool remove(T& element);
 
+	void print();
+
 	~bag();
 };

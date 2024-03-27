@@ -19,5 +19,7 @@ public:
 
     bool isEmpty() const;
 
+    void print();
+
     ~priQueue();
 };

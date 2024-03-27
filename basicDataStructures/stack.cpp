@@ -44,6 +44,21 @@ bool stack<T>::peek(T &TopEntry) const
     return true;
 }
 
+template<typename T>
+void stack<T>::print()
+{
+    node <T>* ptr = Head;
+    cout << "[" << ptr->data;
+    ptr = ptr->next;
+
+    while (ptr) {
+        cout << "," << ptr->data;
+        ptr = ptr->next;
+    }
+
+    cout << "]";
+}
+
 template <typename T>
 stack<T>::~stack()
 {
