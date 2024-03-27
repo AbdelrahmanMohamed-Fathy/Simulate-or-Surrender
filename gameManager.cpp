@@ -38,11 +38,11 @@ void gameManager::start()
 		filePath += "weakEarth_weakAliens.txt";
 		break;
 	case 4:
-		cout << "initiating secret data-structure test";
+		cout << "initiating secret data-structure test.";
 		testStructures();
 		return;
 	default:
-		cout << "Invalid input, defaulting to case (0)\n";
+		cout << "Invalid input, defaulting to case (0).\n";
 	}
 
 	cout	<< "do you wish to run a simple simulation or a grand simulation?\n"
@@ -66,7 +66,7 @@ void gameManager::start()
 		srand(time(NULL));
 		break;
 	default:
-		cout << "Invalid input, defaulting to case (1)\n";
+		cout << "Invalid input, defaulting to case (1).\n";
 	}
 	
 	cout	<< "do you wish to run in interactive mode or silent mode?\n"
@@ -77,15 +77,19 @@ void gameManager::start()
 	switch (x)
 	{
 	case 0:
+		system("cls");
 		runInteractive();
 		break;
 	case 1:
+		system("cls");
 		runSilent();
 		break;
 	default:
-		cout << "Invalid input, defaulting to case (0)\n";
+		cout << "Invalid input, defaulting to case (0).\n";
+		system("cls");
 		runInteractive();
 	}
+	cout << "Simulation complete.";
 	return;
 }
 
@@ -105,8 +109,10 @@ void gameManager::runInteractive()
 	_getch();
 	while (CheckWinner()==0)
 	{
-		print();
+		system("cls");
+		printAlive();
 		runStep(true);
+		printDead();
 		cout << "press any key to continue.\n";
 		_getch();
 	}
@@ -197,8 +203,19 @@ void gameManager::runStep(bool printed)
 	timeStep++;
 }
 
-void gameManager::print()
+void gameManager::printAlive()
 {
+	cout << "current timestep: " << timeStep << endl;
+	cout << "================================ Earth army units ================================\n";
+	humans->print();
+	cout << "================================ Alien army units ================================\n";
+	aliens->print();
+}
+
+void gameManager::printDead()
+{
+	cout << "================================== Killed units ==================================\n";
+	//deathList->print();
 }
 
 void gameManager::generate()

@@ -34,7 +34,8 @@ public:
 	//Miscellaneous:
 	int CheckWinner();
 	void runStep(bool printed);
-	void print();
+	void printAlive();
+	void printDead();
 	void generate();
 	void fight(bool printed);
 
