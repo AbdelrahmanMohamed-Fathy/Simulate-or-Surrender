@@ -87,7 +87,7 @@ bool deQueue<T>::peek(T& front) const
 }
 
 template<typename T>
-bool deQueue<T>::~deQueue()
+deQueue<T>::~deQueue()
 {
 	while (Head)
 	{

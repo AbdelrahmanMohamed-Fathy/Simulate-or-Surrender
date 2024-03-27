@@ -35,6 +35,6 @@ public:
    virtual bool peek(T& FrontEntry) const = 0;
    
    /** Destroys this queue and frees its memory. */
-   virtual ~QueueADT() { }
+   virtual ~QueueADT() { };
 }; // end QueueADT
 #endif

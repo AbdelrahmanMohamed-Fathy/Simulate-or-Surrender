@@ -2,18 +2,18 @@
 #include "../../basicDataStructures/queue.h"
 #include "../../basicDataStructures/stack.h"
 #include "../../basicDataStructures/priQueue.h"
-#include "../../gameManager.h"
+
 
 class earthArmy
 {
 private:
-	gameManager* gm;
+	//gameManager* gm;
 	//queue<> soldiers;
 	//stack<> tanks;
 	//priQueue<> gunners;
 	unsigned int nextFreeID;
 public:
-	earthArmy();
+	//earthArmy();
 
 	//Getters:
 	//queue<>* getSoldiers();
@@ -21,13 +21,13 @@ public:
 	//priQueue<>* getGunners();
 
 	//Adders:
-	void addSoldier();
-	void addTank();
-	void addGunner();
+	//void addSoldier();
+	//void addTank();
+	//void addGunner();
 
 	//Miscellaneous:
-	bool isEmpty();
+	//bool isEmpty();
 
-	~earthArmy();
+	//~earthArmy();
 };
 

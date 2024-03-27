@@ -1,14 +1,16 @@
 #include "gameManager.h"
+#include "utils/victoryScreens.cpp"
+#include <conio.h>
 
 void gameManager::start()
 {
 	int x; bool y;
 	string filePath = "scenarios/";
-	cout	<< "Welcome to the simulation, which scenario would you like to run?\n"
-			<< "(0) strongEarth, strongAliens\n"
-			<< "(1) strongEarth, weakAliens\n"
-			<< "(2) weakEarth, StrongAliens\n"
-			<< "(3) weakEarth, weakAliens\n";
+	cout << "Welcome to the simulation, which scenario would you like to run?\n"
+		<< "(0) strongEarth, strongAliens\n"
+		<< "(1) strongEarth, weakAliens\n"
+		<< "(2) weakEarth, StrongAliens\n"
+		<< "(3) weakEarth, weakAliens\n";
 	
 	cin >> x;
 	switch (x)
@@ -24,6 +26,9 @@ void gameManager::start()
 		break;
 	case 3:
 		filePath += "weakEarth_weakAliens.txt";
+		break;
+	case 4:
+		testStructures();
 		break;
 	default:
 		cout << "Invalid input, defaulting to case (0)\n";
@@ -64,7 +69,7 @@ void gameManager::start()
 		runInteractive();
 		break;
 	case 1:
-		runSilent;
+		runSilent();
 		break;
 	default:
 		cout << "Invalid input, defaulting to case (0)\n";
@@ -83,21 +88,28 @@ void gameManager::runInteractive()
 {
 	cout << "Press any key to start simulation.\n";
 	_getch();
-	while (CheckWinner()==0)
-	{
-		cout << "press any key to continue.\n";
-		_getch();
-	}
+	//while (CheckWinner()==0)
+	//{
+	//	cout << "press any key to continue.\n";
+	//	_getch();
+	//}
+	return;
 }
 
 void gameManager::runSilent()
 {
 	cout << "Press any key to start simulation.\n";
 	_getch();
-	while (CheckWinner() == 0)
-	{
+	//while (CheckWinner() == 0)
+	//{
+	//
+	//}
+	return;
+}
 
-	}
+void gameManager::testStructures()
+{
+	return;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												File management													//
@@ -105,6 +117,7 @@ void gameManager::runSilent()
 void gameManager::readInputFile(const string filePath,bool grandSimulation)
 {
 	ifstream inputFile(filePath,ios::in);
+	inputFile.close();
 }
 
 void gameManager::produceOutputFile()
@@ -115,9 +128,9 @@ void gameManager::produceOutputFile()
 	else
 		outputFile << alienVictoryScreen;
 
-	unit_Interface* temp;
-	while (deathList.dequeue(temp))
-		outputFile << *temp;
+	unit_Interface* temp = nullptr;
+	//while (deathList.dequeue(temp))
+	//	outputFile << *temp;
 
 
 	outputFile.close();
@@ -127,12 +140,12 @@ void gameManager::produceOutputFile()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 earthArmy* gameManager::getEarthArmy()
 {
-	return &humans;
+	return humans;
 }
 
 alienArmy* gameManager::getAlienArmy()
 {
-	return &aliens;
+	return aliens;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -140,19 +153,19 @@ alienArmy* gameManager::getAlienArmy()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int gameManager::CheckWinner()
 {
-	if (deathList.isEmpty())
-	{
-		return 0;
-	}
-	if (aliens.isEmpty())
-	{
-		earthVictory = true;
-		return 1;
-	}
-	if (humans.isEmpty())
-	{
-		earthVictory = false;
-		return 2;
-	}
+	//if (deathList.isEmpty())
+	//{
+	//	return 0;
+	//}
+	//if (aliens.isEmpty())
+	//{
+	//	earthVictory = true;
+	//	return 1;
+	//}
+	//if (humans.isEmpty())
+	//{
+	//	earthVictory = false;
+	//	return 2;
+	//}
 	return 0;
 }

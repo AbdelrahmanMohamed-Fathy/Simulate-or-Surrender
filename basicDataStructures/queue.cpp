@@ -20,7 +20,7 @@ bool queue<T>::enqueue(const T &newEntry)
     Tail->next = TempHolder;
     Tail = TempHolder;
     count++;
-    return true
+    return true;
 }
 
 template <typename T>

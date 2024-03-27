@@ -3,7 +3,6 @@
 //  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** @file StackADT.h */
-
 #ifndef STACK_ADT_
 #define STACK_ADT_
 
@@ -35,6 +34,6 @@ public:
    virtual bool peek(T& TopEntry) const = 0 ;
    
    /** Destroys this stack and frees its assigned memory. */
-   virtual ~StackADT() { }
+   virtual ~StackADT() { };
 }; // end StackADT
 #endif

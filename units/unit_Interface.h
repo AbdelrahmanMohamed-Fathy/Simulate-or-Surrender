@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -41,19 +42,19 @@ public:
     void setDestructionTime(int dt);
     void setfirstAttackedTime(int at);
 
-    //This is reserved for deathList usage only
+    //This function is reserved for deathList usage only
     string generateUnitLine() const;
     
     virtual void Attack() = 0;
 };
 
-ostream& operator<<(ostream& out, const unit_Interface& unit)
+inline ostream& operator<<(ostream& out, const unit_Interface& unit)
 {
     out << unit.getID();
     return out;
 }
 
-ofstream& operator<<(ofstream& out, const unit_Interface& unit)
+inline ofstream& operator<<(ofstream& out, const unit_Interface& unit)
 {
     out << unit.generateUnitLine();
     return out;

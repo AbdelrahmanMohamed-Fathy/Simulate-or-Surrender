@@ -21,13 +21,10 @@
     <ClCompile Include="utils\generateNumber.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="basicDataStructures\Bag.cpp">
+    <ClCompile Include="basicDataStructures\bag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="basicDataStructures\deQueue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="basicDataStructures\queue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="basicDataStructures\stack.cpp">
@@ -54,6 +51,9 @@
     <ClCompile Include="generator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="basicDataStructures\queue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basicDataStructures\nodes\node.h">
@@ -68,16 +68,13 @@
     <ClInclude Include="units\unit_Interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="basicDataStructures\Bag.h">
+    <ClInclude Include="basicDataStructures\bag.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="basicDataStructures\deQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="basicDataStructures\stack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="basicDataStructures\queue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="basicDataStructures\nodes\doublyNode.h">
@@ -89,9 +86,6 @@
     <ClInclude Include="basicDataStructures\nodes\priNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gameManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="units\alienUnits\alienArmy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -99,6 +93,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="generator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="basicDataStructures\queue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

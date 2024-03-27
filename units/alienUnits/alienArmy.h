@@ -2,18 +2,18 @@
 #include "../../basicDataStructures/queue.h"
 #include "../../basicDataStructures/bag.h"
 #include "../../basicDataStructures/deQueue.h"
-#include "../../gameManager.h"
+
 
 class alienArmy
 {
 private:
-	gameManager* gm;
+	//gameManager* gm;
 	//queue<> soldiers;
 	//bag<> monsters;
 	//deQueue<> drones;
 	unsigned int nextFreeID;
 public:
-	alienArmy();
+	//alienArmy();
 
 	//Getters:
 	//queue<>* getSoldiers();
@@ -21,13 +21,13 @@ public:
 	//deQueue<>* getDrones();
 
 	//Adders:
-	void addSoldier();
-	void addTank();
-	void addGunner();
+	//void addSoldier();
+	//void addTank();
+	//void addGunner();
 
 	//Miscellaneous:
-	bool isEmpty();
+	//bool isEmpty();
 
-	~alienArmy();
+	//~alienArmy();
 };
 
