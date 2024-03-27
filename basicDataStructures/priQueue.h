@@ -13,6 +13,8 @@ private:
 public:
     bool enqueue(const T& data, int priority);
 
+    int getCount();
+
     bool dequeue(T& topEntry, int& pri);
 
     bool peek(T& topEntry, int& pri);

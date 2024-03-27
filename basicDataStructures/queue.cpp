@@ -6,6 +6,12 @@ bool queue<T>::isEmpty() const
     return (!Head);
 }
 
+template<typename T>
+int queue<T>::getCount()
+{
+    return count;
+}
+
 template <typename T>
 bool queue<T>::enqueue(const T &newEntry)
 {
@@ -61,7 +67,7 @@ void queue<T>::print()
         ptr = ptr->next;
     }
 
-    cout << "]";
+    cout << "]" << endl;
 }
 
 template <typename T>

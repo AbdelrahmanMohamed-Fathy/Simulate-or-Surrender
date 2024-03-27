@@ -10,6 +10,12 @@ bag<T>::bag()
 }
 
 template<typename T>
+int bag<T>::getCount()
+{
+	return count;
+}
+
+template<typename T>
 bool bag<T>::isEmpty()
 {
 	if(count == 0)

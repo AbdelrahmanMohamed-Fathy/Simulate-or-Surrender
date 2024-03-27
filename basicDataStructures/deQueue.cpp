@@ -7,6 +7,12 @@ bool deQueue<T>::isEmpty() const
 }
 
 template<typename T>
+int deQueue<T>::getCount()
+{
+	return count;
+}
+
+template<typename T>
 bool deQueue<T>::enqueueFront(const T& frontentry)
 {
 	doublyNode<T>* front = new doublyNode<T>;
@@ -97,7 +103,7 @@ void deQueue<T>::print()
 		ptr = ptr->next;
 	}
 
-	cout << "]";
+	cout << "]" << endl;
 }
 
 template<typename T>

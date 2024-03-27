@@ -11,6 +11,8 @@ private:
 public:
 	virtual bool isEmpty() const;
 
+	int getCount();
+
 	virtual bool enqueueFront(const T& newEntry);
 
 	virtual bool enqueueBack(const T& newEntry);

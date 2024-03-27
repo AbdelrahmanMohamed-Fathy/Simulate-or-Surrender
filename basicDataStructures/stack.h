@@ -10,6 +10,8 @@ private:
    unsigned int count = 0;
 public:
    virtual bool isEmpty() const;
+
+   int getCount();
    
    virtual bool push(const T& newEntry);
    

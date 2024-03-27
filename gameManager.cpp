@@ -207,9 +207,7 @@ void gameManager::runStep(bool printed)
 void gameManager::printAlive()
 {
 	cout << "current timestep: " << timeStep << endl;
-	cout << "================================ Earth army units ================================\n";
 	humans->print();
-	cout << "================================ Alien army units ================================\n";
 	aliens->print();
 }
 

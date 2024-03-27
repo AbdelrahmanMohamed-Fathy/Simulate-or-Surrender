@@ -61,6 +61,13 @@ bool earthArmy::isEmpty()
 
 void earthArmy::print()
 {
+	cout << "================================ Earth army units ================================\n";
+	cout << soldiers->getCount() << " Human Soldiers: ";
+	soldiers->print();
+	cout << tanks->getCount() << " Human Tanks: ";
+	tanks->print();
+	cout << gunners->getCount() << "Human Gunners: ";
+	gunners->print();
 }
 
 void earthArmy::attack(alienArmy* aliens, bool printed)

@@ -9,6 +9,8 @@ private:
 public:
 	bag();
 
+	int getCount();
+
 	bool isEmpty();
 
 	bool isFull();

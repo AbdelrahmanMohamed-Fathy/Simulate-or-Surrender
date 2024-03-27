@@ -27,6 +27,12 @@ bool priQueue<T>::enqueue(const T& data,int priority)
 }
 
 template<typename T>
+int priQueue<T>::getCount()
+{
+    return count;
+}
+
+template<typename T>
 bool priQueue<T>::dequeue(T& topEntry, int& pri)
 {
     if (isEmpty())
@@ -70,7 +76,7 @@ void priQueue<T>::print()
         ptr = ptr->next;
     }
 
-    cout << "]";
+    cout << "]" << endl;
 }
 
 template<typename T>

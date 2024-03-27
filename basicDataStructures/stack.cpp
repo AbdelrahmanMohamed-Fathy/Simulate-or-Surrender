@@ -7,6 +7,12 @@ bool stack<T>::isEmpty() const
 }
 
 template<typename T>
+int stack<T>::getCount()
+{
+    return count;
+}
+
+template<typename T>
 bool stack<T>::push(const T & newEntry)
 {
     node<T>* TempNode = new node<T>;
@@ -56,7 +62,7 @@ void stack<T>::print()
         ptr = ptr->next;
     }
 
-    cout << "]";
+    cout << "]" << endl;
 }
 
 template <typename T>
