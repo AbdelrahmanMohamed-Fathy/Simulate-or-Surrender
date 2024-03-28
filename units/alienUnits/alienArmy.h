@@ -13,12 +13,20 @@ class alienArmy
 {
 private:
 	gameManager* gm;
+	unsigned int nextFreeID;
+
+	//Units:
 	queue<alienSoldier*>* soldiers;
 	bag<alienMonster*>* monsters;
 	deQueue<alienDrone*>* drones;
-	unsigned int nextFreeID;
+
+	//Dead unit counts:
+	unsigned int deadSoldiersCount;
+	unsigned int deadMonstersCount;
+	unsigned int deadDronesCount;
 public:
 	alienArmy(gameManager* GM);
+	~alienArmy();
 
 	//Getters:
 	queue<alienSoldier*>* getSoldiers();
@@ -34,7 +42,5 @@ public:
 	bool isEmpty();
 	void print();
 	void attack(earthArmy* humans, bool printed);
-
-	~alienArmy();
 };
 
