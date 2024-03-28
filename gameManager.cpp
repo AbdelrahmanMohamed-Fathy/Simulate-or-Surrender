@@ -149,7 +149,18 @@ void gameManager::readInputFile(const string filePath,bool grandSimulation)
 {
 	ifstream inputFile(filePath,ios::in);
 
+	int N; int Prob; 
+	inputFile >> N >> Prob;
+	(grandSimulation) ? (N *= 10):(N=N);
+	unitGenerator->assignGeneralParamteres(N, Prob);
 
+	int ES; int ET; int EG; int HP[2]; int PW[2]; int AC[2];
+	inputFile >> ES >> ET >> EG >> HP[0] >> HP[1] >> PW[0] >> PW[1] >> AC[0] >> AC[1];
+	unitGenerator->assignEarthArmyParamters(ES, ET, EG, HP, PW, AC);
+
+	int AS; int AM; int AD;
+	inputFile >> AS >> AM >> AD >> HP[0] >> HP[1] >> PW[0] >> PW[1] >> AC[0] >> AC[1];
+	unitGenerator->assignAlienArmyParamters(AS, AM, AD, HP, PW, AC);
 
 	inputFile.close();
 }
@@ -186,7 +197,6 @@ alienArmy* gameManager::getAlienArmy()
 {
 	return aliens;
 }
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												Miscellaneous													//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
