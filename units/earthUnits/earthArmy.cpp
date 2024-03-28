@@ -14,6 +14,18 @@ earthArmy::earthArmy(gameManager* GM) : gm(GM)
 
 earthArmy::~earthArmy()
 {
+	humanSoldier* temp1;
+	while (soldiers->dequeue(temp1))
+		delete temp1;
+
+	humanTank* temp2;
+	while (tanks->pop(temp2))
+		delete temp2;
+
+	humanGunner* temp3; int dummy;
+	while (gunners->dequeue(temp3, dummy))
+		delete temp3;
+
 	delete soldiers;
 	delete tanks;
 	delete gunners;

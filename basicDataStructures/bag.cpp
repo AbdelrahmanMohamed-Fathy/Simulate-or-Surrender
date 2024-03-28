@@ -45,9 +45,12 @@ bool bag<T>::addElement(T& element)
 template<typename T>
 bool bag<T>::remove(T& element)
 {
+	if (isEmpty)
+		return false;
 	int x = generateNumber(0, count);
-	element = elements[x];
+	element = *elements[x];
 	elements[x] = elements[count--];
+	return true;
 }
 
 template<typename T>

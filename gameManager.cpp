@@ -100,6 +100,11 @@ gameManager::~gameManager()
 	produceOutputFile();
 	delete humans;
 	delete aliens;
+
+	unit_Interface* temp;
+	while (deathList->dequeue(temp))
+		delete temp;
+
 	delete deathList;
 	delete unitGenerator;
 }
@@ -221,6 +226,7 @@ void gameManager::printAlive()
 void gameManager::printDead()
 {
 	cout << "================================== Killed units ==================================\n";
+	cout << deathList->getCount() << " units: ";
 	deathList->print();
 }
 

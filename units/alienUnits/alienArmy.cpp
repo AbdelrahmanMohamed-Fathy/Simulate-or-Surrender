@@ -14,6 +14,18 @@ alienArmy::alienArmy(gameManager* GM) : gm(GM)
 
 alienArmy::~alienArmy()
 {
+	alienSoldier* temp1;
+	while (soldiers->dequeue(temp1))
+		delete temp1;
+
+	alienMonster* temp2;
+	while (monsters->remove(temp2))
+		delete temp2;
+
+	alienDrone* temp3;
+	while (drones->dequeuefront(temp3))
+		delete temp3;
+
 	delete soldiers;
 	delete monsters;
 	delete drones;
@@ -72,7 +84,7 @@ void alienArmy::print()
 	soldiers->print();
 	cout << monsters->getCount() << " Alien Monsters: ";
 	monsters->print();
-	cout << drones->getCount() << "Alien Drones: ";
+	cout << drones->getCount() << " Alien Drones: ";
 	drones->print();
 }
 
