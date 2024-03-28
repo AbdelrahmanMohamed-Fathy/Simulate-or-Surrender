@@ -129,6 +129,7 @@
     <ClCompile Include="units\alienUnits\alienDrone\alienDrone.cpp" />
     <ClCompile Include="basicDataStructures\queue.cpp" />
     <ClCompile Include="generator.cpp" />
+    <ClCompile Include="utils\generateNumber.cpp" />
     <ClCompile Include="utils\victoryScreens.cpp" />
     <ClCompile Include="units\earthUnits\earthArmy.cpp" />
     <ClCompile Include="units\alienUnits\alienArmy.cpp" />
@@ -139,7 +140,6 @@
     <ClCompile Include="gameManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="units\unit_Interface.cpp" />
-    <ClCompile Include="utils\generateNumber.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="units\earthUnits\humanTank\humanTank.h" />
