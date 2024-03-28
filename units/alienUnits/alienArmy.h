@@ -19,11 +19,6 @@ private:
 	queue<alienSoldier*>* soldiers;
 	bag<alienMonster*>* monsters;
 	deQueue<alienDrone*>* drones;
-
-	//Dead unit counts:
-	unsigned int deadSoldiersCount;
-	unsigned int deadMonstersCount;
-	unsigned int deadDronesCount;
 public:
 	alienArmy(gameManager* GM);
 	~alienArmy();

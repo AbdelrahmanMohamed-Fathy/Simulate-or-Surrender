@@ -7,6 +7,7 @@ gameManager::gameManager()
 {
 	timeStep = 0;
 	earthVictory = true;
+	structureTest = false;
 	humans = new earthArmy(this);
 	aliens = new alienArmy(this);
 	unitGenerator = new generator(this);
@@ -40,6 +41,7 @@ void gameManager::start()
 		break;
 	case 4:
 		system("cls");
+		structureTest = true;
 		cout << "initiating secret data-structure test.";
 		testStructures();
 		return;
@@ -97,7 +99,8 @@ void gameManager::start()
 
 gameManager::~gameManager()
 {
-	produceOutputFile();
+	if (!structureTest)
+		produceOutputFile();
 	delete humans;
 	delete aliens;
 
@@ -173,11 +176,81 @@ void gameManager::produceOutputFile()
 	else
 		outputFile << alienVictoryScreen;
 
+	double totalHumanDf = 0; double totalAlienDf = 0; double totalHumanDd = 0; double totalAlienDd = 0; double totalHumanDb = 0; double totalAlienDb = 0;
 	outputFile << "\n\nKilled units:\n";
 	unit_Interface* temp = nullptr;
 	while (deathList->dequeue(temp))
+	{
 		outputFile << *temp;
+		if (temp->getID() < 1000)
+		{
+			totalHumanDf += temp->getFirstAttackedDelay();
+			totalHumanDd += temp->getDestructionDelay();
+			totalHumanDb += temp->getBattleTime();
+		}
+		else
+		{
+			totalAlienDf += temp->getFirstAttackedDelay();
+			totalAlienDd += temp->getDestructionDelay();
+			totalAlienDb += temp->getBattleTime();
+		}
+	}
 
+	double humanSoldierCount = humans->getSoldiers()->getCount();
+	double humanTankCount = humans->getTanks()->getCount();
+	double humanGunnerCount = humans->getGunners()->getCount();
+	double totalHumanCount = humanSoldierCount + humanTankCount + humanGunnerCount;
+	double humanDeadSoldierCount = humanSoldier::getDeathCount();
+	double humanDeadTankCount = humanTank::getDeathCount();
+	double humanDeadGunnerCount = humanGunner::getDeathCount();
+	double totalHumanDeadCount = humanDeadSoldierCount + humanDeadTankCount + humanDeadGunnerCount;
+
+	cout << "Earth army stats:\n"
+		<< "Total number of units left: "
+		<< humanSoldierCount << " ES, "
+		<< humanTankCount << " ET, "
+		<< humanGunnerCount << " EG\n"
+		<< "Percentage of dead units relative to their total: "
+		<< humanDeadSoldierCount / humanSoldierCount << "% ES,"
+		<< humanDeadTankCount / humanTankCount << "% ET,"
+		<< humanDeadGunnerCount / humanGunnerCount << "% EG\n"
+		<< "Percentage of total dead units to total units: "
+		<< totalHumanCount / totalHumanDeadCount << "%\n"
+		<< "Average delay values: "
+		<< totalHumanDf / totalHumanCount << " Df, "
+		<< totalHumanDd / totalHumanCount << " Dd, "
+		<< totalHumanDb / totalHumanCount << " Db\n"
+		<< "Percentage delay values: "
+		<< totalHumanDf / totalHumanDb << "% Df/Db, "
+		<< totalHumanDd / totalHumanDb << "% Dd/Db\n";
+
+	double alienSoldierCount = aliens->getSoldiers()->getCount();
+	double alienMonsterCount = aliens->getMonsters()->getCount();
+	double alienDroneCount = aliens->getDrones()->getCount();
+	double totalAlienCount = alienSoldierCount + alienMonsterCount + alienDroneCount;
+	double alienDeadSoldierCount = alienSoldier::getDeathCount();
+	double alienDeadMonsterCount = alienMonster::getDeathCount();
+	double alienDeadDroneCount = alienDrone::getDeathCount();
+	double totalAlienDeadCount = alienDeadSoldierCount + alienDeadMonsterCount + alienDeadDroneCount;
+
+	cout << "Alien army stats:\n"
+		<< "Total number of units left: "
+		<< alienSoldierCount << " AS, "
+		<< alienMonsterCount << " AM, "
+		<< alienDroneCount << " AD\n"
+		<< "Percentage of dead units relative to their total: "
+		<< alienDeadSoldierCount / alienSoldierCount << "% AS,"
+		<< alienDeadMonsterCount / alienMonsterCount << "% AM,"
+		<< alienDeadDroneCount / alienDroneCount << "% AD\n"
+		<< "Percentage of total dead units to total units: "
+		<< totalAlienCount / totalAlienDeadCount << "%\n"
+		<< "Average delay values: "
+		<< totalAlienDf / totalAlienCount << " Df, "
+		<< totalAlienDd / totalAlienCount << " Dd, "
+		<< totalAlienDb / totalAlienCount << " Db\n"
+		<< "Percentage delay values: "
+		<< totalAlienDf / totalAlienDb << "% Df/Db, "
+		<< totalAlienDd / totalAlienDb << "% Dd/Db\n";
 
 	outputFile.close();
 }

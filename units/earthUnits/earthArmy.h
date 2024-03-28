@@ -19,11 +19,6 @@ private:
 	queue<humanSoldier*>* soldiers;
 	stack<humanTank*>* tanks;
 	priQueue<humanGunner*>* gunners;
-
-	//Dead unit counts:
-	unsigned int deadSoldiersCount;
-	unsigned int deadTanksCount;
-	unsigned int deadGunnersCount;
 public:
 	earthArmy(gameManager* GM);
 	~earthArmy();

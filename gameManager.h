@@ -12,7 +12,8 @@ private:
 	alienArmy* aliens;
 	queue<unit_Interface*>* deathList;
 	generator* unitGenerator;
-	bool earthVictory; // true if humans are the winner, false if aliens are the winner
+	bool earthVictory;	// true if humans are the winner, false if aliens are the winner
+	bool structureTest;	// true if the manager is instructed to run the structure test instead of a normal test
 public:
 	gameManager();
 	~gameManager();

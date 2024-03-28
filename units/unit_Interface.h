@@ -8,6 +8,7 @@ class unit_Interface
 {
 private:
     const unsigned int ID;
+    static unsigned int deathCount;
 
     //Attributes:
     int health;
@@ -21,7 +22,7 @@ private:
     unsigned int battleTime;
 
     //Delays:
-    unsigned int firstAttackDelay;
+    unsigned int firstAttackedDelay;
     unsigned int destructionDelay;
 
 public:
@@ -37,6 +38,10 @@ public:
 
     //Getters:
     int getID() const;
+    int getFirstAttackedDelay() const;
+    int getDestructionDelay() const;
+    int getBattleTime();
+    static int getDeathCount();
     
     //Setters:
     void setDestructionTime(int dt);
