@@ -9,6 +9,7 @@ gameManager::gameManager()
 	earthVictory = true;
 	humans = new earthArmy(this);
 	aliens = new alienArmy(this);
+	unitGenerator = new generator(this);
 	deathList = new queue<unit_Interface*>();
 }
 
@@ -38,6 +39,7 @@ void gameManager::start()
 		filePath += "weakEarth_weakAliens.txt";
 		break;
 	case 4:
+		system("cls");
 		cout << "initiating secret data-structure test.";
 		testStructures();
 		return;
@@ -165,6 +167,10 @@ void gameManager::produceOutputFile()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Getters														//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int gameManager::getTimeStep()
+{
+	return timeStep;
+}
 earthArmy* gameManager::getEarthArmy()
 {
 	return humans;
@@ -199,7 +205,7 @@ int gameManager::CheckWinner()
 
 void gameManager::runStep(bool printed)
 {
-	generate();
+	unitGenerator->generate();
 	fight(printed);
 	timeStep++;
 }
@@ -214,12 +220,7 @@ void gameManager::printAlive()
 void gameManager::printDead()
 {
 	cout << "================================== Killed units ==================================\n";
-	//deathList->print();
-}
-
-void gameManager::generate()
-{
-
+	deathList->print();
 }
 
 void gameManager::fight(bool printed)

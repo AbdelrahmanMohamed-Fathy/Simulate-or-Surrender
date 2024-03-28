@@ -26,9 +26,9 @@ public:
 	priQueue<humanGunner*>* getGunners();
 
 	//Adders:
-	void addSoldier();
-	void addTank();
-	void addGunner();
+	void addSoldier(int HP, int PW, int AC);
+	void addTank(int HP, int PW, int AC);
+	void addGunner(int HP, int PW, int AC);
 	
 	//Miscellaneous:
 	bool isEmpty();

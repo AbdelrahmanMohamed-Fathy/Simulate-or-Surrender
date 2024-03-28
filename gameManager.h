@@ -11,7 +11,7 @@ private:
 	earthArmy* humans;
 	alienArmy* aliens;
 	queue<unit_Interface*>* deathList;
-	generator unitGenerator;
+	generator* unitGenerator;
 	bool earthVictory; // true if humans are the winner, false if aliens are the winner
 public:
 	gameManager();
@@ -28,6 +28,7 @@ public:
 	void produceOutputFile();
 
 	//Getters:
+	int getTimeStep();
 	earthArmy* getEarthArmy();
 	alienArmy* getAlienArmy();
 
@@ -36,7 +37,6 @@ public:
 	void runStep(bool printed);
 	void printAlive();
 	void printDead();
-	void generate();
 	void fight(bool printed);
 
 	~gameManager();

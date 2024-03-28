@@ -26,9 +26,9 @@ public:
 	deQueue<alienDrone*>* getDrones();
 
 	//Adders:
-	void addSoldier();
-	void addMonster();
-	void addDrone();
+	void addSoldier(int HP, int PW, int AC);
+	void addMonster(int HP, int PW, int AC);
+	void addDrone(int HP, int PW, int AC);
 
 	//Miscellaneous:
 	bool isEmpty();

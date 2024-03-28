@@ -2,6 +2,7 @@
 #include "../../basicDataStructures/queue.cpp"
 #include "../../basicDataStructures/bag.cpp"
 #include "../../basicDataStructures/deQueue.cpp"
+#include "../../gameManager.h"
 
 alienArmy::alienArmy(gameManager* GM) : gm(GM)
 {
@@ -37,16 +38,22 @@ deQueue<alienDrone*>* alienArmy::getDrones()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Adders														//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void alienArmy::addSoldier()
+void alienArmy::addSoldier(int HP, int PW, int AC)
 {
+	//alienSoldier* newUnit = new alienSoldier(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	//soldiers->enqueue(newUnit);
 }
 
-void alienArmy::addMonster()
+void alienArmy::addMonster(int HP, int PW, int AC)
 {
+	//alienMonster* newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	//monsters->addElement(newUnit);
 }
 
-void alienArmy::addDrone()
+void alienArmy::addDrone(int HP, int PW, int AC)
 {
+	//alienDrone* newUnit = new alienDrone(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	//drones->enqueue(newUnit);
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												Miscellaneous													//
