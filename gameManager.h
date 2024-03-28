@@ -15,6 +15,8 @@ private:
 	bool earthVictory; // true if humans are the winner, false if aliens are the winner
 public:
 	gameManager();
+	~gameManager();
+
 	//Starts the program
 	void start();
 
@@ -38,7 +40,5 @@ public:
 	void printAlive();
 	void printDead();
 	void fight(bool printed);
-
-	~gameManager();
 };
 

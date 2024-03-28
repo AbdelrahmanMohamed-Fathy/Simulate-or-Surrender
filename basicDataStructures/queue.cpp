@@ -59,8 +59,12 @@ template<typename T>
 void queue<T>::print()
 {
     node <T>* ptr = Head;
-    cout << "[" << ptr->data;
-    ptr = ptr->next;
+    cout << "[";
+    if (ptr)
+    {
+        cout << ptr->data;
+        ptr = ptr->next;
+    }
 
     while (ptr) {
         cout << "," << ptr->data;

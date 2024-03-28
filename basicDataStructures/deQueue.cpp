@@ -95,8 +95,12 @@ template<typename T>
 void deQueue<T>::print()
 {	
 	doublyNode <T>* ptr = Head;
-	cout << "[" << ptr->data;
-	ptr = ptr->next;
+	cout << "[";
+	if (ptr)
+	{
+		cout << ptr->data;
+		ptr = ptr->next;
+	}
 
 	while (ptr) {
 		cout << "," << ptr->data;

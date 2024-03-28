@@ -68,8 +68,12 @@ template<typename T>
 void priQueue<T>::print()
 {
     priNode <T>* ptr = head;
-    cout << "[" << ptr->data;
-    ptr = ptr->next;
+    cout << "[";
+    if (ptr)
+    {
+        cout << ptr->data;
+        ptr = ptr->next;
+    }
 
     while (ptr) {
         cout << "," << ptr->data;

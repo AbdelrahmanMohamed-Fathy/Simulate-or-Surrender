@@ -72,7 +72,7 @@ void earthArmy::print()
 	soldiers->print();
 	cout << tanks->getCount() << " Human Tanks: ";
 	tanks->print();
-	cout << gunners->getCount() << "Human Gunners: ";
+	cout << gunners->getCount() << " Human Gunners: ";
 	gunners->print();
 }
 
