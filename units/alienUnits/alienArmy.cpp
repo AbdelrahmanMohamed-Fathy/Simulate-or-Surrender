@@ -52,20 +52,20 @@ deQueue<alienDrone*>* alienArmy::getDrones()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void alienArmy::addSoldier(int HP, int PW, int AC)
 {
-	//alienSoldier* newUnit = new alienSoldier(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	//soldiers->enqueue(newUnit);
+	alienSoldier* newUnit = new alienSoldier(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	soldiers->enqueue(newUnit);
 }
 
 void alienArmy::addMonster(int HP, int PW, int AC)
 {
-	//alienMonster* newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	//monsters->addElement(newUnit);
+	alienMonster* newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	monsters->addElement(newUnit);
 }
 
 void alienArmy::addDrone(int HP, int PW, int AC)
 {
 	//alienDrone* newUnit = new alienDrone(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	//drones->enqueue(newUnit);
+	//drones->enqueueBack(newUnit);
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												Miscellaneous													//

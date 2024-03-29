@@ -4,7 +4,7 @@
 template<typename T>
 class bag {
 private:
-	T* elements[100];
+	T* elements[400];
 	unsigned int count = 0;
 public:
 	bag();

@@ -53,14 +53,26 @@ public:
     virtual void Attack() {};
 };
 
-inline ostream& operator<<(ostream& out, const unit_Interface *unit)
+static ostream& operator<<(ostream& out, const unit_Interface *unit)
 {
     out << unit->getID();
     return out;
 }
 
-inline ofstream& operator<<(ofstream& out, const unit_Interface *unit)
+static ofstream& operator<<(ofstream& out, const unit_Interface *unit)
 {
     out << unit->generateUnitLine();
+    return out;
+}
+
+static ostream& operator<<(ostream& out, const unit_Interface& unit)
+{
+    out << unit.getID();
+    return out;
+}
+
+static ofstream& operator<<(ofstream& out, const unit_Interface& unit)
+{
+    out << unit.generateUnitLine();
     return out;
 }

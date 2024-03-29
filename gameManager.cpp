@@ -193,7 +193,7 @@ void gameManager::produceOutputFile()
 			totalAlienDf += temp->getFirstAttackedDelay();
 			totalAlienDd += temp->getDestructionDelay();
 			totalAlienDb += temp->getBattleTime();
-		}
+		} 
 	}
 
 	double humanSoldierCount = humans->getSoldiers()->getCount();

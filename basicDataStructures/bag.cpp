@@ -3,7 +3,7 @@
 template<typename T>
 bag<T>::bag()
 {
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 400; i++)
 	{
 		elements[i] = nullptr;
 	}
@@ -26,7 +26,7 @@ bool bag<T>::isEmpty()
 template<typename T>
 bool bag<T>::isFull()
 {
-	if (count == 100)
+	if (count == 400)
 		return true;
 	return false;
 }
@@ -34,9 +34,9 @@ bool bag<T>::isFull()
 template<typename T>
 bool bag<T>::addElement(T& element)
 {
-	if (!IsFull())
+	if (!isFull())
 	{
-		elements[count++] = element;
+		elements[count++] = &element;
 		return true;
 	}
 	return false;
