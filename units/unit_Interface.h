@@ -6,7 +6,7 @@ using namespace std;
 
 class unit_Interface
 {
-private:
+protected:
     const unsigned int ID;
     static unsigned int deathCount;
 
