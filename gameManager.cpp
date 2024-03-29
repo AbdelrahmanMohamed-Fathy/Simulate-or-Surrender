@@ -181,7 +181,7 @@ void gameManager::produceOutputFile()
 	unit_Interface* temp = nullptr;
 	while (deathList->dequeue(temp))
 	{
-		outputFile << *temp;
+		outputFile << temp;
 		if (temp->getID() < 1000)
 		{
 			totalHumanDf += temp->getFirstAttackedDelay();

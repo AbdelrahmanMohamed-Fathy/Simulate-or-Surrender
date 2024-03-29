@@ -50,17 +50,17 @@ public:
     //This function is reserved for deathList usage only
     string generateUnitLine() const;
     
-    virtual void Attack() = 0;
+    virtual void Attack() {};
 };
 
-inline ostream& operator<<(ostream& out, const unit_Interface& unit)
+inline ostream& operator<<(ostream& out, const unit_Interface *unit)
 {
-    out << unit.getID();
+    out << unit->getID();
     return out;
 }
 
-inline ofstream& operator<<(ofstream& out, const unit_Interface& unit)
+inline ofstream& operator<<(ofstream& out, const unit_Interface *unit)
 {
-    out << unit.generateUnitLine();
+    out << unit->generateUnitLine();
     return out;
 }

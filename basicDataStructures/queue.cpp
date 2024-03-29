@@ -21,6 +21,7 @@ bool queue<T>::enqueue(const T &newEntry)
     if(isEmpty())
     {
         Head = TempHolder;
+        Tail = TempHolder;
         return true;
     }
     Tail->next = TempHolder;

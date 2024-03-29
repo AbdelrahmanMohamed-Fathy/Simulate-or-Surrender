@@ -6,13 +6,13 @@ bool priQueue<T>::enqueue(const T& data,int priority)
     priNode<T>* newNode = new priNode<T>;
     if (!newNode) return false;
     newNode->data = data;
-    newNode->priority = priority
+    newNode->priority = priority;
 
     if (head == nullptr || (priority > head->priority)) {
 
         newNode->next = head;
         head = newNode;
-        count++
+        count++;
         return true;
     }
 
@@ -22,7 +22,7 @@ bool priQueue<T>::enqueue(const T& data,int priority)
     }
     newNode->next = current->next;
     current->next = newNode;
-    count++
+    count++;
     return true;
 }
 

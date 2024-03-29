@@ -52,20 +52,20 @@ priQueue<humanGunner*>* earthArmy::getGunners()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void earthArmy::addSoldier(int HP, int PW, int AC)
 {
-	//humanSoldier* newUnit = new humanSoldier(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	//soldier->enqueue(newUnit);
+	humanSoldier* newUnit = new humanSoldier(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	soldiers->enqueue(newUnit);
 }
 
 void earthArmy::addTank(int HP, int PW, int AC)
 {
-	//humanTank* newUnit = new humanTank(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	//tanks->push(newUnit);
+	humanTank* newUnit = new humanTank(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	tanks->push(newUnit);
 }
 
 void earthArmy::addGunner(int HP, int PW, int AC)
 {
-	//humanGunner* newUnit = new humanGunner(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	//gunners->enqueue(newUnit, PW * (HP/100));
+	humanGunner* newUnit = new humanGunner(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	gunners->enqueue(newUnit, PW * (HP/100));
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												Miscellaneous													//
