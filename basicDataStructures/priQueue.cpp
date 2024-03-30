@@ -1,7 +1,7 @@
 #include "priQueue.h"
 
 template<typename T>
-bool priQueue<T>::enqueue(const T& data,int priority)
+bool priQueue<T>::enqueue(const T& data,double priority)
 {
     priNode<T>* newNode = new priNode<T>;
     if (!newNode) return false;

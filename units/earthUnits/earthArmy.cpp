@@ -65,7 +65,7 @@ void earthArmy::addTank(int HP, int PW, int AC)
 void earthArmy::addGunner(int HP, int PW, int AC)
 {
 	humanGunner* newUnit = new humanGunner(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	gunners->enqueue(newUnit, PW * (HP/100));
+	gunners->enqueue(newUnit, ((double)PW * (HP/100.0)));
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												Miscellaneous													//

@@ -11,7 +11,7 @@ private:
     priNode<T>* head = nullptr;
     unsigned int count = 0;
 public:
-    bool enqueue(const T& data, int priority);
+    bool enqueue(const T& data, double priority);
 
     int getCount();
 
