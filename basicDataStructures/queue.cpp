@@ -22,6 +22,7 @@ bool queue<T>::enqueue(const T &newEntry)
     {
         Head = TempHolder;
         Tail = TempHolder;
+        count++;
         return true;
     }
     Tail->next = TempHolder;
