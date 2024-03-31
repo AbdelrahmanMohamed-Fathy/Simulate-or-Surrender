@@ -121,6 +121,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="units\earthUnits\earthUnit.cpp" />
+    <ClCompile Include="units\alienUnits\alienUnit.cpp" />
     <ClCompile Include="units\earthUnits\humanTank\humanTank.cpp" />
     <ClCompile Include="units\earthUnits\humanSoldier\humanSoldier.cpp" />
     <ClCompile Include="units\earthUnits\humanGunner\humanGunner.cpp" />
@@ -142,6 +144,8 @@
     <ClCompile Include="units\unit_Interface.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="units\earthUnits\earthUnit.h" />
+    <ClInclude Include="units\alienUnits\alienUnit.h" />
     <ClInclude Include="units\earthUnits\humanTank\humanTank.h" />
     <ClInclude Include="units\earthUnits\humanSoldier\humanSoldier.h" />
     <ClInclude Include="units\earthUnits\humanGunner\humanGunner.h" />

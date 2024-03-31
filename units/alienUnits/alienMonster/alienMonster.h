@@ -1,9 +1,8 @@
 #pragma once
-#include "../../unit_Interface.h"
+#include "../alienUnit.h"
 
-class alienMonster : public unit_Interface
+class alienMonster : public alienUnit
 {
 public:
-	alienMonster(int iD, int Hp, int Pr, int Ac, int Tj) : unit_Interface(iD, Hp, Pr, Ac, Tj) {};
+	alienMonster(int iD, int Hp, int Pr, int Ac, int Tj) : alienUnit(iD, Hp, Pr, Ac, Tj) {};
 };
-

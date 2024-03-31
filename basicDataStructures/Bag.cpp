@@ -68,4 +68,5 @@ void bag<T>::print()
 
 template<typename T>
 bag<T>::~bag()
-{}
+{
+}

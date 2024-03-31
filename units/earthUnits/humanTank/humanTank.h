@@ -1,10 +1,10 @@
 #pragma once
-#include "../../unit_Interface.h"
+#include "../earthUnit.h"
 
-class humanTank : public unit_Interface
+class humanTank : public earthUnit
 {
 
 public:
-	humanTank(int iD, int Hp, int Pr, int Ac, int Tj) : unit_Interface(iD, Hp, Pr, Ac, Tj) {};
+	humanTank(int iD, int Hp, int Pr, int Ac, int Tj) : earthUnit(iD, Hp, Pr, Ac, Tj) {};
 };
 
