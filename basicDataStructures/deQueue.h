@@ -1,8 +1,9 @@
 #pragma once
 #include "nodes/doublyNode.h"
+#include "ADTS/QueueADT.h"
 
 template<typename T>
-class deQueue
+class deQueue : public QueueADT<T>
 {
 private:
 	doublyNode<T>* Head = nullptr;
@@ -24,6 +25,10 @@ public:
 	virtual bool peek(T& FrontEntry) const;
 	
 	virtual void print();
+
+	virtual bool enqueue(const T& newEntry);
+
+	virtual bool dequeue(T& FrontEntry);
 
 	virtual ~deQueue();
 };;

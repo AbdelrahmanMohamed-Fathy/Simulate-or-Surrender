@@ -111,6 +111,18 @@ void deQueue<T>::print()
 }
 
 template<typename T>
+bool deQueue<T>::enqueue(const T& newEntry)
+{
+	return false;
+}
+
+template<typename T>
+bool deQueue<T>::dequeue(T& FrontEntry)
+{
+	return false;
+}
+
+template<typename T>
 deQueue<T>::~deQueue()
 {
 	while (Head)
