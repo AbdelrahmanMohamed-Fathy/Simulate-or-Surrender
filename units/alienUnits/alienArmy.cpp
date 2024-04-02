@@ -68,8 +68,8 @@ void alienArmy::addMonster(int HP, int PW, int AC)
 
 void alienArmy::addDrone(int HP, int PW, int AC)
 {
-	//alienDrone* newUnit = new alienDrone(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	//drones->enqueueBack(newUnit);
+	alienDrone* newUnit = new alienDrone(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	drones->enqueueBack(newUnit);
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												Miscellaneous													//
