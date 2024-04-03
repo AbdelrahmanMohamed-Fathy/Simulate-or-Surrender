@@ -47,9 +47,9 @@ bool bag<T>::remove(T& element)
 {
 	if (isEmpty())
 		return false;
-	int x = generateNumber(0, count);
+	int x = generateNumber(0, count-1);
 	element = *elements[x];
-	elements[x] = elements[count--];
+	elements[x] = elements[--count];
 	return true;
 }
 
