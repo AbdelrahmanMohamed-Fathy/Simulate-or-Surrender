@@ -3,6 +3,7 @@
 #include "basicDataStructures/queue.cpp"
 #include <conio.h>
 
+
 gameManager::gameManager()
 {
 	srand(100);
@@ -176,7 +177,31 @@ void gameManager::testStructures()
 			(humans->getTanks())->pop(tank);
 			deathList->enqueue(tank);
 		}
+		if (x > 20 && x < 30)
+		{
+			int* health;
+			int pri;
+			humanGunner* gunner;
+			humans->getGunners()->dequeue(gunner, pri);
+			health = gunner->getHP();
+			*health /= 2;
+			humans->getGunners()->enqueue(gunner, pri);
+		}
+		if (x > 30 && x < 40) {
+			alienSoldier* solider;
+			int* health;
+			queue<alienSoldier*>* temp;
+			temp = new queue<alienSoldier*>();
 
+			for (int i = 0; i < 5; i++) {
+				aliens->getSoldiers()->dequeue(solider);
+				health = solider->getHP();
+				health -= 30;
+				temp->enqueue(solider);
+				temp->dequeue(solider);
+				aliens->getSoldiers()->enqueue(solider);
+			}
+		}
 		if (x > 40 && x < 50) {
 			alienMonster* monster;
 			for (int i = 0; i < 5; i++) {
@@ -191,6 +216,11 @@ void gameManager::testStructures()
 				if ((aliens->getDrones())->dequeuefront(drone))
 					deathList->enqueue(drone);
 			}
+	
+		
+
+
+
 
 			for (int i = 0; i < 3; i++) {
 				if ((aliens->getDrones())->dequeueback(drone))
