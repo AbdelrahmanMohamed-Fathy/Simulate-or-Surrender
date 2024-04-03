@@ -21,6 +21,11 @@ int unit_Interface::getID() const
 	return ID;
 }
 
+int& unit_Interface::getHP()
+{
+	return health;
+}
+
 int unit_Interface::getFirstAttackedDelay() const
 {
 	return firstAttackedDelay;
