@@ -16,37 +16,47 @@ template<typename T>
 bool deQueue<T>::enqueueFront(const T& frontentry)
 {
 	doublyNode<T>* front = new doublyNode<T>;
+
 	if (!front)
 	{
 		return false;
 	}
+	front->data = frontentry;
+
 	if (isEmpty())
 	{
-		Head->data = frontentry;
+		Head = front;
+		Tail = front;
+		count++;
 		return true;
 	}
-	front->data = frontentry;
 	front->next = Head;
+	Head->prev = front;
 	Head = front;
+	count++;
 	return true;
 }
 
 template<typename T>
-bool deQueue<T>::enqueueBack(const T& backentry)
+bool deQueue<T>::enqueueBack(const T &backentry)
 {
 	doublyNode<T>* back = new doublyNode<T>;
 	if (!back)
 	{
 		return false;
 	}
-	if (!Tail)
+	back->data = backentry;
+	if (isEmpty())
 	{
-		Tail->data = backentry;
+		Head = back;
+		Tail = back;
+		count++;
 		return true;
 	}
-	back->data = backentry;
+	Tail->next = back;
 	back->prev = Tail;
 	Tail = back;
+	count++;
 	return true;
 }
 
@@ -61,6 +71,7 @@ bool deQueue<T>::dequeuefront(T& front)
 	front = Head->data;
 	doublyNode<T>* delf = Head;
 	Head = Head->next;
+	Head->prev = NULL;
 	delete delf;
 	return true;
 }
@@ -76,6 +87,7 @@ bool deQueue<T>::dequeueback(T& back)
 	back = Tail->data;
 	doublyNode<T>* delb = Tail;
 	Tail = Tail->prev;
+	Tail->next = NULL;
 	delete delb;
 	return true;
 }
@@ -113,12 +125,14 @@ void deQueue<T>::print()
 template<typename T>
 bool deQueue<T>::enqueue(const T& newEntry)
 {
+	enqueueBack(newEntry);
 	return false;
 }
 
 template<typename T>
 bool deQueue<T>::dequeue(T& FrontEntry)
 {
+	dequeuefront(FrontEntry);
 	return false;
 }
 
