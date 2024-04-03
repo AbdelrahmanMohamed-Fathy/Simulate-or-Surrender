@@ -163,7 +163,7 @@ void gameManager::testStructures()
 	while (timeStep != 100)
 	{
 		//Insert tests here
-
+		
 
 
 
