@@ -49,8 +49,6 @@ public:
 
     //This function is reserved for deathList usage only
     string generateUnitLine() const;
-    
-    virtual void Attack() {};
 };
 
 static ostream& operator<<(ostream& out, const unit_Interface *unit)

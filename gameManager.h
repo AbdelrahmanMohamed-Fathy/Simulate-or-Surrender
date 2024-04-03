@@ -27,7 +27,7 @@ public:
 	void testStructures();
 
 	//File management:
-	void readInputFile(const string filePath,bool grandSimulation);
+	bool readInputFile(const string filePath,bool grandSimulation);
 	void produceOutputFile();
 
 	//Getters:

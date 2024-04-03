@@ -17,19 +17,21 @@ bool generator::assignGeneralParamteres(int N, int Prob)
 	return false;
 }
 
-bool generator::assignEarthArmyParamters(int ES, int ET, int EG, int HP[], int PW[], int AC[])
+bool generator::assignEarthArmyParamters(int ES, int ET, int EG, int EHU, int HP[], int PW[], int AC[])
 {
-	bool incorrectPercentages = (ES + ET + EG != 100);
+	bool incorrectPercentages = (ES + ET + EG + EHU != 100);
 	bool invalidHealthRange = (HP[0] < 0 || HP[1] < HP[0]);
 	bool invalidPowerRange = (PW[0] < 0 || PW[1] < PW[0]);
 	bool invalidAttackCapacityRange = (AC[0] < 0 || AC[1] < AC[0]);
-	if (incorrectPercentages || invalidHealthRange || invalidPowerRange || invalidAttackCapacityRange)
+	bool invalidHealUnitPercentage = (EHU > 5);
+	if (incorrectPercentages || invalidHealthRange || invalidPowerRange || invalidAttackCapacityRange || invalidHealUnitPercentage)
 	{
 		return false;
 	}
 	humanSoldierPercentage = ES;
 	humanTankPercentage = ET;
 	humanGunnerPercentage = EG;
+	humanHealUnitPercentage = EHU;
 	humanHealthMin = HP[0];
 	humanHealthMax = HP[1];
 	humanPowerMin = PW[0];

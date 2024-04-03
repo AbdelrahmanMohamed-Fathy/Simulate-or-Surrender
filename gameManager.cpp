@@ -54,7 +54,11 @@ void gameManager::start()
 			<< "(1) Grand simulation\n";
 
 	cin >> y;
-	readInputFile(filePath,y);
+	if (!readInputFile(filePath, y))
+	{
+		cout << "input file failed to read. Exiting program";
+		return;
+	};
 	
 	cout	<< "do you wish to run the test seed or a random seed?\n"
 			<< "(0) test seed\n"
@@ -148,24 +152,34 @@ void gameManager::testStructures()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												File management													//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void gameManager::readInputFile(const string filePath,bool grandSimulation)
+bool gameManager::readInputFile(const string filePath,bool grandSimulation)
 {
 	ifstream inputFile(filePath,ios::in);
 
 	int N; int Prob; 
 	inputFile >> N >> Prob;
 	(grandSimulation) ? (N *= 10):(N=N);
-	unitGenerator->assignGeneralParamteres(N, Prob);
+	if (!unitGenerator->assignGeneralParamteres(N, Prob))
+	{
+		return false;
+	};
 
-	int ES; int ET; int EG; int HP[2]; int PW[2]; int AC[2];
-	inputFile >> ES >> ET >> EG >> HP[0] >> HP[1] >> PW[0] >> PW[1] >> AC[0] >> AC[1];
-	unitGenerator->assignEarthArmyParamters(ES, ET, EG, HP, PW, AC);
+	int ES; int ET; int EG; int EHU; int HP[2]; int PW[2]; int AC[2];
+	inputFile >> ES >> ET >> EG >> EHU >> HP[0] >> HP[1] >> PW[0] >> PW[1] >> AC[0] >> AC[1];
+	if (!unitGenerator->assignEarthArmyParamters(ES, ET, EG, EHU, HP, PW, AC))
+	{
+		return false;
+	};
 
 	int AS; int AM; int AD;
 	inputFile >> AS >> AM >> AD >> HP[0] >> HP[1] >> PW[0] >> PW[1] >> AC[0] >> AC[1];
-	unitGenerator->assignAlienArmyParamters(AS, AM, AD, HP, PW, AC);
+	if (!unitGenerator->assignAlienArmyParamters(AS, AM, AD, HP, PW, AC))
+	{
+		return false;
+	};
 
 	inputFile.close();
+	return true;
 }
 
 void gameManager::produceOutputFile()
@@ -177,7 +191,7 @@ void gameManager::produceOutputFile()
 		outputFile << alienVictoryScreen;
 
 	double totalHumanDf = 0; double totalAlienDf = 0; double totalHumanDd = 0; double totalAlienDd = 0; double totalHumanDb = 0; double totalAlienDb = 0;
-	outputFile << "\n\nKilled units:\n";
+	outputFile << "\n\nKilled units:\n\n";
 	unit_Interface* temp = nullptr;
 	while (deathList->dequeue(temp))
 	{
@@ -205,7 +219,7 @@ void gameManager::produceOutputFile()
 	double humanDeadGunnerCount = humanGunner::getDeathCount();
 	double totalHumanDeadCount = humanDeadSoldierCount + humanDeadTankCount + humanDeadGunnerCount;
 
-	cout << "Earth army stats:\n"
+	outputFile << "Earth army stats:\n"
 		<< "Total number of units left: "
 		<< humanSoldierCount << " ES, "
 		<< humanTankCount << " ET, "
@@ -222,7 +236,7 @@ void gameManager::produceOutputFile()
 		<< totalHumanDb / totalHumanCount << " Db\n"
 		<< "Percentage delay values: "
 		<< totalHumanDf / totalHumanDb << "% Df/Db, "
-		<< totalHumanDd / totalHumanDb << "% Dd/Db\n";
+		<< totalHumanDd / totalHumanDb << "% Dd/Db\n\n";
 
 	double alienSoldierCount = aliens->getSoldiers()->getCount();
 	double alienMonsterCount = aliens->getMonsters()->getCount();
@@ -233,7 +247,7 @@ void gameManager::produceOutputFile()
 	double alienDeadDroneCount = alienDrone::getDeathCount();
 	double totalAlienDeadCount = alienDeadSoldierCount + alienDeadMonsterCount + alienDeadDroneCount;
 
-	cout << "Alien army stats:\n"
+	outputFile << "Alien army stats:\n"
 		<< "Total number of units left: "
 		<< alienSoldierCount << " AS, "
 		<< alienMonsterCount << " AM, "

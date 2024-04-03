@@ -18,7 +18,7 @@ alienArmy::~alienArmy()
 	while (soldiers->dequeue(temp1))
 		delete temp1;
 
-	alienMonster** temp2;
+	alienMonster** temp2{};
 	while (monsters->remove(*temp2))
 	{
 		delete *temp2;

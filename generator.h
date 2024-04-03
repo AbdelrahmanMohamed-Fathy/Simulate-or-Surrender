@@ -22,6 +22,7 @@ private:
 	int humanSoldierPercentage;
 	int humanTankPercentage;
 	int humanGunnerPercentage;
+	int humanHealUnitPercentage;
 
 	//Alien army paramters:
 	int alienHealthMin;
@@ -37,7 +38,7 @@ private:
 public:
 	generator(gameManager* GM);
 	bool assignGeneralParamteres(int N, int Prob);
-	bool assignEarthArmyParamters(int ES, int ET, int EG, int HP[], int PW[], int AC[]);
+	bool assignEarthArmyParamters(int ES, int ET, int EG, int EHU, int HP[], int PW[], int AC[]);
 	bool assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[]);
 	void generate();
 };
