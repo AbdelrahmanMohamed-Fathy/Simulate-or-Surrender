@@ -166,10 +166,16 @@ void gameManager::testStructures()
 		int x = generateNumber();
 		if (x > 0 && x < 10)
 		{
-			humans->getSoldiers();
-
+			humanSoldier* soldier;
+			(humans->getSoldiers())->dequeue(soldier);
+			(humans->getSoldiers())->enqueue(soldier);
 		}
-
+		if (x > 10 && x < 20)
+		{
+			humanTank* tank;
+			(humans->getTanks())->pop(tank);
+			deathList->enqueue(tank);
+		}
 
 
 
