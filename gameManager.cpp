@@ -163,6 +163,12 @@ void gameManager::testStructures()
 	while (timeStep != 100)
 	{
 		//Insert tests here
+		int x = generateNumber();
+		if (x > 0 && x < 10)
+		{
+			humans->getSoldiers();
+
+		}
 
 
 
