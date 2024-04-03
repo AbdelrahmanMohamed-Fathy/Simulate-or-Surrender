@@ -5,6 +5,7 @@
 
 gameManager::gameManager()
 {
+	srand(100);
 	timeStep = 0;
 	earthVictory = true;
 	structureTest = false;
@@ -22,7 +23,8 @@ void gameManager::start()
 		<< "(0) strongEarth, strongAliens\n"
 		<< "(1) strongEarth, weakAliens\n"
 		<< "(2) weakEarth, StrongAliens\n"
-		<< "(3) weakEarth, weakAliens\n";
+		<< "(3) weakEarth, weakAliens\n"
+		<< "(4) data-structure test\n";
 	
 	cin >> x;
 	switch (x)
@@ -42,7 +44,12 @@ void gameManager::start()
 	case 4:
 		system("cls");
 		structureTest = true;
-		cout << "initiating secret data-structure test.";
+		if (!readInputFile(filePath + "strongEarth_strongAliens.txt", false))
+		{
+			cout << "input file failed to read. Exiting program";
+			return;
+		};
+		cout << "initiating data-structure test.\n";
 		testStructures();
 		return;
 	default:
@@ -147,6 +154,28 @@ void gameManager::runSilent()
 
 void gameManager::testStructures()
 {
+	cout << "Press any key to start test.\n";
+	_getch();
+	for (int i = 0; i < 20; i++)
+	{
+		unitGenerator->generate();
+	}
+	while (timeStep != 100)
+	{
+		//Insert tests here
+
+
+
+
+
+
+		system("cls");
+		printAlive();
+		printDead();
+		cout << "press any key to continue.\n";
+		_getch();
+		timeStep++;
+	}
 	return;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
