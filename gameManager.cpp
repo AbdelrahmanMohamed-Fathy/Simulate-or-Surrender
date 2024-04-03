@@ -198,7 +198,6 @@ void gameManager::testStructures()
 			}
 		}
 
-
 		system("cls");
 		printAlive();
 		printDead();
