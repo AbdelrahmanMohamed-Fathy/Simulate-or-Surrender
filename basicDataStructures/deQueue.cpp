@@ -26,12 +26,14 @@ bool deQueue<T>::enqueueFront(const T& frontentry)
 	if (isEmpty())
 	{
 		Head = front;
+		Tail = front;
 		count++;
 		return true;
 	}
 	front->next = Head;
 	Head->prev = front;
 	Head = front;
+	count++;
 	return true;
 }
 
