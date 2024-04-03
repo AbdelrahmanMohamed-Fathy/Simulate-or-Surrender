@@ -65,14 +65,14 @@ bool deQueue<T>::dequeuefront(T& front)
 {
 	if (isEmpty())
 	{
-		front = NULL;
 		return false;
 	}
 	front = Head->data;
 	doublyNode<T>* delf = Head;
 	Head = Head->next;
-	Head->prev = NULL;
+	Head->prev = nullptr;
 	delete delf;
+	count--;
 	return true;
 }
 
@@ -81,14 +81,14 @@ bool deQueue<T>::dequeueback(T& back)
 {
 	if (!Tail)
 	{
-		back = NULL;
 		return false;
 	}
 	back = Tail->data;
 	doublyNode<T>* delb = Tail;
 	Tail = Tail->prev;
-	Tail->next = NULL;
+	Tail->next = nullptr;
 	delete delb;
+	count--;
 	return true;
 }
 
