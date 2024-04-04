@@ -163,7 +163,6 @@ void gameManager::testStructures()
 	}
 	while (timeStep != 100)
 	{
-		//Insert tests here
 		int x = generateNumber();
 		if (x > 0 && x < 10)
 		{
@@ -209,7 +208,6 @@ void gameManager::testStructures()
 				(aliens->getMonsters())->addElement(monster);
 			}
 		}
-
 		if (x > 50 && x < 60) {
 			alienDrone* drone;
 			for (int i = 0; i < 3; i++) {
@@ -221,8 +219,8 @@ void gameManager::testStructures()
 				if ((aliens->getDrones())->dequeueback(drone))
 					deathList->enqueue(drone);
 			}
-		}
-
+    }
+      
 		system("cls");
 		printAlive();
 		printDead();
