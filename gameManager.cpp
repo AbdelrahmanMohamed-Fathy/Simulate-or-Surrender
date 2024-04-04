@@ -157,11 +157,11 @@ void gameManager::testStructures()
 {
 	cout << "Press any key to start test.\n";
 	_getch();
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 25; i++)
 	{
 		unitGenerator->generate();
 	}
-	while (timeStep != 100)
+	while (timeStep != 300)
 	{
 		int x = generateNumber();
 		if (x >= 1 && x <= 10)
@@ -199,6 +199,7 @@ void gameManager::testStructures()
 				temp->dequeue(solider);
 				aliens->getSoldiers()->enqueue(solider);
 			}
+			delete temp;
 		}
 		if (x >= 41 && x <= 50) {
 			alienMonster* monster;
@@ -409,6 +410,10 @@ void gameManager::printDead()
 
 void gameManager::fight(bool printed)
 {
+	if (printed)
+	{
+		cout << "======================= Units fighting at current timestep =======================\n";
+	}
 	humans->attack(aliens, printed);
 	aliens->attack(humans, printed);
 }

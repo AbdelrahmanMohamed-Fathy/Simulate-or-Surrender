@@ -39,6 +39,14 @@ bool queue<T>::dequeue(T &FrontEntry)
         return false;
     }
     FrontEntry = Head->data;
+    if (!Head->next)
+    {
+        delete Head;
+        Head = nullptr;
+        Tail = nullptr;
+        count--;
+        return true;
+    }
     node<T>* TempHolder = Head;
     Head = Head->next;
     delete TempHolder;
