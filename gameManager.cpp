@@ -216,11 +216,6 @@ void gameManager::testStructures()
 				if ((aliens->getDrones())->dequeuefront(drone))
 					deathList->enqueue(drone);
 			}
-	
-		
-
-
-
 
 			for (int i = 0; i < 3; i++) {
 				if ((aliens->getDrones())->dequeueback(drone))
