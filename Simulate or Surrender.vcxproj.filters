@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="basicDataStructures\bag.cpp">
+    <ClCompile Include="basicDataStructures\randomBag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="basicDataStructures\deQueue.cpp">
@@ -92,7 +92,7 @@
     <ClInclude Include="units\unit_Interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="basicDataStructures\bag.h">
+    <ClInclude Include="basicDataStructures\randomBag.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="basicDataStructures\deQueue.h">

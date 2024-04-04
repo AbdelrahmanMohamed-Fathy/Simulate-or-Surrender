@@ -1,7 +1,7 @@
-#include "Bag.h"
+#include "randomBag.h"
 
 template<typename T>
-bag<T>::bag()
+randomBag<T>::randomBag()
 {
 	for (int i = 0; i < 400; i++)
 	{
@@ -10,13 +10,13 @@ bag<T>::bag()
 }
 
 template<typename T>
-int bag<T>::getCount()
+int randomBag<T>::getCount()
 {
 	return count;
 }
 
 template<typename T>
-bool bag<T>::isEmpty()
+bool randomBag<T>::isEmpty()
 {
 	if(count == 0)
 		return true;
@@ -24,7 +24,7 @@ bool bag<T>::isEmpty()
 }
 
 template<typename T>
-bool bag<T>::isFull()
+bool randomBag<T>::isFull()
 {
 	if (count == 400)
 		return true;
@@ -32,18 +32,18 @@ bool bag<T>::isFull()
 }
 
 template<typename T>
-bool bag<T>::addElement(const T& element)
+bool randomBag<T>::addElement(T& element)
 {
 	if (!isFull())
 	{
-		elements[count++] = new T* {element};
+		elements[count++] = new T {element};
 		return true;
 	}
 	return false;
 }
 
 template<typename T>
-bool bag<T>::remove(T& element)
+bool randomBag<T>::remove(T& element)
 {
 	if (isEmpty())
 		return false;
@@ -55,7 +55,7 @@ bool bag<T>::remove(T& element)
 }
 
 template<typename T>
-void bag<T>::print()
+void randomBag<T>::print()
 {
 	cout << "[";
 	if (elements[0])
@@ -68,6 +68,6 @@ void bag<T>::print()
 }
 
 template<typename T>
-bag<T>::~bag()
+randomBag<T>::~randomBag()
 {
 }

@@ -1,13 +1,13 @@
 #include "alienArmy.h"
 #include "../../basicDataStructures/queue.cpp"
-#include "../../basicDataStructures/bag.cpp"
+#include "../../basicDataStructures/randomBag.cpp"
 #include "../../basicDataStructures/deQueue.cpp"
 #include "../../gameManager.h"
 
 alienArmy::alienArmy(gameManager* GM) : gm(GM)
 {
 	soldiers = new queue<alienSoldier*>;
-	monsters = new bag<alienMonster*>;
+	monsters = new randomBag<alienMonster*>;
 	drones = new deQueue<alienDrone*>;
 	nextFreeID = 2000;
 }
@@ -40,7 +40,7 @@ queue<alienSoldier*>* alienArmy::getSoldiers()
 	return soldiers;
 }
 
-bag<alienMonster*>* alienArmy::getMonsters()
+randomBag<alienMonster*>* alienArmy::getMonsters()
 {
 	return monsters;
 }
