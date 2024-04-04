@@ -173,6 +173,7 @@
     <Text Include="scenarios\strongEarth_weakAliens.txt" />
     <Text Include="scenarios\weakEarth_strongAliens.txt" />
     <Text Include="scenarios\weakEarth_weakAliens.txt" />
+    <Text Include="scenarios\TEST.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

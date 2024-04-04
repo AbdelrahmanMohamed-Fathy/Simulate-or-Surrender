@@ -45,7 +45,7 @@ void gameManager::start()
 	case 4:
 		system("cls");
 		structureTest = true;
-		if (!readInputFile(filePath + "strongEarth_strongAliens.txt", false))
+		if (!readInputFile(filePath + "TEST.txt", false))
 		{
 			cout << "input file failed to read. Exiting program";
 			return;
@@ -157,12 +157,9 @@ void gameManager::testStructures()
 {
 	cout << "Press any key to start test.\n";
 	_getch();
-	for (int i = 0; i < 25; i++)
+	while (timeStep != 50)
 	{
 		unitGenerator->generate();
-	}
-	while (timeStep != 300)
-	{
 		int x = generateNumber();
 		if (x >= 1 && x <= 10)
 		{
@@ -173,18 +170,22 @@ void gameManager::testStructures()
 		if (x >= 11 && x <= 20)
 		{
 			humanTank* tank;
-			(humans->getTanks())->pop(tank);
-			deathList->enqueue(tank);
+			if ((humans->getTanks())->pop(tank))
+			{
+				deathList->enqueue(tank);
+			}
 		}
 		if (x >= 21 && x <= 30)
 		{
 			double* health;
 			double dummy;
 			humanGunner* gunner;
-			humans->getGunners()->dequeue(gunner, dummy);
-			health = gunner->getHP();
-			*health /= 2;
-			humans->getGunners()->enqueue(gunner, gunner->getPriority());
+			if (humans->getGunners()->dequeue(gunner, dummy))
+			{
+				health = gunner->getHP();
+				*health /= 2;
+				humans->getGunners()->enqueue(gunner, gunner->getPriority());
+			}
 		}
 		if (x >= 31 && x <= 40) {
 			alienSoldier* solider;
