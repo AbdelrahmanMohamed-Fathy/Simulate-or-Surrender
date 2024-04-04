@@ -68,6 +68,13 @@ bool deQueue<T>::dequeuefront(T& front)
 	{
 		return false;
 	}
+	if (Head == Tail)
+	{
+		Head = nullptr;
+		Tail = nullptr;
+		count--;
+		return true;
+	}
 	front = Head->data;
 	if (Head == Tail)
 	{
@@ -93,6 +100,13 @@ bool deQueue<T>::dequeueback(T& back)
 	if (isEmpty())
 	{
 		return false;
+	}
+	if (Head == Tail)
+	{
+		Head = nullptr;
+		Tail = nullptr;
+		count--;
+		return true;
 	}
 	back = Tail->data;
 	if (Head == Tail)

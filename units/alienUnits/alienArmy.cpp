@@ -18,10 +18,9 @@ alienArmy::~alienArmy()
 	while (soldiers->dequeue(temp1))
 		delete temp1;
 
-	alienMonster** temp2{};
-	while (monsters->remove(*temp2))
+	alienMonster* temp2;
+	while (monsters->remove(temp2))
 	{
-		delete *temp2;
 		delete temp2;
 	}
 
@@ -61,9 +60,8 @@ void alienArmy::addSoldier(int HP, int PW, int AC)
 
 void alienArmy::addMonster(int HP, int PW, int AC)
 {
-	alienMonster** newUnit = new alienMonster*;
-	*newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	monsters->addElement(*newUnit);
+	alienMonster* newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	monsters->addElement(newUnit);
 }
 
 void alienArmy::addDrone(int HP, int PW, int AC)
