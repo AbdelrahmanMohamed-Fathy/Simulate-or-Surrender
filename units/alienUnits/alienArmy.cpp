@@ -1,13 +1,13 @@
 #include "alienArmy.h"
 #include "../../basicDataStructures/queue.cpp"
-#include "../../basicDataStructures/bag.cpp"
+#include "../../basicDataStructures/randomBag.cpp"
 #include "../../basicDataStructures/deQueue.cpp"
 #include "../../gameManager.h"
 
 alienArmy::alienArmy(gameManager* GM) : gm(GM)
 {
 	soldiers = new queue<alienSoldier*>;
-	monsters = new bag<alienMonster*>;
+	monsters = new randomBag<alienMonster*>;
 	drones = new deQueue<alienDrone*>;
 	nextFreeID = 2000;
 }
@@ -18,10 +18,9 @@ alienArmy::~alienArmy()
 	while (soldiers->dequeue(temp1))
 		delete temp1;
 
-	alienMonster** temp2{};
-	while (monsters->remove(*temp2))
+	alienMonster* temp2;
+	while (monsters->remove(temp2))
 	{
-		delete *temp2;
 		delete temp2;
 	}
 
@@ -41,7 +40,7 @@ queue<alienSoldier*>* alienArmy::getSoldiers()
 	return soldiers;
 }
 
-bag<alienMonster*>* alienArmy::getMonsters()
+randomBag<alienMonster*>* alienArmy::getMonsters()
 {
 	return monsters;
 }
@@ -61,9 +60,8 @@ void alienArmy::addSoldier(int HP, int PW, int AC)
 
 void alienArmy::addMonster(int HP, int PW, int AC)
 {
-	alienMonster** newUnit = new alienMonster*;
-	*newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	monsters->addElement(*newUnit);
+	alienMonster* newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	monsters->addElement(newUnit);
 }
 
 void alienArmy::addDrone(int HP, int PW, int AC)
