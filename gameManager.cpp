@@ -164,31 +164,31 @@ void gameManager::testStructures()
 	while (timeStep != 100)
 	{
 		int x = generateNumber();
-		if (x > 0 && x < 10)
+		if (x >= 1 && x <= 10)
 		{
 			humanSoldier* soldier;
 			(humans->getSoldiers())->dequeue(soldier);
 			(humans->getSoldiers())->enqueue(soldier);
 		}
-		if (x > 10 && x < 20)
+		if (x >= 11 && x <= 20)
 		{
 			humanTank* tank;
 			(humans->getTanks())->pop(tank);
 			deathList->enqueue(tank);
 		}
-		if (x > 20 && x < 30)
+		if (x >= 21 && x <= 30)
 		{
-			int* health;
-			double pri;
+			double* health;
+			double dummy;
 			humanGunner* gunner;
-			humans->getGunners()->dequeue(gunner, pri);
+			humans->getGunners()->dequeue(gunner, dummy);
 			health = gunner->getHP();
 			*health /= 2;
-			humans->getGunners()->enqueue(gunner, pri);
+			humans->getGunners()->enqueue(gunner, gunner->getPriority());
 		}
-		if (x > 30 && x < 40) {
+		if (x >= 31 && x <= 40) {
 			alienSoldier* solider;
-			int* health;
+			double *health;
 			queue<alienSoldier*>* temp;
 			temp = new queue<alienSoldier*>();
 
@@ -201,14 +201,14 @@ void gameManager::testStructures()
 				aliens->getSoldiers()->enqueue(solider);
 			}
 		}
-		if (x > 40 && x < 50) {
+		if (x >= 41 && x <= 50) {
 			alienMonster* monster;
 			for (int i = 0; i < 5; i++) {
 				(aliens->getMonsters())->remove(monster);
 				(aliens->getMonsters())->addElement(monster);
 			}
 		}
-		if (x > 50 && x < 60) {
+		if (x >= 51 && x < 60) {
 			alienDrone* drone;
 			for (int i = 0; i < 3; i++) {
 				if ((aliens->getDrones())->dequeuefront(drone))

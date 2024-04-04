@@ -11,7 +11,7 @@ protected:
     static unsigned int deathCount;
 
     //Attributes:
-    int health;
+    double health;
     unsigned int power;
     unsigned int attackCapacity;
 
@@ -38,7 +38,7 @@ public:
 
     //Getters:
     int getID() const;
-    int* getHP();
+    double* getHP();
     int getFirstAttackedDelay() const;
     int getDestructionDelay() const;
     int getBattleTime();
