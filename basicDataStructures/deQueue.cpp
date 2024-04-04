@@ -62,15 +62,24 @@ bool deQueue<T>::enqueueBack(const T &backentry)
 
 template<typename T>
 bool deQueue<T>::dequeuefront(T& front)
-{
+{	
+	
 	if (isEmpty())
 	{
 		return false;
 	}
 	front = Head->data;
+	if (Head == Tail)
+	{
+		Head = nullptr;
+		Tail = nullptr;
+		count--;
+		return true;
+	}
 	doublyNode<T>* delf = Head;
 	Head = Head->next;
-	if (Head) {
+	if (Head) 
+	{
 		Head->prev = nullptr;
 	}
 	delete delf;
@@ -81,11 +90,18 @@ bool deQueue<T>::dequeuefront(T& front)
 template<typename T>
 bool deQueue<T>::dequeueback(T& back)
 {
-	if (!Tail)
+	if (isEmpty())
 	{
 		return false;
 	}
 	back = Tail->data;
+	if (Head == Tail)
+	{
+		Head = nullptr;
+		Tail = nullptr;
+		count--;
+		return true;
+	}
 	doublyNode<T>* delb = Tail;
 	Tail = Tail->prev;
 	if (Tail)
