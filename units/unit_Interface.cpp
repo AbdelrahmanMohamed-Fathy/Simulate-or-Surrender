@@ -21,7 +21,7 @@ int unit_Interface::getID() const
 	return ID;
 }
 
-int* unit_Interface::getHP()
+double* unit_Interface::getHP()
 {
 	return &health;
 }
