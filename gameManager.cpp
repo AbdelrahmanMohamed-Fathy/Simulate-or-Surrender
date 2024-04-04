@@ -409,6 +409,11 @@ void gameManager::printDead()
 
 void gameManager::fight(bool printed)
 {
+	if (printed)
+	{
+		cout << "======================= Units fighting at current timestep =======================\n";
+	}
 	humans->attack(aliens, printed);
 	aliens->attack(humans, printed);
 }
+
