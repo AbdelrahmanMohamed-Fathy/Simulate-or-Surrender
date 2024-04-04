@@ -1,6 +1,6 @@
 #pragma once
 #include "../../basicDataStructures/queue.h"
-#include "../../basicDataStructures/bag.h"
+#include "../../basicDataStructures/randomBag.h"
 #include "../../basicDataStructures/deQueue.h"
 #include "alienSoldier/alienSoldier.h"
 #include "alienMonster/alienMonster.h"
@@ -17,7 +17,7 @@ private:
 
 	//Units:
 	queue<alienSoldier*>* soldiers;
-	bag<alienMonster*>* monsters;
+	randomBag<alienMonster*>* monsters;
 	deQueue<alienDrone*>* drones;
 public:
 	alienArmy(gameManager* GM);
@@ -25,7 +25,7 @@ public:
 
 	//Getters:
 	queue<alienSoldier*>* getSoldiers();
-	bag<alienMonster*>* getMonsters();
+	randomBag<alienMonster*>* getMonsters();
 	deQueue<alienDrone*>* getDrones();
 
 	//Adders:

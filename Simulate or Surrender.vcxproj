@@ -135,7 +135,7 @@
     <ClCompile Include="utils\victoryScreens.cpp" />
     <ClCompile Include="units\earthUnits\earthArmy.cpp" />
     <ClCompile Include="units\alienUnits\alienArmy.cpp" />
-    <ClCompile Include="basicDataStructures\bag.cpp" />
+    <ClCompile Include="basicDataStructures\randomBag.cpp" />
     <ClCompile Include="basicDataStructures\deQueue.cpp" />
     <ClCompile Include="basicDataStructures\priQueue.cpp" />
     <ClCompile Include="basicDataStructures\stack.cpp" />
@@ -159,7 +159,7 @@
     <ClInclude Include="units\alienUnits\alienArmy.h" />
     <ClInclude Include="basicDataStructures\ADTs\QueueADT.h" />
     <ClInclude Include="basicDataStructures\ADTs\StackADT.h" />
-    <ClInclude Include="basicDataStructures\bag.h" />
+    <ClInclude Include="basicDataStructures\randomBag.h" />
     <ClInclude Include="basicDataStructures\deQueue.h" />
     <ClInclude Include="basicDataStructures\nodes\doublyNode.h" />
     <ClInclude Include="basicDataStructures\nodes\node.h" />

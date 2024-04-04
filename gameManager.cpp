@@ -3,6 +3,7 @@
 #include "basicDataStructures/queue.cpp"
 #include <conio.h>
 
+
 gameManager::gameManager()
 {
 	srand(100);
@@ -162,13 +163,64 @@ void gameManager::testStructures()
 	}
 	while (timeStep != 100)
 	{
-		//Insert tests here
-		
+		int x = generateNumber();
+		if (x > 0 && x < 10)
+		{
+			humanSoldier* soldier;
+			(humans->getSoldiers())->dequeue(soldier);
+			(humans->getSoldiers())->enqueue(soldier);
+		}
+		if (x > 10 && x < 20)
+		{
+			humanTank* tank;
+			(humans->getTanks())->pop(tank);
+			deathList->enqueue(tank);
+		}
+		if (x > 20 && x < 30)
+		{
+			int* health;
+			int pri;
+			humanGunner* gunner;
+			humans->getGunners()->dequeue(gunner, pri);
+			health = gunner->getHP();
+			*health /= 2;
+			humans->getGunners()->enqueue(gunner, pri);
+		}
+		if (x > 30 && x < 40) {
+			alienSoldier* solider;
+			int* health;
+			queue<alienSoldier*>* temp;
+			temp = new queue<alienSoldier*>();
 
+			for (int i = 0; i < 5; i++) {
+				aliens->getSoldiers()->dequeue(solider);
+				health = solider->getHP();
+				health -= 30;
+				temp->enqueue(solider);
+				temp->dequeue(solider);
+				aliens->getSoldiers()->enqueue(solider);
+			}
+		}
+		if (x > 40 && x < 50) {
+			alienMonster* monster;
+			for (int i = 0; i < 5; i++) {
+				(aliens->getMonsters())->remove(monster);
+				(aliens->getMonsters())->addElement(monster);
+			}
+		}
+		if (x > 50 && x < 60) {
+			alienDrone* drone;
+			for (int i = 0; i < 3; i++) {
+				if ((aliens->getDrones())->dequeuefront(drone))
+					deathList->enqueue(drone);
+			}
 
-
-
-
+			for (int i = 0; i < 3; i++) {
+				if ((aliens->getDrones())->dequeueback(drone))
+					deathList->enqueue(drone);
+			}
+		}
+      
 		system("cls");
 		printAlive();
 		printDead();
