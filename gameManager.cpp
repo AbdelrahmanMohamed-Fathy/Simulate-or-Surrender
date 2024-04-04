@@ -417,3 +417,4 @@ void gameManager::fight(bool printed)
 	humans->attack(aliens, printed);
 	aliens->attack(humans, printed);
 }
+
