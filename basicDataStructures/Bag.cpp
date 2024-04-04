@@ -32,11 +32,11 @@ bool bag<T>::isFull()
 }
 
 template<typename T>
-bool bag<T>::addElement(T& element)
+bool bag<T>::addElement(const T& element)
 {
 	if (!isFull())
 	{
-		elements[count++] = &element;
+		elements[count++] = new T* {element};
 		return true;
 	}
 	return false;
@@ -49,6 +49,7 @@ bool bag<T>::remove(T& element)
 		return false;
 	int x = generateNumber(0, count-1);
 	element = *elements[x];
+	delete elements[x];
 	elements[x] = elements[--count];
 	return true;
 }
