@@ -22,7 +22,7 @@ earthArmy::~earthArmy()
 	while (tanks->pop(temp2))
 		delete temp2;
 
-	humanGunner* temp3; int dummy;
+	humanGunner* temp3; double dummy;
 	while (gunners->dequeue(temp3, dummy))
 		delete temp3;
 

@@ -179,7 +179,7 @@ void gameManager::testStructures()
 		if (x > 20 && x < 30)
 		{
 			int* health;
-			int pri;
+			double pri;
 			humanGunner* gunner;
 			humans->getGunners()->dequeue(gunner, pri);
 			health = gunner->getHP();

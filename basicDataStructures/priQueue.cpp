@@ -33,7 +33,7 @@ int priQueue<T>::getCount()
 }
 
 template<typename T>
-bool priQueue<T>::dequeue(T& topEntry, int& pri)
+bool priQueue<T>::dequeue(T& topEntry, double& pri)
 {
     if (isEmpty())
         return false;
@@ -48,7 +48,7 @@ bool priQueue<T>::dequeue(T& topEntry, int& pri)
 }
 
 template<typename T>
-bool priQueue<T>::peek(T& topEntry, int& pri)
+bool priQueue<T>::peek(T& topEntry, double& pri)
 {
     if (isEmpty())
         return false;
@@ -87,6 +87,6 @@ template<typename T>
 priQueue<T>::~priQueue()
 {
     T tmp;
-    int p;
+    double p;
     while (dequeue(tmp, p));
 }

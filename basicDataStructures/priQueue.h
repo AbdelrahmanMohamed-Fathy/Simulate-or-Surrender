@@ -15,9 +15,9 @@ public:
 
     int getCount();
 
-    bool dequeue(T& topEntry, int& pri);
+    bool dequeue(T& topEntry, double& pri);
 
-    bool peek(T& topEntry, int& pri);
+    bool peek(T& topEntry, double& pri);
 
     bool isEmpty() const;
 

@@ -4,7 +4,7 @@ template <typename T>
 struct priNode
 {
     T data;
-    int priority;
+    double priority;
     priNode<T>* next = nullptr;
 };
 
