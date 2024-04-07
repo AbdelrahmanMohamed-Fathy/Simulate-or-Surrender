@@ -8,6 +8,7 @@ private:
 	static priQueue<earthUnit*>* unitMaintenanceList;
 public:
 	humanHealer(int iD, int Hp, int Pr, int Ac, int Tj) : earthUnit(iD, Hp, Pr, Ac, Tj) {};
-	static priQueue<earthUnit*>* getunitMaintenanceList();
+	static priQueue<earthUnit*>* getUnitMaintenanceList();
+	static void setUnitMaintenanceList(priQueue<earthUnit*>* unitMaintenanceList);
 };
 

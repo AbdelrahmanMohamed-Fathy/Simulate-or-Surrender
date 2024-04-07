@@ -164,8 +164,8 @@ void gameManager::testStructures()
 		if (x >= 1 && x <= 10)
 		{
 			humanSoldier* soldier;
-			(humans->getSoldiers())->dequeue(soldier);
-			(humans->getSoldiers())->enqueue(soldier);
+			if(humans->getSoldiers()->dequeue(soldier))
+				(humans->getSoldiers())->enqueue(soldier);
 		}
 		if (x >= 11 && x <= 20)
 		{
@@ -193,20 +193,22 @@ void gameManager::testStructures()
 			queue<alienSoldier*>* temp;
 			temp = new queue<alienSoldier*>;
 			for (int i = 0; i < 5; i++) {
-				aliens->getSoldiers()->dequeue(solider);
-				health = solider->getHP();
-				health -= 30;
-				temp->enqueue(solider);
-				temp->dequeue(solider);
-				aliens->getSoldiers()->enqueue(solider);
+				if (aliens->getSoldiers()->dequeue(solider))
+				{
+					health = solider->getHP();
+					health -= 30;
+					temp->enqueue(solider);
+					temp->dequeue(solider);
+					aliens->getSoldiers()->enqueue(solider);
+				}
 			}
 			delete temp;
 		}
 		if (x >= 41 && x <= 50) {
 			alienMonster* monster;
 			for (int i = 0; i < 5; i++) {
-				(aliens->getMonsters())->remove(monster);
-				(aliens->getMonsters())->addElement(monster);
+				if(aliens->getMonsters()->remove(monster))
+					(aliens->getMonsters())->addElement(monster);
 			}
 		}
 		if (x >= 51 && x < 60) {

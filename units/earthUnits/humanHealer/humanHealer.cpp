@@ -1,8 +1,13 @@
 #include "humanHealer.h"
 
-priQueue<earthUnit*>* unitMaintenanceList = new priQueue<earthUnit*>;
+priQueue<earthUnit*>* humanHealer::unitMaintenanceList = nullptr;
 
-priQueue<earthUnit*>* humanHealer::getunitMaintenanceList()
+priQueue<earthUnit*>* humanHealer::getUnitMaintenanceList()
 {
     return unitMaintenanceList;
+}
+
+void humanHealer::setUnitMaintenanceList(priQueue<earthUnit*>* UML)
+{
+    unitMaintenanceList = UML;
 }

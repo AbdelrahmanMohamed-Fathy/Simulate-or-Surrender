@@ -33,6 +33,7 @@ public:
 	stack<humanTank*>* getTanks();
 	priQueue<humanGunner*>* getGunners();
 	stack<humanHealer*>* getHealers();
+	priQueue<earthUnit*>* getUnitMaintenanceList();
 
 	//Adders:
 	void addSoldier(int HP, int PW, int AC);

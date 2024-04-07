@@ -10,7 +10,8 @@ earthArmy::earthArmy(gameManager* GM) : gm(GM)
 	tanks = new stack<humanTank*>;
 	gunners = new priQueue<humanGunner*>;
 	healers = new stack<humanHealer*>;
-	unitMaintenanceList = humanHealer::getunitMaintenanceList();
+	unitMaintenanceList = new priQueue<earthUnit*>;
+	humanHealer::setUnitMaintenanceList(unitMaintenanceList);
 	nextFreeID = 1;
 }
 
@@ -28,9 +29,19 @@ earthArmy::~earthArmy()
 	while (gunners->dequeue(temp3, dummy))
 		delete temp3;
 
+	humanHealer* temp4;
+	while (healers->pop(temp4))
+		delete temp4;
+
+	earthUnit* temp5;
+	while (unitMaintenanceList->dequeue(temp5, dummy))
+		delete temp4;
+
 	delete soldiers;
 	delete tanks;
 	delete gunners;
+	delete healers;
+	delete unitMaintenanceList;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Getters														//
@@ -53,6 +64,10 @@ priQueue<humanGunner*>* earthArmy::getGunners()
 stack<humanHealer*>* earthArmy::getHealers()
 {
 	return healers;
+}
+priQueue<earthUnit*>* earthArmy::getUnitMaintenanceList()
+{
+	return unitMaintenanceList;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Adders														//
@@ -85,7 +100,7 @@ void earthArmy::addHealer(int HP, int PW, int AC)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool earthArmy::isEmpty()
 {
-	if (soldiers->isEmpty() && tanks->isEmpty() && gunners->isEmpty())
+	if (soldiers->isEmpty() && tanks->isEmpty() && gunners->isEmpty() && healers->isEmpty())
 		return true;
 	return false;
 }
