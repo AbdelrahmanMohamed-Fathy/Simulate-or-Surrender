@@ -121,6 +121,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="units\earthUnits\humanHealer\humanHealer.cpp" />
     <ClCompile Include="units\earthUnits\earthUnit.cpp" />
     <ClCompile Include="units\alienUnits\alienUnit.cpp" />
     <ClCompile Include="units\earthUnits\humanTank\humanTank.cpp" />
@@ -144,6 +145,7 @@
     <ClCompile Include="units\unit_Interface.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="units\earthUnits\humanHealer\humanHealer.h" />
     <ClInclude Include="units\earthUnits\earthUnit.h" />
     <ClInclude Include="units\alienUnits\alienUnit.h" />
     <ClInclude Include="units\earthUnits\humanTank\humanTank.h" />

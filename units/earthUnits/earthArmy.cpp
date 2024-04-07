@@ -9,6 +9,8 @@ earthArmy::earthArmy(gameManager* GM) : gm(GM)
 	soldiers = new queue<humanSoldier*>;
 	tanks = new stack<humanTank*>;
 	gunners = new priQueue<humanGunner*>;
+	healers = new stack<humanHealer*>;
+	unitMaintenanceList = humanHealer::getunitMaintenanceList();
 	nextFreeID = 1;
 }
 
@@ -47,6 +49,11 @@ priQueue<humanGunner*>* earthArmy::getGunners()
 {
 	return gunners;
 }
+
+stack<humanHealer*>* earthArmy::getHealers()
+{
+	return healers;
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Adders														//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -66,6 +73,12 @@ void earthArmy::addGunner(int HP, int PW, int AC)
 {
 	humanGunner* newUnit = new humanGunner(nextFreeID++, HP, PW, AC, gm->getTimeStep());
 	gunners->enqueue(newUnit, newUnit->getPriority());
+}
+
+void earthArmy::addHealer(int HP, int PW, int AC)
+{
+	humanHealer* newUnit = new humanHealer(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	healers->push(newUnit);
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												Miscellaneous													//

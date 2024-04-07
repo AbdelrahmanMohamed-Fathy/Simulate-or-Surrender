@@ -5,6 +5,7 @@
 #include "humanSoldier/humanSoldier.h"
 #include "humanTank/humanTank.h"
 #include "humanGunner/humanGunner.h"
+#include "humanHealer/humanHealer.h"
 
 class gameManager;
 class alienArmy;
@@ -19,6 +20,10 @@ private:
 	queue<humanSoldier*>* soldiers;
 	stack<humanTank*>* tanks;
 	priQueue<humanGunner*>* gunners;
+	stack<humanHealer*>* healers;
+
+	priQueue<earthUnit*>* unitMaintenanceList;
+	
 public:
 	earthArmy(gameManager* GM);
 	~earthArmy();
@@ -27,11 +32,13 @@ public:
 	queue<humanSoldier*>* getSoldiers();
 	stack<humanTank*>* getTanks();
 	priQueue<humanGunner*>* getGunners();
+	stack<humanHealer*>* getHealers();
 
 	//Adders:
 	void addSoldier(int HP, int PW, int AC);
 	void addTank(int HP, int PW, int AC);
 	void addGunner(int HP, int PW, int AC);
+	void addHealer(int HP, int PW, int AC);
 	
 	//Miscellaneous:
 	bool isEmpty();

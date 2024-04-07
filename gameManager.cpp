@@ -246,9 +246,9 @@ bool gameManager::readInputFile(const string filePath,bool grandSimulation)
 		return false;
 	};
 
-	int ES; int ET; int EG; int EHU; int HP[2]; int PW[2]; int AC[2];
-	inputFile >> ES >> ET >> EG >> EHU >> HP[0] >> HP[1] >> PW[0] >> PW[1] >> AC[0] >> AC[1];
-	if (!unitGenerator->assignEarthArmyParamters(ES, ET, EG, EHU, HP, PW, AC))
+	int ES; int ET; int EG; int EH; int HP[2]; int PW[2]; int AC[2];
+	inputFile >> ES >> ET >> EG >> EH >> HP[0] >> HP[1] >> PW[0] >> PW[1] >> AC[0] >> AC[1];
+	if (!unitGenerator->assignEarthArmyParamters(ES, ET, EG, EH, HP, PW, AC))
 	{
 		return false;
 	};
