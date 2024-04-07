@@ -86,12 +86,12 @@ void generator::generate()
 				int AC = generateNumber(humanAttackCapacityMin, humanAttackCapacityMax);
 				gm->getEarthArmy()->addTank(HP, PW, AC);
 			}
-			else
+			else if (generatedNumber <= (humanTankPercentage + humanSoldierPercentage + humanHealUnitPercentage))
 			{
 				int HP = generateNumber(humanHealthMin, humanHealthMax);
 				int PW = generateNumber(humanPowerMin, humanPowerMax);
 				int AC = generateNumber(humanAttackCapacityMin, humanAttackCapacityMax);
-				gm->getEarthArmy()->addGunner(HP, PW, AC);
+				gm->getEarthArmy()->addHealer(HP, PW, AC);
 			}
 		}
 	}

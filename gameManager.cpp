@@ -371,6 +371,10 @@ alienArmy* gameManager::getAlienArmy()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int gameManager::CheckWinner()
 {
+	if (timeStep < 40)
+	{
+		return 0;
+	}
 	if (deathList->isEmpty())
 	{
 		return 0;

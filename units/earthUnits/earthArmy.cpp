@@ -99,6 +99,8 @@ void earthArmy::print()
 	tanks->print();
 	cout << gunners->getCount() << " Human Gunners: ";
 	gunners->print();
+	cout << healers->getCount() << " Human Healers: ";
+	healers->print();
 }
 
 void earthArmy::attack(alienArmy* aliens, bool printed)
