@@ -249,14 +249,21 @@ bool gameManager::readInputFile(const string filePath,bool grandSimulation)
 	};
 
 	int ES; int ET; int EG; int EH; int HP[2]; int PW[2]; int AC[2];
-	inputFile >> ES >> ET >> EG >> EH >> HP[0] >> HP[1] >> PW[0] >> PW[1] >> AC[0] >> AC[1];
+	inputFile >> ES >> ET >> EG >> EH;
+	(inputFile >> HP[0]).ignore(1) >> HP[1];
+	(inputFile >> PW[0]).ignore(1) >> PW[1];
+	(inputFile >> AC[0]).ignore(1) >> AC[1];
 	if (!unitGenerator->assignEarthArmyParamters(ES, ET, EG, EH, HP, PW, AC))
 	{
 		return false;
 	};
 
 	int AS; int AM; int AD;
-	inputFile >> AS >> AM >> AD >> HP[0] >> HP[1] >> PW[0] >> PW[1] >> AC[0] >> AC[1];
+
+	inputFile >> AS >> AM >> AD;
+	(inputFile >> HP[0]).ignore(1) >> HP[1];
+	(inputFile >> PW[0]).ignore(1) >> PW[1];
+	(inputFile >> AC[0]).ignore(1) >> AC[1];
 	if (!unitGenerator->assignAlienArmyParamters(AS, AM, AD, HP, PW, AC))
 	{
 		return false;
