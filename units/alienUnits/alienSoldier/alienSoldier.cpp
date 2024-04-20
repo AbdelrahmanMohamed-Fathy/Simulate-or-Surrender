@@ -8,7 +8,7 @@ void alienSoldier::attack(earthArmy* humans, queue<unit_Interface*>* deathList,i
 	humanSoldier* temp;
 	queue<humanSoldier*>* attack;
 
-	for (int i = 0; i < attackCapacity; i++) {
+	for (int i = 0; i < (int)attackCapacity; i++) {
 		if (humansoldier->dequeue(temp)) {
 			attack->enqueue(temp);
 		}
