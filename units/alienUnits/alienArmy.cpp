@@ -60,8 +60,9 @@ void alienArmy::addSoldier(int HP, int PW, int AC)
 
 void alienArmy::addMonster(int HP, int PW, int AC)
 {
-	alienMonster* newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	monsters->addElement(newUnit);
+	alienMonster** newUnit = new alienMonster*;
+	**newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	monsters->addElement(*newUnit);
 }
 
 void alienArmy::addDrone(int HP, int PW, int AC)
