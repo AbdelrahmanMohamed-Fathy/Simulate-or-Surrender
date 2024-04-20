@@ -61,7 +61,7 @@ void unit_Interface::setDestructionTime(int dt)
 	deathCount++;
 }
 
-void unit_Interface::setfirstAttackedTime(int at)
+void unit_Interface::setFirstAttackedTime(int at)
 {
 	firstAttackedTime = at;
 	firstAttackedDelay = firstAttackedTime - joinTime;

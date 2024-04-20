@@ -364,6 +364,7 @@ int gameManager::getTimeStep()
 {
 	return timeStep;
 }
+
 earthArmy* gameManager::getEarthArmy()
 {
 	return humans;
@@ -372,6 +373,11 @@ earthArmy* gameManager::getEarthArmy()
 alienArmy* gameManager::getAlienArmy()
 {
 	return aliens;
+}
+
+queue<unit_Interface*>* gameManager::getDeathList()
+{
+	return deathList;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												Miscellaneous													//
