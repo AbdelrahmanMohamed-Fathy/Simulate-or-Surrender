@@ -138,5 +138,11 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	double temp;
 	if (gunners->peek(gunner, temp)) {
 		gunner->attack(aliens, gm->getTimeStep(), printed);
+
+	//earthTank
+	humanTank* temp;
+	if (tanks->peek(temp))
+	{
+		temp->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
 	}
 }

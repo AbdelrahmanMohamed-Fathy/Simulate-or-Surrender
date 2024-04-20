@@ -2,7 +2,7 @@
 #include "../../alienUnits/alienArmy.h"
 #include "../../basicDataStructures/priQueue.cpp"
 
-void humanGunner::attack(alienArmy* aliens, int timeStep, bool printed)
+void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
 	deQueue<alienDrone*>* drone;
 	alienDrone* temp;
@@ -35,12 +35,12 @@ void humanGunner::attack(alienArmy* aliens, int timeStep, bool printed)
 	for (int i = 0; i < attack->getCount(); i++) {
 		if (attack->dequeue(unit, priority)) {
 			if (unit->getFirstAttackedTime() == -1) {
-				unit->setfirstAttackedTime(timeStep);
+				unit->setFirstAttackedTime(timeStep);
 			}
 			*unit->getHP() -= (power * (health / 100.0)) / sqrt(*unit->getHP());
 			if (unit->getHP() <= 0) {
 				unit->setDestructionTime(timeStep);
-
+				deathList->enqueue(unit);
 			}
 			switch ((int)priority) {
 			case 1: if (i % 2 == 0)

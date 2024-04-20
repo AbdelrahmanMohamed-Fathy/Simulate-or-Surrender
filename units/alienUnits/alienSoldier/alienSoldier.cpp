@@ -21,7 +21,7 @@ void alienSoldier::attack(earthArmy* humans, int timeStep, bool printed) {
 	for (int i = 0; i < attack->getCount(); i++) {
 		if (attack->dequeue(temp)) {
 			if (temp->getFirstAttackedTime() == -1) {
-				temp->setfirstAttackedTime(timeStep);
+				temp->setFirstAttackedTime(timeStep);
 			}
 			*temp->getHP() -= (power * (health / 100.0)) / sqrt(*temp->getHP());
 			if (temp->getHP() <= 0) {
