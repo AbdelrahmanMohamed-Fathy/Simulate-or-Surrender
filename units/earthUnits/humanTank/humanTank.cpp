@@ -8,7 +8,7 @@
 
 bool humanTank::pctcheck = false;
 
-void humanTank::attack(alienArmy* aliens, int timeStep, bool printed, queue<unit_Interface*>* deathList)
+void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
 	priQueue<alienUnit*> attackedq;
 	if (pctcheck)
