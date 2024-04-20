@@ -47,7 +47,7 @@ public:
     
     //Setters:
     void setDestructionTime(int dt);
-    void setfirstAttackedTime(int at);
+    void setFirstAttackedTime(int at);
 
     //This function is reserved for deathList usage only
     string generateUnitLine() const;
