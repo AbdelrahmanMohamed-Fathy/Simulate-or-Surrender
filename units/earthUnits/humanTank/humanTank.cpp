@@ -71,11 +71,11 @@ void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int
 		{
 			if (alien->getFirstAttackedTime() == -1)
 			{
-				alien->setfirstAttackedTime(timeStep);
+				alien->setFirstAttackedTime(timeStep);
 			}
 			double* alienHP = alien->getHP();
 			*alienHP -=  (((power * health) / 100) / sqrt(*alienHP));
-			alien->setfirstAttackedTime(timeStep);
+			alien->setFirstAttackedTime(timeStep);
 			if (*alienHP <= 0)
 			{
 				alien->setDestructionTime(timeStep);
@@ -86,7 +86,7 @@ void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int
 				switch ((int)pri)
 				{
 				case 0:
-					//aliens->getMonsters()->addElement(&(alienMonster*)alien);
+					aliens->getMonsters()->addElement((alienMonster*)alien);
 					break;
 				case 1:
 					aliens->getSoldiers()->enqueue((alienSoldier*)alien);

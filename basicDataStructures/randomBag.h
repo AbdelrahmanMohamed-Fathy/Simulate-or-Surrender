@@ -15,7 +15,7 @@ public:
 
 	bool isFull();
 
-	bool addElement(T& element);
+	bool addElement(const T& element);
 
 	bool remove(T& element);
 
