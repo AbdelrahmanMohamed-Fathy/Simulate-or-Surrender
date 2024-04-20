@@ -128,8 +128,7 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 
 	//Human Tank:
 	humanTank* tank;
-	if (tanks->peek(tank))
-	{
+	if (tanks->peek(tank)) {
 		tank->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
 	}
 
@@ -137,6 +136,6 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	humanGunner* gunner;
 	double temp;
 	if (gunners->peek(gunner, temp)) {
-		gunner->attack(aliens, gm->getTimeStep(), printed);
+		gunner->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
 	}
 }

@@ -15,6 +15,8 @@ public:
 
 	bool isFull();
 
+	bool peek(T& element);
+
 	bool addElement(const T& element);
 
 	bool remove(T& element);
