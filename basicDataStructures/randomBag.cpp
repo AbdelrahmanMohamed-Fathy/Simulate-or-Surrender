@@ -46,7 +46,7 @@ bool randomBag<T>::addElement(const T& element)
 {
 	if (!isFull())
 	{
-		elements[count++] = (T*) & element;
+		elements[count++] = new T{element};
 		return true;
 	}
 	return false;
@@ -59,6 +59,7 @@ bool randomBag<T>::remove(T& element)
 		return false;
 	int x = generateNumber(0, count-1);
 	element = *elements[x];
+	delete elements[x];
 	elements[x] = elements[--count];
 	return true;
 }

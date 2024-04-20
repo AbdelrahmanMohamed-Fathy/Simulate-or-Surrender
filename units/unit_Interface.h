@@ -49,7 +49,7 @@ public:
     void setDestructionTime(int dt);
     void setFirstAttackedTime(int at);
 
-    //This function is reserved for deathList usage only
+    //This function is reserved for output file usage only
     string generateUnitLine() const;
 };
 

@@ -4,6 +4,12 @@
 #include"../../../Utils/generateNumber.cpp"
 
 bool humanTank::pctcheck = false;
+int* humanTank::EScount = nullptr;
+
+void humanTank::setEScount(int* count)
+{
+	EScount = count;
+}
 
 void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {

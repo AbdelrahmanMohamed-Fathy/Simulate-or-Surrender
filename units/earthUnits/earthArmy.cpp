@@ -35,7 +35,7 @@ earthArmy::~earthArmy()
 
 	earthUnit* temp5;
 	while (unitMaintenanceList->dequeue(temp5, dummy))
-		delete temp4;
+		delete temp5;
 
 	delete soldiers;
 	delete tanks;

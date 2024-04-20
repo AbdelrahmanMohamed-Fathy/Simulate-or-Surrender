@@ -23,7 +23,6 @@ private:
 	stack<humanHealer*>* healers;
 
 	priQueue<earthUnit*>* unitMaintenanceList;
-	
 public:
 	earthArmy(gameManager* GM);
 	~earthArmy();
