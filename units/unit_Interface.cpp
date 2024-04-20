@@ -26,7 +26,7 @@ double* unit_Interface::getHP()
 	return &health;
 }
 
-int unit_Interface::getFirstAttackedTime()
+int unit_Interface::getFirstAttackedTime() const
 {
 	return firstAttackedTime;
 }

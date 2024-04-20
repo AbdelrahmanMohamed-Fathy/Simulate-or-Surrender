@@ -23,6 +23,10 @@ public:
 	virtual bool dequeueback(T& backEntry);
 
 	virtual bool peek(T& FrontEntry) const;
+
+	virtual bool peekFront(T& FrontEntry) const;
+
+	virtual bool peekBack(T& BackEntry) const;
 	
 	virtual void print();
 

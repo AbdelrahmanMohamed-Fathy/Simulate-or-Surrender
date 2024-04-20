@@ -120,10 +120,21 @@ void earthArmy::print()
 
 void earthArmy::attack(alienArmy* aliens, bool printed)
 {
-	//earthTank
+	//Human Soldier
+	humanSoldier* soldier;
+	if (soldiers->peek(soldier)) {
+		soldier->attack(aliens,gm->getTimeStep(),printed);
+	}
+	//Human Gunner
+	humanGunner* gunner;
+	double temp;
+	if (gunners->peek(gunner,temp)) {
+		gunner->attack(aliens, gm->getTimeStep(), printed);
+
+	//Earth Tank
 	humanTank* temp;
 	if (tanks->peek(temp))
 	{
-		temp->attack(aliens, gm->getTimeStep(), printed, gm->getDeathList());
+		temp->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
 	}
 }

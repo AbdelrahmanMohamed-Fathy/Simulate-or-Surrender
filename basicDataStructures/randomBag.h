@@ -17,7 +17,7 @@ public:
 
 	bool peek(T& element);
 
-	bool addElement(T& element);
+	bool addElement(const T& element);
 
 	bool remove(T& element);
 
