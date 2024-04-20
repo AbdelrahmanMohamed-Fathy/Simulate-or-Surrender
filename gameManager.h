@@ -34,6 +34,7 @@ public:
 	int getTimeStep();
 	earthArmy* getEarthArmy();
 	alienArmy* getAlienArmy();
+	queue<unit_Interface*>* getDeathList();
 
 	//Miscellaneous:
 	int CheckWinner();
