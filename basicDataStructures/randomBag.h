@@ -4,24 +4,24 @@
 template<typename T>
 class randomBag {
 private:
-	T* elements[400];
-	unsigned int count = 0;
+    T* elements[400];
+    unsigned int count = 0;
 public:
-	randomBag();
+    randomBag();
 
-	int getCount();
+    int getCount();
 
-	bool isEmpty();
+    bool isEmpty();
 
-	bool isFull();
+    bool isFull();
 
-	bool peek(T& element);
+    bool peek(T& element);
 
-	bool addElement(const T& element);
+    bool addElement(T& element);
 
-	bool remove(T& element);
+    bool remove(T& element);
 
-	void print();
+    void print();
 
-	~randomBag();
+    ~randomBag();
 };

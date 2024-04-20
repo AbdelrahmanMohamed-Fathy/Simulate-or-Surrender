@@ -51,6 +51,7 @@ void gameManager::start()
 			return;
 		};
 		cout << "initiating data-structure test.\n";
+		srand(1020);
 		testStructures();
 		return;
 	default:
@@ -76,7 +77,7 @@ void gameManager::start()
 	switch (x)
 	{
 	case 0:
-		srand(100);
+		srand(1020);
 		break;
 	case 1:
 		srand(time(NULL));
@@ -132,11 +133,11 @@ void gameManager::runInteractive()
 	_getch();
 	while (CheckWinner()==0)
 	{
-		printAlive();
 		runStep(true);
 		printDead();
 		cout << "press any key to continue.\n\n\n\n";
 		_getch();
+		system("cls");
 	}
 	return;
 }
@@ -163,7 +164,7 @@ void gameManager::testStructures()
 		if (x >= 1 && x <= 10)
 		{
 			humanSoldier* soldier;
-			if(humans->getSoldiers()->dequeue(soldier))
+			if (humans->getSoldiers()->dequeue(soldier))
 				(humans->getSoldiers())->enqueue(soldier);
 		}
 		if (x >= 11 && x <= 20)
@@ -188,7 +189,7 @@ void gameManager::testStructures()
 		}
 		if (x >= 31 && x <= 40) {
 			alienSoldier* solider;
-			double *health;
+			double* health;
 			queue<alienSoldier*>* temp;
 			temp = new queue<alienSoldier*>;
 			for (int i = 0; i < 5; i++) {
@@ -206,7 +207,7 @@ void gameManager::testStructures()
 		if (x >= 41 && x <= 50) {
 			alienMonster* monster;
 			for (int i = 0; i < 5; i++) {
-				if(aliens->getMonsters()->remove(monster))
+				if (aliens->getMonsters()->remove(monster))
 					(aliens->getMonsters())->addElement(monster);
 			}
 		}
@@ -222,10 +223,11 @@ void gameManager::testStructures()
 					deathList->enqueue(drone);
 			}
 		}
-      
+
+		system("cls");
 		printAlive();
 		printDead();
-		cout << "press any key to continue.\n\n\n\n";
+		cout << "press any key to continue.\n";
 		_getch();
 		timeStep++;
 	}
@@ -408,13 +410,13 @@ int gameManager::CheckWinner()
 void gameManager::runStep(bool printed)
 {
 	unitGenerator->generate();
+	if(printed) printAlive();
 	fight(printed);
 	timeStep++;
 }
 
 void gameManager::printAlive()
 {
-	cout << "==================================================================================\n\n";
 	cout << "current timestep: " << timeStep << endl;
 	humans->print();
 	aliens->print();

@@ -29,6 +29,7 @@ void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 	}
 
 	if (printed) {
+		cout << "EG " << ID << " attacking: ";
 		attack.print();
 	}
 
@@ -42,16 +43,19 @@ void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 				unit->setDestructionTime(timeStep);
 				deathList->enqueue(unit);
 			}
-			switch ((int)priority) {
-			case 1: 
-				if (i % 2 == 0)
-					drone->enqueueFront((alienDrone*)unit);
-				else
-					drone->enqueueBack((alienDrone*)unit);
-				break;
-			case 2: 
-				monster->addElement((alienMonster*)unit);
-				break;
+			else
+			{
+				switch ((int)priority) {
+				case 1:
+					if (i % 2 == 0)
+						drone->enqueueFront((alienDrone*)unit);
+					else
+						drone->enqueueBack((alienDrone*)unit);
+					break;
+				case 2:
+					monster->addElement((alienMonster*&)unit);
+					break;
+				}
 			}
 		}
 	}
