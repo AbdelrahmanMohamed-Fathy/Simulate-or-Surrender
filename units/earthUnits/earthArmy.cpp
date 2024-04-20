@@ -120,4 +120,10 @@ void earthArmy::print()
 
 void earthArmy::attack(alienArmy* aliens, bool printed)
 {
+	//Human Gunner
+	humanGunner* gunner;
+	double temp;
+	if (gunners->peek(gunner,temp)) {
+		gunner->attack(aliens, gm->getTimeStep(), printed);
+	}
 }
