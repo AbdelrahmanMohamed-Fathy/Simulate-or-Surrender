@@ -3,40 +3,29 @@
 #include"../../../basicDataStructures/priQueue.cpp"
 #include"../../../Utils/generateNumber.cpp"
 
-bool humanTank::pctcheck = false;
-int* humanTank::EScount = nullptr;
+bool humanTank::pctCheck = false;
 
-void humanTank::setEScount(int* count)
+void humanTank::setpctCheck(bool set)
 {
-	EScount = count;
+	pctCheck = set;
+}
+
+bool humanTank::getpctCheck()
+{
+	return pctCheck;
 }
 
 void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
 	priQueue<alienUnit*> attackedq;
-	if (pctcheck)
-	{
-		if (*EScount / ((aliens->getSoldiers()->getCount())) > 0.8)
-		{
-			pctcheck = false;
-		}
-	}
-	else
-	{
-		if (*EScount / ((aliens->getSoldiers()->getCount())) < 0.3)
-		{
-			pctcheck = true;
-		}
-	}
 
-
-	if (!pctcheck)
+	if (!pctCheck)
 	{
 		for (int i = 0; i < (int)attackCapacity; i++)
 		{
 			alienMonster* monster;
-			aliens->getMonsters()->remove(monster);
-			attackedq.enqueue(monster,0);
+			if(aliens->getMonsters()->remove(monster))
+				attackedq.enqueue(monster,0);
 		}
 	}
 	else
@@ -48,13 +37,13 @@ void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int
 			{
 			case 1:
 				alienMonster * monster;
-				aliens->getMonsters()->remove(monster);
-				attackedq.enqueue(monster, 0);
+				if(aliens->getMonsters()->remove(monster))
+					attackedq.enqueue(monster, 0);
 				break;
 			case 2:
 				alienSoldier * soldier;
-				aliens->getSoldiers()->dequeue(soldier);
-				attackedq.enqueue(soldier, 1);
+				if(aliens->getSoldiers()->dequeue(soldier))
+					attackedq.enqueue(soldier, 1);
 				break;
 			}
 		}
@@ -89,7 +78,7 @@ void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int
 				switch ((int)pri)
 				{
 				case 0:
-					aliens->getMonsters()->addElement((alienMonster*)alien);
+					aliens->getMonsters()->addElement((alienMonster*&)alien);
 					break;
 				case 1:
 					aliens->getSoldiers()->enqueue((alienSoldier*)alien);

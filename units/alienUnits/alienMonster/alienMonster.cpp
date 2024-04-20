@@ -17,13 +17,13 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 		{
 		case 1:
 			humanSoldier * soldier;
-			humans->getSoldiers()->dequeue(soldier);
-			attackedq.enqueue(soldier, 0);
+			if(humans->getSoldiers()->dequeue(soldier))
+				attackedq.enqueue(soldier, 0);
 			break;
 		case 2:
 			humanTank * tank;
-			humans->getTanks()->pop(tank);
-			attackedq.enqueue(tank, 1);
+			if(humans->getTanks()->pop(tank))
+				attackedq.enqueue(tank, 1);
 			break;
 		}
 	}

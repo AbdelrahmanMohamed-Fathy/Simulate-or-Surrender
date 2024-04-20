@@ -39,7 +39,7 @@ bool queue<T>::dequeue(T &FrontEntry)
         return false;
     }
     FrontEntry = Head->data;
-    if (!Head->next)
+    if (!(Head->next))
     {
         delete Head;
         Head = nullptr;

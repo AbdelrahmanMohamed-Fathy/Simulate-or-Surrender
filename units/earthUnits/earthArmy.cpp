@@ -127,6 +127,20 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	}
 
 	//Human Tank:
+	if (humanTank::getpctCheck() || aliens->getSoldiers()->isEmpty())
+	{
+		if (aliens->getSoldiers()->isEmpty() || soldiers->getCount() / ((aliens->getSoldiers()->getCount())) > 0.8)
+		{
+			humanTank::setpctCheck(false);
+		}
+	}
+	else
+	{
+		if (soldiers->getCount() / ((aliens->getSoldiers()->getCount())) < 0.3)
+		{
+			humanTank::setpctCheck(true);
+		}
+	}
 	humanTank* tank;
 	if (tanks->peek(tank)) {
 		tank->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);

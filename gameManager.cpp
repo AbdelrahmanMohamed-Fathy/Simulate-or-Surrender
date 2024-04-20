@@ -51,6 +51,7 @@ void gameManager::start()
 			return;
 		};
 		cout << "initiating data-structure test.\n";
+		srand(1020);
 		testStructures();
 		return;
 	default:
@@ -76,7 +77,7 @@ void gameManager::start()
 	switch (x)
 	{
 	case 0:
-		srand(100);
+		srand(1020);
 		break;
 	case 1:
 		srand(time(NULL));
@@ -132,11 +133,11 @@ void gameManager::runInteractive()
 	_getch();
 	while (CheckWinner()==0)
 	{
-		printAlive();
 		runStep(true);
 		printDead();
 		cout << "press any key to continue.\n\n\n\n";
 		_getch();
+		system("cls");
 	}
 	return;
 }
@@ -222,7 +223,8 @@ void gameManager::testStructures()
 					deathList->enqueue(drone);
 			}
 		}
-      
+
+		cout << "==================================================================================\n\n";
 		printAlive();
 		printDead();
 		cout << "press any key to continue.\n\n\n\n";
@@ -408,13 +410,13 @@ int gameManager::CheckWinner()
 void gameManager::runStep(bool printed)
 {
 	unitGenerator->generate();
+	if(printed) printAlive();
 	fight(printed);
 	timeStep++;
 }
 
 void gameManager::printAlive()
 {
-	cout << "==================================================================================\n\n";
 	cout << "current timestep: " << timeStep << endl;
 	humans->print();
 	aliens->print();
