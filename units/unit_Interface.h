@@ -39,6 +39,7 @@ public:
     //Getters:
     int getID() const;
     double* getHP();
+    int getFirstAttackedTime();
     int getFirstAttackedDelay() const;
     int getDestructionDelay() const;
     int getBattleTime();
