@@ -132,11 +132,10 @@ void gameManager::runInteractive()
 	_getch();
 	while (CheckWinner()==0)
 	{
-		system("cls");
 		printAlive();
 		runStep(true);
 		printDead();
-		cout << "press any key to continue.\n";
+		cout << "press any key to continue.\n\n\n\n";
 		_getch();
 	}
 	return;
@@ -224,10 +223,9 @@ void gameManager::testStructures()
 			}
 		}
       
-		system("cls");
 		printAlive();
 		printDead();
-		cout << "press any key to continue.\n";
+		cout << "press any key to continue.\n\n\n\n";
 		_getch();
 		timeStep++;
 	}
@@ -410,6 +408,7 @@ void gameManager::runStep(bool printed)
 
 void gameManager::printAlive()
 {
+	cout << "==================================================================================\n\n";
 	cout << "current timestep: " << timeStep << endl;
 	humans->print();
 	aliens->print();

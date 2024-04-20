@@ -93,6 +93,13 @@ void generator::generate()
 				int AC = generateNumber(humanAttackCapacityMin, humanAttackCapacityMax);
 				gm->getEarthArmy()->addHealer(HP, PW, AC);
 			}
+			else
+			{
+				int HP = generateNumber(humanHealthMin, humanHealthMax);
+				int PW = generateNumber(humanPowerMin, humanPowerMax);
+				int AC = generateNumber(humanAttackCapacityMin, humanAttackCapacityMax);
+				gm->getEarthArmy()->addGunner(HP, PW, AC);
+			}
 		}
 	}
 	if (generateNumber() <= generationProbability)
