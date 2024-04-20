@@ -26,6 +26,11 @@ double* unit_Interface::getHP()
 	return &health;
 }
 
+int unit_Interface::getFirstAttackedTime() const
+{
+	return firstAttackedTime;
+}
+
 int unit_Interface::getFirstAttackedDelay() const
 {
 	return firstAttackedDelay;

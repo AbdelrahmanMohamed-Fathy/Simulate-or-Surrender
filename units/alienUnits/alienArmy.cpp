@@ -95,4 +95,9 @@ void alienArmy::print()
 
 void alienArmy::attack(earthArmy* humans, bool printed)
 {
+	//Alien Soldier
+	alienSoldier* soldier;
+	if (soldiers->peek(soldier)) {
+		soldier->attack(humans, gm->getTimeStep(), printed);
+	}
 }
