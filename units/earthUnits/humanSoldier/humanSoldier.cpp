@@ -5,7 +5,7 @@
 
 
 
-void humanSoldier::attack(alienArmy* aliens, int timeStep, bool printed) {
+void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed) {
 	queue<alienSoldier*>* aliensoldier;
 	aliensoldier=aliens->getSoldiers();
 	alienSoldier* temp;
@@ -24,7 +24,7 @@ void humanSoldier::attack(alienArmy* aliens, int timeStep, bool printed) {
 	for (int i = 0; i < attack->getCount(); i++) {
 		if (attack->dequeue(temp)) {
 			if (temp->getFirstAttackedTime()==-1) {
-				temp->setfirstAttackedTime(timeStep);
+				temp->setFirstAttackedTime(timeStep);
 			}
 			*temp->getHP() -= (power * (health / 100.0)) / sqrt(*temp->getHP());
 			if (temp->getHP() <= 0) {

@@ -1,5 +1,6 @@
 #pragma once
 #include "../unit_Interface.h"
+#include "../../basicDataStructures/queue.h"
 
 class alienArmy;
 
