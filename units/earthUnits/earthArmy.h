@@ -35,7 +35,7 @@ public:
 	stack<humanHealer*>* getHealers();
 	priQueue<earthUnit*>* getUnitMaintenanceList();
 
-	//Adders:
+	//Adders: (only for generator use)
 	void addSoldier(int HP, int PW, int AC);
 	void addTank(int HP, int PW, int AC);
 	void addGunner(int HP, int PW, int AC);
