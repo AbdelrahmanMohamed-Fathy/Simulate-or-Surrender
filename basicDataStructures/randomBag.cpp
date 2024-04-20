@@ -32,6 +32,16 @@ bool randomBag<T>::isFull()
 }
 
 template<typename T>
+bool randomBag<T>::peek(T& element)
+{
+	if (isEmpty())
+		return false;
+	int x = generateNumber(0, count - 1);
+	element = *elements[x];
+	return true;
+}
+
+template<typename T>
 bool randomBag<T>::addElement(T& element)
 {
 	if (!isFull())
