@@ -2,7 +2,7 @@
 #include "../../earthUnits/earthArmy.h"
 #include<cmath>
 
-void alienSoldier::attack(earthArmy* humans, int timeStep, bool printed) {
+void alienSoldier::attack(earthArmy* humans, queue<unit_Interface*>* deathList,int timeStep, bool printed) {
 	queue<humanSoldier*>* humansoldier;
 	humansoldier = humans->getSoldiers();
 	humanSoldier* temp;

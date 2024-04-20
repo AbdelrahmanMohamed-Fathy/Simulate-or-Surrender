@@ -61,7 +61,7 @@ void alienArmy::addSoldier(int HP, int PW, int AC)
 void alienArmy::addMonster(int HP, int PW, int AC)
 {
 	alienMonster** newUnit = new alienMonster*;
-	**newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	*newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
 	monsters->addElement(*newUnit);
 }
 
@@ -96,21 +96,22 @@ void alienArmy::print()
 
 void alienArmy::attack(earthArmy* humans, bool printed)
 {
-	//alienMonster
-	alienMonster* temp;
-	if (monsters->peek(temp))
-	{
-		temp->attack(humans, gm->getTimeStep(), printed, gm->getDeathList());
-
 	//Alien Soldier
 	alienSoldier* soldier;
 	if (soldiers->peek(soldier)) {
-		soldier->attack(humans, gm->getTimeStep(), printed);
+		soldier->attack(humans, gm->getDeathList(), gm->getTimeStep(), printed);
 	}
+
+	//Alien Monster
+	alienMonster* temp;
+	if (monsters->peek(temp)) {
+		temp->attack(humans, gm->getDeathList(), gm->getTimeStep(), printed);
+	}
+
 	//Alien Drone
 	alienDrone *frontDrone, *backDrone;
 	if (drones->peekFront(frontDrone) && drones->peekBack(backDrone)) {
-		frontDrone->attack(humans, gm->getTimeStep(),printed);
-		backDrone->attack(humans, gm->getTimeStep(), printed);
+		frontDrone->attack(humans, gm->getDeathList(), gm->getTimeStep(), printed);
+		backDrone->attack(humans, gm->getDeathList(),gm->getTimeStep(), printed);
 	}
 }

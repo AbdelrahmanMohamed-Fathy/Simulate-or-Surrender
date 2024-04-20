@@ -6,7 +6,7 @@
 
 #include"../../../utils/generateNumber.cpp"
 
-void alienMonster::attack(earthArmy* humans,int timeStep, bool printed, queue<unit_Interface*>* deathList)
+void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
 	priQueue<earthUnit*> attackedq;
 
@@ -42,11 +42,11 @@ void alienMonster::attack(earthArmy* humans,int timeStep, bool printed, queue<un
 		{
 			if (human->getFirstAttackedTime() == -1)
 			{
-				human->setfirstAttackedTime(timeStep);
+				human->setFirstAttackedTime(timeStep);
 			}
 			double* humanHP = human->getHP();
 			*humanHP -= (((power * health) / 100) / sqrt(*humanHP));
-			human->setfirstAttackedTime(timeStep);
+			human->setFirstAttackedTime(timeStep);
 			if (*humanHP <= 0)
 			{
 				human->setDestructionTime(timeStep);
