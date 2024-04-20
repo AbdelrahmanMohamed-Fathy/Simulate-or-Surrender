@@ -137,5 +137,8 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	double temp;
 	if (gunners->peek(gunner, temp)) {
 		gunner->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
+		temp->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
+=========
+>>>>>>>>> Temporary merge branch 2
 	}
 }
