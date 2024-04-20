@@ -46,7 +46,7 @@ bool randomBag<T>::addElement(const T& element)
 {
 	if (!isFull())
 	{
-		elements[count++] = &element;
+		elements[count++] = (T*) & element;
 		return true;
 	}
 	return false;

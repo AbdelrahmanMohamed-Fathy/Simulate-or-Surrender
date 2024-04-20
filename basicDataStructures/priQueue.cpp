@@ -54,7 +54,7 @@ bool priQueue<T>::peek(T& topEntry, double& pri)
         return false;
 
     topEntry = head->data;
-    pri = head->priority
+    pri = head->priority;
     return true;
 }
 

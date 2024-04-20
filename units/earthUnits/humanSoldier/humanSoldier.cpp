@@ -1,7 +1,7 @@
 #include "humanSoldier.h"
 #include "../earthArmy.h"
-#include"../../alienUnits/alienArmy.h"
-#include<cmath>
+#include "../../alienUnits/alienArmy.h"
+#include <cmath>
 
 
 
@@ -11,7 +11,7 @@ void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, 
 	alienSoldier* temp;
 	queue<alienSoldier*>* attack;
 	
-	for (int i = 0; i < attackCapacity; i++) {
+	for (int i = 0; i < (int)attackCapacity; i++) {
 		if (aliensoldier->dequeue(temp)) {
 			attack->enqueue(temp);
 		}

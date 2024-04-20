@@ -112,6 +112,6 @@ void alienArmy::attack(earthArmy* humans, bool printed)
 	alienDrone *frontDrone, *backDrone;
 	if (drones->peekFront(frontDrone) && drones->peekBack(backDrone)) {
 		frontDrone->attack(humans, gm->getDeathList(), gm->getTimeStep(), printed);
-		backDrone->attack(humans, gm->getDeathList(),gm->getTimeStep(), printed);
+		backDrone->attack(humans, gm->getDeathList(), gm->getTimeStep(), printed);
 	}
 }

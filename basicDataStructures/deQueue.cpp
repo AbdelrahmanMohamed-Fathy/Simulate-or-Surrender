@@ -118,7 +118,7 @@ bool deQueue<T>::dequeueback(T& back)
 template<typename T>
 bool deQueue<T>::peek(T& front) const
 {
-	peekFront(front);
+	return peekFront(front);
 }
 
 template<typename T>

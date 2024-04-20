@@ -10,30 +10,30 @@ void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 	randomBag<alienMonster*>* monster;
 	alienMonster* temp1;
 	monster = aliens->getMonsters();
-	priQueue<alienUnit*>* attack;
+	priQueue<alienUnit*> attack;
 	double priority;
 	alienUnit* unit;
 
 	for (int i = 0; i < floor(attackCapacity / 2); i++) {
 		if (drone->dequeueback(temp)) {
-			attack->enqueue(temp, 1);
+			attack.enqueue(temp, 1);
 		}
 		if (drone->dequeuefront(temp)) {
-			attack->enqueue(temp, 1);
+			attack.enqueue(temp, 1);
 		}
 	}
 	for (int i = 0; i < ceil(attackCapacity / 2); i++) {
 		if (monster->remove(temp1)) {
-			attack->enqueue(temp1, 2);
+			attack.enqueue(temp1, 2);
 		}
 	}
 
 	if (printed) {
-		attack->print();
+		attack.print();
 	}
 
-	for (int i = 0; i < attack->getCount(); i++) {
-		if (attack->dequeue(unit, priority)) {
+	for (int i = 0; i < attack.getCount(); i++) {
+		if (attack.dequeue(unit, priority)) {
 			if (unit->getFirstAttackedTime() == -1) {
 				unit->setFirstAttackedTime(timeStep);
 			}
@@ -43,13 +43,15 @@ void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 				deathList->enqueue(unit);
 			}
 			switch ((int)priority) {
-			case 1: if (i % 2 == 0)
+			case 1: 
+				if (i % 2 == 0)
 					drone->enqueueFront((alienDrone*)unit);
-					 else
+				else
 					drone->enqueueBack((alienDrone*)unit);
-					break;
-			//case 2: monster->addElement((alienMonster*)unit);
-				//break;
+				break;
+			case 2: 
+				monster->addElement((alienMonster*)unit);
+				break;
 			}
 		}
 	}

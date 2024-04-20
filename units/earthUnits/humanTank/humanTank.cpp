@@ -1,9 +1,6 @@
 #include "humanTank.h"
-
 #include"../../alienUnits/alienArmy.h"
-
 #include"../../../basicDataStructures/priQueue.cpp"
-
 #include"../../../Utils/generateNumber.cpp"
 
 bool humanTank::pctcheck = false;
@@ -29,7 +26,7 @@ void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int
 
 	if (!pctcheck)
 	{
-		for (int i = 0; i < attackCapacity; i++)
+		for (int i = 0; i < (int)attackCapacity; i++)
 		{
 			alienMonster* monster;
 			aliens->getMonsters()->remove(monster);
