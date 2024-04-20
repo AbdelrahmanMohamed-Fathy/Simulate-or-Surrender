@@ -28,7 +28,7 @@ public:
 	randomBag<alienMonster*>* getMonsters();
 	deQueue<alienDrone*>* getDrones();
 
-	//Adders:
+	//Adders: (only for generator use)
 	void addSoldier(int HP, int PW, int AC);
 	void addMonster(int HP, int PW, int AC);
 	void addDrone(int HP, int PW, int AC);
