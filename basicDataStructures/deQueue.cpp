@@ -118,11 +118,28 @@ bool deQueue<T>::dequeueback(T& back)
 template<typename T>
 bool deQueue<T>::peek(T& front) const
 {
+	peekFront(front);
+}
+
+template<typename T>
+bool deQueue<T>::peekFront(T& FrontEntry) const
+{
 	if (isEmpty())
 	{
 		return false;
 	}
-	front = Head->data;
+	FrontEntry = Head->data;
+	return true;
+}
+
+template<typename T>
+bool deQueue<T>::peekBack(T& BackEntry) const
+{
+	if (isEmpty())
+	{
+		return false;
+	}
+	BackEntry = Tail->data;
 	return true;
 }
 
