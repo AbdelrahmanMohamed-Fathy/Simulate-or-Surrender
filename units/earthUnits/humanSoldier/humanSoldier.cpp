@@ -3,7 +3,7 @@
 #include "../../alienUnits/alienArmy.h"
 #include <cmath>
 
-
+unsigned int humanSoldier::deathCount = 0;
 
 void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed) {
 	queue<alienSoldier*>* aliensoldier;
@@ -37,4 +37,9 @@ void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, 
 			else aliensoldier->enqueue(temp);
 		}
 	}
+}
+
+int humanSoldier::getDeathCount()
+{
+	return deathCount;
 }

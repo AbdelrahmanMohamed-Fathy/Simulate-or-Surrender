@@ -6,6 +6,8 @@
 
 #include"../../../utils/generateNumber.cpp"
 
+unsigned int alienMonster::deathCount = 0;
+
 void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
 	priQueue<earthUnit*> attackedq;
@@ -65,4 +67,9 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 			}
 		}
 	}
+}
+
+int alienMonster::getDeathCount()
+{
+	return deathCount;
 }

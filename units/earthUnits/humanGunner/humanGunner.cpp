@@ -2,6 +2,8 @@
 #include "../../alienUnits/alienArmy.h"
 #include "../../basicDataStructures/priQueue.cpp"
 
+unsigned int humanGunner::deathCount = 0;
+
 void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
 	deQueue<alienDrone*>* drone;
@@ -66,4 +68,9 @@ void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 double humanGunner::getPriority()
 {
     return (double)power*(maxHealth/100);
+}
+
+int humanGunner::getDeathCount()
+{
+	return deathCount;
 }

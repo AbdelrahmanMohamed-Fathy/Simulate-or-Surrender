@@ -5,6 +5,8 @@
 
 bool humanTank::pctCheck = false;
 
+unsigned int humanTank::deathCount = 0;
+
 void humanTank::setpctCheck(bool set)
 {
 	pctCheck = set;
@@ -88,4 +90,9 @@ void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int
 			}
 		}
 	}
+}
+
+int humanTank::getDeathCount()
+{
+	return deathCount;
 }

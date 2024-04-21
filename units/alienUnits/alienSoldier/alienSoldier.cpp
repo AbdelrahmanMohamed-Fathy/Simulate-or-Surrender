@@ -2,6 +2,8 @@
 #include "../../earthUnits/earthArmy.h"
 #include<cmath>
 
+unsigned int alienSoldier::deathCount = 0;
+
 void alienSoldier::attack(earthArmy* humans, queue<unit_Interface*>* deathList,int timeStep, bool printed) {
 	queue<humanSoldier*>* humansoldier;
 	humansoldier = humans->getSoldiers();
@@ -34,4 +36,9 @@ void alienSoldier::attack(earthArmy* humans, queue<unit_Interface*>* deathList,i
 			else humansoldier->enqueue(temp);
 		}
 	}
+}
+
+int alienSoldier::getDeathCount()
+{
+	return deathCount;
 }

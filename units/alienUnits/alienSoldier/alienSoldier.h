@@ -3,7 +3,10 @@
 
 class alienSoldier : public alienUnit
 {
+private:
+	static unsigned int deathCount;
 public:
 	alienSoldier(int iD, int Hp, int Pr, int Ac, int Tj) : alienUnit(iD, Hp, Pr, Ac, Tj) {};
 	virtual void attack(earthArmy* humans, queue<unit_Interface*>* deathList,int timeStep, bool printed);
+	static int getDeathCount();
 };

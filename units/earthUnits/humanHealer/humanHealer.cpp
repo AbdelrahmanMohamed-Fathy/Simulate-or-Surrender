@@ -3,6 +3,8 @@
 
 priQueue<earthUnit*>* humanHealer::unitMaintenanceList = nullptr;
 
+unsigned int humanHealer::deathCount = 0;
+
 priQueue<earthUnit*>* humanHealer::getUnitMaintenanceList()
 {
     return unitMaintenanceList;
@@ -15,4 +17,9 @@ void humanHealer::setUnitMaintenanceList(priQueue<earthUnit*>* UML)
 
 void humanHealer::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
+}
+
+int humanHealer::getDeathCount()
+{
+    return deathCount;
 }

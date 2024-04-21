@@ -2,6 +2,8 @@
 #include "../../earthUnits/earthArmy.h"
 #include <cmath>
 
+unsigned int alienDrone::deathCount = 0;
+
 void alienDrone::attack(earthArmy* humans, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
 	stack<humanTank*>* tanks;
@@ -52,4 +54,9 @@ void alienDrone::attack(earthArmy* humans, queue<unit_Interface*>* deathList, in
 			}
 		}	
 	}
+}
+
+int alienDrone::getDeathCount()
+{
+	return deathCount;
 }
