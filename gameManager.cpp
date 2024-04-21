@@ -6,7 +6,6 @@
 
 gameManager::gameManager()
 {
-	srand(100);
 	timeStep = 0;
 	earthVictory = true;
 	structureTest = false;
