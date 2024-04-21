@@ -6,7 +6,6 @@
 
 gameManager::gameManager()
 {
-	srand(100);
 	timeStep = 0;
 	earthVictory = true;
 	structureTest = false;
@@ -134,7 +133,6 @@ void gameManager::runInteractive()
 	while (CheckWinner()==0)
 	{
 		runStep(true);
-		printDead();
 		cout << "press any key to continue.\n\n\n\n";
 		_getch();
 		system("cls");
@@ -411,8 +409,9 @@ int gameManager::CheckWinner()
 void gameManager::runStep(bool printed)
 {
 	unitGenerator->generate();
-	if(printed) printAlive();
+	if (printed) printAlive();
 	fight(printed);
+	if (printed) printDead();
 	timeStep++;
 }
 
