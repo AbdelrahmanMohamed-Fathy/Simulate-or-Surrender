@@ -19,7 +19,9 @@ void alienSoldier::attack(earthArmy* humans, queue<unit_Interface*>* deathList,i
 		attack.print();
 	}
 
-	for (int i = 0; i < attack.getCount(); i++) {
+	int count = attack.getCount();
+
+	for (int i = 0; i < count; i++) {
 		if (attack.dequeue(temp)) {
 			if (temp->getFirstAttackedTime() == -1) {
 				temp->setFirstAttackedTime(timeStep);

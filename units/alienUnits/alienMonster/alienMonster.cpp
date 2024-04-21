@@ -33,8 +33,8 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 		cout << "AM " << ID << " attacking: ";
 		attackedq.print();
 	}
-
-	for (int i = 0; i < attackedq.getCount(); i++)
+	int count = attackedq.getCount();
+	for (int i = 0; i < count; i++)
 	{
 		earthUnit* human;
 		double pri;

@@ -33,7 +33,9 @@ void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 		attack.print();
 	}
 
-	for (int i = 0; i < attack.getCount(); i++) {
+	int count = attack.getCount();
+
+	for (int i = 0; i < count; i++) {
 		if (attack.dequeue(unit, priority)) {
 			if (unit->getFirstAttackedTime() == -1) {
 				unit->setFirstAttackedTime(timeStep);

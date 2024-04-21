@@ -29,8 +29,9 @@ void alienDrone::attack(earthArmy* humans, queue<unit_Interface*>* deathList, in
 		cout << "AD " << ID << " attacking: ";
 		attack.print();
 	}
+	int count = attack.getCount();
 
-	for (int i = 0; i < attack.getCount(); i++) {
+	for (int i = 0; i < count; i++) {
 		if (attack.dequeue(unit, priority)) {
 			if (unit->getFirstAttackedTime() == -1) {
 				unit->setFirstAttackedTime(timeStep);	

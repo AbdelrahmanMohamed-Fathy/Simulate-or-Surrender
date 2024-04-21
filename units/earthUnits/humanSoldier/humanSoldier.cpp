@@ -21,8 +21,10 @@ void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, 
 		cout << "ES " << ID << " attacking: ";
 		attack.print();
 	}
-	
-	for (int i = 0; i < attack.getCount(); i++) {
+
+	int count = attack.getCount();
+
+	for (int i = 0; i < count; i++) {
 		if (attack.dequeue(temp)) {
 			if (temp->getFirstAttackedTime()==-1) {
 				temp->setFirstAttackedTime(timeStep);
