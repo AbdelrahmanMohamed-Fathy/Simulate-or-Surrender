@@ -57,6 +57,11 @@ bool randomBag<T>::remove(T& element)
 template<typename T>
 void randomBag<T>::print()
 {
+    if (isEmpty())
+    {
+        cout << "[]\n";
+        return;
+    }
     cout << "[";
     if (elements[0])
         cout << *elements[0];

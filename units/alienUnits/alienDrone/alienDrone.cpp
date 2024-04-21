@@ -37,7 +37,7 @@ void alienDrone::attack(earthArmy* humans, queue<unit_Interface*>* deathList, in
 				unit->setFirstAttackedTime(timeStep);	
 			}
 			*unit->getHP() -= (power * (health / 100.0)) / sqrt(*unit->getHP());
-			if (unit->getHP() <= 0) {
+			if (*unit->getHP() <= 0) {
 				unit->setDestructionTime(timeStep);
 				deathList->enqueue(unit);
 			}

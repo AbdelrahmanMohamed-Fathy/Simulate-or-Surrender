@@ -27,7 +27,7 @@ void alienSoldier::attack(earthArmy* humans, queue<unit_Interface*>* deathList,i
 				temp->setFirstAttackedTime(timeStep);
 			}
 			*temp->getHP() -= (power * (health / 100.0)) / sqrt(*temp->getHP());
-			if (temp->getHP() <= 0) {
+			if (*temp->getHP() <= 0) {
 				temp->setDestructionTime(timeStep);
 				deathList->enqueue(temp);
 			}
