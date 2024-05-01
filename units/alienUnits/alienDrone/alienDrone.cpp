@@ -2,8 +2,6 @@
 #include "../../earthUnits/earthArmy.h"
 #include <cmath>
 
-unsigned int alienDrone::deathCount = 0;
-
 void alienDrone::attack(earthArmy* humans, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
 	stack<humanTank*>* tanks;
@@ -42,6 +40,20 @@ void alienDrone::attack(earthArmy* humans, queue<unit_Interface*>* deathList, in
 			if (*unit->getHP() <= 0) {
 				unit->setDestructionTime(timeStep);
 				deathList->enqueue(unit);
+				switch ((int)priority) {
+					int tempCount;
+				case 1: 
+					tempCount = humans->getDeathCountET();
+					tempCount++;
+					humans->setDeathCountET(tempCount);
+					break;
+				case 2: 
+					tempCount = humans->getDeathCountEG();
+					tempCount++;
+					humans->setDeathCountEG(tempCount);
+					break;
+				}
+
 			}
 			else
 			{

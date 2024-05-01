@@ -6,7 +6,6 @@
 
 #include"../../../utils/generateNumber.cpp"
 
-unsigned int alienMonster::deathCount = 0;
 
 void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
@@ -53,6 +52,19 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 			{
 				human->setDestructionTime(timeStep);
 				deathList->enqueue(human);
+				switch ((int)pri)
+				{
+				int tempCount;
+				case 0:
+					tempCount = humans->getDeathCountES();
+					tempCount++;
+					humans->setDeathCountES(tempCount);
+					break;
+				case 1:
+					tempCount = humans->getDeathCountET();
+					tempCount++;
+					humans->setDeathCountET(tempCount);
+				}
 			}
 			else
 			{

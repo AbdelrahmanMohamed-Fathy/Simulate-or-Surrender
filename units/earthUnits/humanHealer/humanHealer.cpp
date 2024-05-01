@@ -3,8 +3,6 @@
 
 priQueue<earthUnit*>* humanHealer::unitMaintenanceList = nullptr;
 
-unsigned int humanHealer::deathCount = 0;
-
 priQueue<earthUnit*>* humanHealer::getUnitMaintenanceList()
 {
     return unitMaintenanceList;

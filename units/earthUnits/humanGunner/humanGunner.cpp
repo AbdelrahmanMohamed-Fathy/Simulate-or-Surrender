@@ -2,8 +2,6 @@
 #include "../../alienUnits/alienArmy.h"
 #include "../../basicDataStructures/priQueue.cpp"
 
-unsigned int humanGunner::deathCount = 0;
-
 void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
 	deQueue<alienDrone*>* drone;
@@ -46,6 +44,17 @@ void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 			if (*unit->getHP() <= 0) {
 				unit->setDestructionTime(timeStep);
 				deathList->enqueue(unit);
+				switch ((int)priority) {
+					int tempCount;
+				case 1:
+					tempCount = aliens->getDeathCountAD();
+					tempCount++;
+					aliens->setDeathCountAD(tempCount);
+				case 2:
+					tempCount = aliens->getDeathCountAM();
+					tempCount++;
+					aliens->setDeathCountAM(tempCount);
+				}
 			}
 			else
 			{

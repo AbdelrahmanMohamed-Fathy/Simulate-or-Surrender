@@ -58,7 +58,6 @@ void unit_Interface::setDestructionTime(int dt)
 	destructionTime = dt;
 	destructionDelay = destructionTime - firstAttackedTime;
 	battleTime = destructionTime - joinTime;
-	this->deathCount++;
 }
 
 void unit_Interface::setFirstAttackedTime(int at)

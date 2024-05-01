@@ -22,6 +22,11 @@ private:
 	priQueue<humanGunner*>* gunners;
 	stack<humanHealer*>* healers;
 
+	//Death Counts:
+	unsigned int deathCountES = 0;
+	unsigned int deathCountET = 0;
+	unsigned int deathCountEG = 0;
+
 	priQueue<earthUnit*>* unitMaintenanceList;
 public:
 	earthArmy(gameManager* GM);
@@ -33,6 +38,14 @@ public:
 	priQueue<humanGunner*>* getGunners();
 	stack<humanHealer*>* getHealers();
 	priQueue<earthUnit*>* getUnitMaintenanceList();
+	int getDeathCountET();
+	int getDeathCountEG();
+	int getDeathCountES();
+
+	//Setters:
+	void setDeathCountET(int);
+	void setDeathCountEG(int);
+	void setDeathCountES(int);
 
 	//Adders: (only for generator use)
 	void addSoldier(int HP, int PW, int AC);

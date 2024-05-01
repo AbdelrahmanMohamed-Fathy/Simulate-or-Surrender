@@ -69,6 +69,30 @@ priQueue<earthUnit*>* earthArmy::getUnitMaintenanceList()
 {
 	return unitMaintenanceList;
 }
+int earthArmy::getDeathCountET()
+{
+	return deathCountET;
+}
+int earthArmy::getDeathCountEG()
+{
+	return deathCountEG;
+}
+int earthArmy::getDeathCountES()
+{
+	return deathCountES;
+}
+void earthArmy::setDeathCountET(int deathCount)
+{
+	deathCountET = deathCount;
+}
+void earthArmy::setDeathCountEG(int deathCount)
+{
+	deathCountEG = deathCount;
+}
+void earthArmy::setDeathCountES(int deathCount)
+{
+	deathCountES = deathCount;
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Adders														//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////

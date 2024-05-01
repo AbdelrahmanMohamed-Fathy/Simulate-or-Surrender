@@ -4,7 +4,6 @@
 class humanTank : public earthUnit
 {
 private:
-	static unsigned int deathCount;
 	static bool pctCheck;
 public:
 	humanTank(int iD, int Hp, int Pr, int Ac, int Tj) : earthUnit(iD, Hp, Pr, Ac, Tj) {};

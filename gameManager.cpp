@@ -304,9 +304,9 @@ void gameManager::produceOutputFile()
 	double humanTankCount = humans->getTanks()->getCount();
 	double humanGunnerCount = humans->getGunners()->getCount();
 	double totalHumanCount = humanSoldierCount + humanTankCount + humanGunnerCount;
-	double humanDeadSoldierCount = humanSoldier::getDeathCount();
-	double humanDeadTankCount = humanTank::getDeathCount();
-	double humanDeadGunnerCount = humanGunner::getDeathCount();
+	double humanDeadSoldierCount = humans->getDeathCountES();
+	double humanDeadTankCount = humans->getDeathCountET();
+	double humanDeadGunnerCount = humans->getDeathCountEG();
 	double totalHumanDeadCount = humanDeadSoldierCount + humanDeadTankCount + humanDeadGunnerCount;
 
 	outputFile << "Earth army stats:\n"
@@ -332,9 +332,9 @@ void gameManager::produceOutputFile()
 	double alienMonsterCount = aliens->getMonsters()->getCount();
 	double alienDroneCount = aliens->getDrones()->getCount();
 	double totalAlienCount = alienSoldierCount + alienMonsterCount + alienDroneCount;
-	double alienDeadSoldierCount = alienSoldier::getDeathCount();
-	double alienDeadMonsterCount = alienMonster::getDeathCount();
-	double alienDeadDroneCount = alienDrone::getDeathCount();
+	double alienDeadSoldierCount = aliens->getDeathCountAS();
+	double alienDeadMonsterCount = aliens->getDeathCountAM();
+	double alienDeadDroneCount = aliens->getDeathCountAD();
 	double totalAlienDeadCount = alienDeadSoldierCount + alienDeadMonsterCount + alienDeadDroneCount;
 
 	outputFile << "Alien army stats:\n"
