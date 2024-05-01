@@ -4,7 +4,6 @@
 #include <cmath>
 
 
-
 void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed) {
 	queue<alienSoldier*>* aliensoldier;
 	aliensoldier=aliens->getSoldiers();
@@ -21,18 +20,29 @@ void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, 
 		cout << "ES " << ID << " attacking: ";
 		attack.print();
 	}
-	
-	for (int i = 0; i < attack.getCount(); i++) {
+
+	int count = attack.getCount();
+
+	for (int i = 0; i < count; i++) {
 		if (attack.dequeue(temp)) {
 			if (temp->getFirstAttackedTime()==-1) {
 				temp->setFirstAttackedTime(timeStep);
 			}
 			*temp->getHP() -= (power * (health / 100.0)) / sqrt(*temp->getHP());
-			if (temp->getHP() <= 0) {
+			if (*temp->getHP() <= 0) {
 				temp->setDestructionTime(timeStep);
 				deathList->enqueue(temp);
+				int tempCount;
+				tempCount = aliens->getDeathCountAS();
+				tempCount++;
+				aliens->setDeathCountAS(tempCount);
 			}
 			else aliensoldier->enqueue(temp);
 		}
 	}
+}
+
+int humanSoldier::getDeathCount()
+{
+	return deathCount;
 }

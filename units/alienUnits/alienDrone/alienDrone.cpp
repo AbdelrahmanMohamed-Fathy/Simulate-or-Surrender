@@ -29,16 +29,31 @@ void alienDrone::attack(earthArmy* humans, queue<unit_Interface*>* deathList, in
 		cout << "AD " << ID << " attacking: ";
 		attack.print();
 	}
+	int count = attack.getCount();
 
-	for (int i = 0; i < attack.getCount(); i++) {
+	for (int i = 0; i < count; i++) {
 		if (attack.dequeue(unit, priority)) {
 			if (unit->getFirstAttackedTime() == -1) {
 				unit->setFirstAttackedTime(timeStep);	
 			}
 			*unit->getHP() -= (power * (health / 100.0)) / sqrt(*unit->getHP());
-			if (unit->getHP() <= 0) {
+			if (*unit->getHP() <= 0) {
 				unit->setDestructionTime(timeStep);
 				deathList->enqueue(unit);
+				switch ((int)priority) {
+					int tempCount;
+				case 1: 
+					tempCount = humans->getDeathCountET();
+					tempCount++;
+					humans->setDeathCountET(tempCount);
+					break;
+				case 2: 
+					tempCount = humans->getDeathCountEG();
+					tempCount++;
+					humans->setDeathCountEG(tempCount);
+					break;
+				}
+
 			}
 			else
 			{
@@ -51,4 +66,9 @@ void alienDrone::attack(earthArmy* humans, queue<unit_Interface*>* deathList, in
 			}
 		}	
 	}
+}
+
+int alienDrone::getDeathCount()
+{
+	return deathCount;
 }

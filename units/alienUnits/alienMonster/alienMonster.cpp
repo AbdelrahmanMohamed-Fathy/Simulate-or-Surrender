@@ -6,6 +6,7 @@
 
 #include"../../../utils/generateNumber.cpp"
 
+
 void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
 	priQueue<earthUnit*> attackedq;
@@ -33,8 +34,8 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 		cout << "AM " << ID << " attacking: ";
 		attackedq.print();
 	}
-
-	for (int i = 0; i < attackedq.getCount(); i++)
+	int count = attackedq.getCount();
+	for (int i = 0; i < count; i++)
 	{
 		earthUnit* human;
 		double pri;
@@ -51,6 +52,19 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 			{
 				human->setDestructionTime(timeStep);
 				deathList->enqueue(human);
+				switch ((int)pri)
+				{
+				int tempCount;
+				case 0:
+					tempCount = humans->getDeathCountES();
+					tempCount++;
+					humans->setDeathCountES(tempCount);
+					break;
+				case 1:
+					tempCount = humans->getDeathCountET();
+					tempCount++;
+					humans->setDeathCountET(tempCount);
+				}
 			}
 			else
 			{
@@ -65,4 +79,9 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 			}
 		}
 	}
+}
+
+int alienMonster::getDeathCount()
+{
+	return deathCount;
 }

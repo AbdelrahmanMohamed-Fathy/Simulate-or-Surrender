@@ -44,7 +44,6 @@ public:
     int getDestructionDelay() const;
     int getBattleTime();
     static int getDeathCount();
-    
     //Setters:
     void setDestructionTime(int dt);
     void setFirstAttackedTime(int at);

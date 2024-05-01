@@ -55,7 +55,9 @@ void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int
 		attackedq.print();
 	}
 
-	for (int i = 0; i < attackedq.getCount(); i++)
+	int count = attackedq.getCount();
+
+	for (int i = 0; i < count; i++)
 	{
 		alienUnit* alien;
 		double pri;
@@ -72,6 +74,20 @@ void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int
 			{
 				alien->setDestructionTime(timeStep);
 				deathList->enqueue(alien);
+				switch ((int)pri)
+				{
+					int tempCount;
+				case 0:
+					tempCount = aliens->getDeathCountAM();
+					tempCount++;
+					aliens->setDeathCountAM(tempCount);
+					break;
+				case 1:
+					tempCount = aliens->getDeathCountAS();
+					tempCount++;
+					aliens->setDeathCountAS(tempCount);
+					break;
+				}
 			}
 			else
 			{
@@ -82,8 +98,14 @@ void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int
 					break;
 				case 1:
 					aliens->getSoldiers()->enqueue((alienSoldier*)alien);
+					break;
 				}
 			}
 		}
 	}
+}
+
+int humanTank::getDeathCount()
+{
+	return deathCount;
 }

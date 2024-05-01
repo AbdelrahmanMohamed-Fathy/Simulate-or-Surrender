@@ -33,15 +33,28 @@ void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 		attack.print();
 	}
 
-	for (int i = 0; i < attack.getCount(); i++) {
+	int count = attack.getCount();
+
+	for (int i = 0; i < count; i++) {
 		if (attack.dequeue(unit, priority)) {
 			if (unit->getFirstAttackedTime() == -1) {
 				unit->setFirstAttackedTime(timeStep);
 			}
 			*unit->getHP() -= (power * (health / 100.0)) / sqrt(*unit->getHP());
-			if (unit->getHP() <= 0) {
+			if (*unit->getHP() <= 0) {
 				unit->setDestructionTime(timeStep);
 				deathList->enqueue(unit);
+				switch ((int)priority) {
+					int tempCount;
+				case 1:
+					tempCount = aliens->getDeathCountAD();
+					tempCount++;
+					aliens->setDeathCountAD(tempCount);
+				case 2:
+					tempCount = aliens->getDeathCountAM();
+					tempCount++;
+					aliens->setDeathCountAM(tempCount);
+				}
 			}
 			else
 			{
@@ -63,5 +76,10 @@ void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 
 double humanGunner::getPriority()
 {
-    return (double)power*(health/100.0);
+    return (double)power*(maxHealth/100);
+}
+
+int humanGunner::getDeathCount()
+{
+	return deathCount;
 }

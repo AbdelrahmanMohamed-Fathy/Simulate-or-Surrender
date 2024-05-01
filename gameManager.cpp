@@ -6,7 +6,6 @@
 
 gameManager::gameManager()
 {
-	srand(100);
 	timeStep = 0;
 	earthVictory = true;
 	structureTest = false;
@@ -134,7 +133,6 @@ void gameManager::runInteractive()
 	while (CheckWinner()==0)
 	{
 		runStep(true);
-		printDead();
 		cout << "press any key to continue.\n\n\n\n";
 		_getch();
 		system("cls");
@@ -282,7 +280,7 @@ void gameManager::produceOutputFile()
 		outputFile << alienVictoryScreen;
 
 	double totalHumanDf = 0; double totalAlienDf = 0; double totalHumanDd = 0; double totalAlienDd = 0; double totalHumanDb = 0; double totalAlienDb = 0;
-	outputFile << "\n\nKilled units:\n\n";
+	outputFile << "\n\nKilled units:\n";
 	unit_Interface* temp = nullptr;
 	while (deathList->dequeue(temp))
 	{
@@ -300,14 +298,15 @@ void gameManager::produceOutputFile()
 			totalAlienDb += temp->getBattleTime();
 		} 
 	}
+	outputFile << endl;
 
 	double humanSoldierCount = humans->getSoldiers()->getCount();
 	double humanTankCount = humans->getTanks()->getCount();
 	double humanGunnerCount = humans->getGunners()->getCount();
 	double totalHumanCount = humanSoldierCount + humanTankCount + humanGunnerCount;
-	double humanDeadSoldierCount = humanSoldier::getDeathCount();
-	double humanDeadTankCount = humanTank::getDeathCount();
-	double humanDeadGunnerCount = humanGunner::getDeathCount();
+	double humanDeadSoldierCount = humans->getDeathCountES();
+	double humanDeadTankCount = humans->getDeathCountET();
+	double humanDeadGunnerCount = humans->getDeathCountEG();
 	double totalHumanDeadCount = humanDeadSoldierCount + humanDeadTankCount + humanDeadGunnerCount;
 
 	outputFile << "Earth army stats:\n"
@@ -316,26 +315,26 @@ void gameManager::produceOutputFile()
 		<< humanTankCount << " ET, "
 		<< humanGunnerCount << " EG\n"
 		<< "Percentage of dead units relative to their total: "
-		<< humanDeadSoldierCount / humanSoldierCount << "% ES,"
-		<< humanDeadTankCount / humanTankCount << "% ET,"
-		<< humanDeadGunnerCount / humanGunnerCount << "% EG\n"
+		<< humanDeadSoldierCount / (humanSoldierCount + humanDeadSoldierCount) * 100 << "% ES,"
+		<< humanDeadTankCount / (humanTankCount + humanDeadTankCount) * 100 << "% ET,"
+		<< humanDeadGunnerCount / (humanGunnerCount + humanDeadGunnerCount) * 100 << "% EG\n"
 		<< "Percentage of total dead units to total units: "
-		<< totalHumanCount / totalHumanDeadCount << "%\n"
+		<< totalHumanDeadCount / (totalHumanCount + totalHumanDeadCount) * 100 << "%\n"
 		<< "Average delay values: "
 		<< totalHumanDf / totalHumanCount << " Df, "
 		<< totalHumanDd / totalHumanCount << " Dd, "
 		<< totalHumanDb / totalHumanCount << " Db\n"
 		<< "Percentage delay values: "
-		<< totalHumanDf / totalHumanDb << "% Df/Db, "
-		<< totalHumanDd / totalHumanDb << "% Dd/Db\n\n";
+		<< totalHumanDf / totalHumanDb * 100 << "% Df/Db, "
+		<< totalHumanDd / totalHumanDb * 100 << "% Dd/Db\n\n";
 
 	double alienSoldierCount = aliens->getSoldiers()->getCount();
 	double alienMonsterCount = aliens->getMonsters()->getCount();
 	double alienDroneCount = aliens->getDrones()->getCount();
 	double totalAlienCount = alienSoldierCount + alienMonsterCount + alienDroneCount;
-	double alienDeadSoldierCount = alienSoldier::getDeathCount();
-	double alienDeadMonsterCount = alienMonster::getDeathCount();
-	double alienDeadDroneCount = alienDrone::getDeathCount();
+	double alienDeadSoldierCount = aliens->getDeathCountAS();
+	double alienDeadMonsterCount = aliens->getDeathCountAM();
+	double alienDeadDroneCount = aliens->getDeathCountAD();
 	double totalAlienDeadCount = alienDeadSoldierCount + alienDeadMonsterCount + alienDeadDroneCount;
 
 	outputFile << "Alien army stats:\n"
@@ -344,18 +343,18 @@ void gameManager::produceOutputFile()
 		<< alienMonsterCount << " AM, "
 		<< alienDroneCount << " AD\n"
 		<< "Percentage of dead units relative to their total: "
-		<< alienDeadSoldierCount / alienSoldierCount << "% AS,"
-		<< alienDeadMonsterCount / alienMonsterCount << "% AM,"
-		<< alienDeadDroneCount / alienDroneCount << "% AD\n"
+		<< alienDeadSoldierCount / (alienSoldierCount + alienDeadSoldierCount) * 100 << "% AS,"
+		<< alienDeadMonsterCount / (alienMonsterCount + alienDeadMonsterCount) * 100 << "% AM,"
+		<< alienDeadDroneCount / (alienDroneCount + alienDeadDroneCount) * 100 << "% AD\n"
 		<< "Percentage of total dead units to total units: "
-		<< totalAlienCount / totalAlienDeadCount << "%\n"
+		<<  totalAlienDeadCount / (totalAlienCount + totalAlienDeadCount)  * 100 << "%\n"
 		<< "Average delay values: "
 		<< totalAlienDf / totalAlienCount << " Df, "
 		<< totalAlienDd / totalAlienCount << " Dd, "
 		<< totalAlienDb / totalAlienCount << " Db\n"
 		<< "Percentage delay values: "
-		<< totalAlienDf / totalAlienDb << "% Df/Db, "
-		<< totalAlienDd / totalAlienDb << "% Dd/Db\n";
+		<< totalAlienDf / totalAlienDb * 100 << "% Df/Db, "
+		<< totalAlienDd / totalAlienDb * 100 << "% Dd/Db\n";
 
 	outputFile.close();
 }
@@ -410,8 +409,9 @@ int gameManager::CheckWinner()
 void gameManager::runStep(bool printed)
 {
 	unitGenerator->generate();
-	if(printed) printAlive();
+	if (printed) printAlive();
 	fight(printed);
+	if (printed) printDead();
 	timeStep++;
 }
 

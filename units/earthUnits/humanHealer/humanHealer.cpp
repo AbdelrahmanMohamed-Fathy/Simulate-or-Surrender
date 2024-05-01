@@ -16,3 +16,8 @@ void humanHealer::setUnitMaintenanceList(priQueue<earthUnit*>* UML)
 void humanHealer::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
 }
+
+int humanHealer::getDeathCount()
+{
+    return deathCount;
+}
