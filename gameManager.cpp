@@ -282,7 +282,7 @@ void gameManager::produceOutputFile()
 	while (deathList->dequeue(temp))
 	{
 		outputFile << temp;
-		if (temp->getID() < 1000)
+		if (temp->getID() < 2000)
 		{
 			totalHumanDf += temp->getFirstAttackedDelay();
 			totalHumanDd += temp->getDestructionDelay();

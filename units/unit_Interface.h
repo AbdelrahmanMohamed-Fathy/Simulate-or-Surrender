@@ -36,6 +36,8 @@ public:
         ,joinTime(Tj)
     {};
 
+    virtual ~unit_Interface() {};
+
     //Getters:
     int getID() const;
     double* getHP();

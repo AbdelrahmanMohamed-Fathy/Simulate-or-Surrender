@@ -73,7 +73,6 @@ bool generator::assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int P
 
 void generator::generate(int timeStep)
 {
-	
 	if (generateNumber() <= generationProbability)
 	{
 		int generatedNumber;
@@ -99,7 +98,7 @@ void generator::generate(int timeStep)
 				gm->getEarthArmy()->addTank(newUnit);
 				units.enqueue(newUnit);
 			}
-			else if (generatedNumber <= (humanTankPercentage + humanSoldierPercentage + humanHealUnitPercentage))
+			else if (generatedNumber <= (humanTankPercentage + humanSoldierPercentage + humanGunnerPercentage))
 			{
 				int HP = generateNumber(humanHealthMin, humanHealthMax);
 				int PW = generateNumber(humanPowerMin, humanPowerMax);
