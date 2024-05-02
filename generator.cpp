@@ -74,15 +74,15 @@ void generator::generate()
 			generatedNumber = generateNumber();
 			if (generatedNumber <= humanSoldierPercentage)
 			{
-				int HP = generateNumber(humanHealthMin, humanHealthMax);
-				int PW = generateNumber(humanPowerMin, humanPowerMax);
+				int HP = generateNumber(0.8*humanHealthMin,0.95* humanHealthMax);
+				int PW = generateNumber(0.5*humanPowerMin,0.8* humanPowerMax);
 				int AC = generateNumber(humanAttackCapacityMin, humanAttackCapacityMax);
 				gm->getEarthArmy()->addSoldier(HP, PW, AC);
 			}
 			else if (generatedNumber <= (humanTankPercentage + humanSoldierPercentage))
 			{
-				int HP = generateNumber(humanHealthMin, humanHealthMax);
-				int PW = generateNumber(humanPowerMin, humanPowerMax);
+				int HP = generateNumber(1.5*humanHealthMin,2* humanHealthMax);
+				int PW = generateNumber(1.25*humanPowerMin,2* humanPowerMax);
 				int AC = generateNumber(humanAttackCapacityMin, humanAttackCapacityMax);
 				gm->getEarthArmy()->addTank(HP, PW, AC);
 			}
@@ -95,9 +95,9 @@ void generator::generate()
 			}
 			else
 			{
-				int HP = generateNumber(humanHealthMin, humanHealthMax);
-				int PW = generateNumber(humanPowerMin, humanPowerMax);
-				int AC = generateNumber(humanAttackCapacityMin, humanAttackCapacityMax);
+				int HP = generateNumber(0.7*humanHealthMin,0.85* humanHealthMax);
+				int PW = generateNumber(1.25*humanPowerMin,1.5* humanPowerMax);
+				int AC = generateNumber(2*humanAttackCapacityMin,1.25* humanAttackCapacityMax);
 				gm->getEarthArmy()->addGunner(HP, PW, AC);
 			}
 		}
@@ -110,23 +110,23 @@ void generator::generate()
 			generatedNumber = generateNumber();
 			if (generatedNumber <= alienSoldierPercentage)
 			{
-				int HP = generateNumber(alienHealthMin, alienHealthMax);
-				int PW = generateNumber(alienPowerMin, alienPowerMax);
+				int HP = generateNumber(0.5*alienHealthMin,0.75* alienHealthMax);
+				int PW = generateNumber(0.5*alienPowerMin,0.75* alienPowerMax);
 				int AC = generateNumber(alienAttackCapacityMin, alienAttackCapacityMax);
 				gm->getAlienArmy()->addSoldier(HP, PW, AC);
 			}
 			else if (generatedNumber <= (alienMonsterPercentage + alienSoldierPercentage))
 			{
-				int HP = generateNumber(alienHealthMin, alienHealthMax);
-				int PW = generateNumber(alienPowerMin, alienPowerMax);
+				int HP = generateNumber(1.5*alienHealthMin,2* alienHealthMax);
+				int PW = generateNumber(1.5*alienPowerMin,2* alienPowerMax);
 				int AC = generateNumber(alienAttackCapacityMin, alienAttackCapacityMax);
 				gm->getAlienArmy()->addMonster(HP, PW, AC);
 			}
 			else
 			{
-				int HP = generateNumber(alienHealthMin, alienHealthMax);
-				int PW = generateNumber(alienPowerMin, alienPowerMax);
-				int AC = generateNumber(alienAttackCapacityMin, alienAttackCapacityMax);
+				int HP = generateNumber(0.5*alienHealthMin,0.75* alienHealthMax);
+				int PW = generateNumber(1.75*alienPowerMin,1.25* alienPowerMax);
+				int AC = generateNumber(2*alienAttackCapacityMin,1.5* alienAttackCapacityMax);
 				gm->getAlienArmy()->addDrone(HP, PW, AC);
 			}
 		}
