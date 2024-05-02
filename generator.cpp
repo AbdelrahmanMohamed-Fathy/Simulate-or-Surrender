@@ -74,7 +74,6 @@ bool generator::assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int P
 
 void generator::generate(int timeStep)
 {
-	
 	if (generateNumber() <= generationProbability)
 	{
 		int generatedNumber;
