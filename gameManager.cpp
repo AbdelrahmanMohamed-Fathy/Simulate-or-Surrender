@@ -116,10 +116,6 @@ gameManager::~gameManager()
 	delete humans;
 	delete aliens;
 
-	unit_Interface* temp;
-	while (deathList->dequeue(temp))
-		delete temp;
-
 	delete deathList;
 	delete unitGenerator;
 }
@@ -157,7 +153,7 @@ void gameManager::testStructures()
 	_getch();
 	while (timeStep != 50)
 	{
-		unitGenerator->generate();
+		unitGenerator->generate(timeStep);
 		int x = generateNumber();
 		if (x >= 1 && x <= 10)
 		{
@@ -280,7 +276,8 @@ void gameManager::produceOutputFile()
 		outputFile << alienVictoryScreen;
 
 	double totalHumanDf = 0; double totalAlienDf = 0; double totalHumanDd = 0; double totalAlienDd = 0; double totalHumanDb = 0; double totalAlienDb = 0;
-	outputFile << "\n\nKilled units:\n";
+	outputFile << "\n\nFinal timestep: " << timeStep << endl;
+	outputFile << "Killed units:\n";
 	unit_Interface* temp = nullptr;
 	while (deathList->dequeue(temp))
 	{
@@ -408,7 +405,7 @@ int gameManager::CheckWinner()
 
 void gameManager::runStep(bool printed)
 {
-	unitGenerator->generate();
+	unitGenerator->generate(timeStep);
 	if (printed) printAlive();
 	fight(printed);
 	if (printed) printDead();
