@@ -14,7 +14,6 @@ class earthArmy
 {
 private:
 	gameManager* gm;
-	unsigned int nextFreeID;
 
 	//Units:
 	queue<humanSoldier*>* soldiers;
@@ -48,10 +47,10 @@ public:
 	void setDeathCountES(int);
 
 	//Adders: (only for generator use)
-	void addSoldier(int HP, int PW, int AC);
-	void addTank(int HP, int PW, int AC);
-	void addGunner(int HP, int PW, int AC);
-	void addHealer(int HP, int PW, int AC);
+	void addSoldier(humanSoldier*& soldier);
+	void addTank(humanTank*& tank);
+	void addGunner(humanGunner*& gunner);
+	void addHealer(humanHealer*& healer);
 	
 	//Miscellaneous:
 	bool isEmpty();

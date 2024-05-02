@@ -13,7 +13,6 @@ class alienArmy
 {
 private:
 	gameManager* gm;
-	unsigned int nextFreeID;
 
 	//Units:
 	queue<alienSoldier*>* soldiers;
@@ -43,9 +42,9 @@ public:
 	void setDeathCountAM(int);
 
 	//Adders: (only for generator use)
-	void addSoldier(int HP, int PW, int AC);
-	void addMonster(int HP, int PW, int AC);
-	void addDrone(int HP, int PW, int AC);
+	void addSoldier(alienSoldier*& soldier);
+	void addMonster(alienMonster*& monster);
+	void addDrone(alienDrone*& drone);
 
 	//Miscellaneous:
 	bool isEmpty();

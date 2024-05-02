@@ -1,7 +1,8 @@
 #include "humanTank.h"
-#include"../../alienUnits/alienArmy.h"
-#include"../../../basicDataStructures/priQueue.cpp"
-#include"../../../Utils/generateNumber.cpp"
+#include "../../alienUnits/alienArmy.h"
+#include "../../../basicDataStructures/priQueue.cpp"
+#include "../../../basicDataStructures/randomBag.cpp"
+#include "../../../Utils/generateNumber.cpp"
 
 bool humanTank::pctCheck = false;
 

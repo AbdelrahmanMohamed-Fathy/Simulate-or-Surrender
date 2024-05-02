@@ -1,6 +1,7 @@
 #include "humanGunner.h"
 #include "../../alienUnits/alienArmy.h"
 #include "../../basicDataStructures/priQueue.cpp"
+#include "../../../basicDataStructures/randomBag.cpp"
 
 void humanGunner::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
