@@ -51,4 +51,3 @@ public:
 	void print();
 	void attack(earthArmy* humans, bool printed);
 };
-
