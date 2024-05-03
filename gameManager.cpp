@@ -24,7 +24,9 @@ void gameManager::start()
 		<< "(1) strongEarth, weakAliens\n"
 		<< "(2) weakEarth, StrongAliens\n"
 		<< "(3) weakEarth, weakAliens\n"
-		<< "(4) data-structure test\n";
+		<< "(4) strongEarth, ModerateAliens\n"
+		<< "(5) weakEarth, ModerateAliens\n"
+		<< "(6) data-structure test\n";
 	
 	cin >> x;
 	switch (x)
@@ -42,15 +44,12 @@ void gameManager::start()
 		filePath += "weakEarth_weakAliens.txt";
 		break;
 	case 4:
-
+		filePath += "strongEarth_moderateAliens.txt";
 		break;
 	case 5:
-
+		filePath += "weakEarth_moderateAliens.txt";
 		break;
 	case 6:
-
-		break;
-	case 7:
 		system("cls");
 		structureTest = true;
 		if (!readInputFile(filePath + "TEST.txt", false))
