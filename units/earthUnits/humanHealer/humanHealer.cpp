@@ -1,5 +1,6 @@
 #include "humanHealer.h"
 #include "../../alienUnits/alienArmy.h"
+#include "../earthArmy.h"
 
 priQueue<earthUnit*>* humanHealer::unitMaintenanceList = nullptr;
 earthArmy* humanHealer::army = nullptr;
@@ -25,11 +26,13 @@ void humanHealer::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 	double dummy;
 	priQueue<earthUnit*> heal;
 	for (int i = 0; i < (int)attackCapacity; i++) {
-		
-		while (unitMaintenanceList->dequeue(temp, dummy) && ((timeStep - temp->getMaintenanceWaitStartTime()) >= 10)) {
+		bool exists = unitMaintenanceList->dequeue(temp, dummy);
+		while ( exists && ((timeStep - temp->getMaintenanceWaitStartTime()) >= 10)) {
+			temp->setDestructionTime(timeStep);
 			deathList->enqueue(temp);
+			exists = unitMaintenanceList->dequeue(temp, dummy);
 		}
-		heal.enqueue(temp, dummy);
+		if (exists) heal.enqueue(temp, dummy);
 	}
 
 	if (printed) {
@@ -51,6 +54,8 @@ void humanHealer::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 			}
 		}
 	}
+	this->setDestructionTime(timeStep);
+	deathList->enqueue(this);
 }
 
 int humanHealer::getDeathCount()

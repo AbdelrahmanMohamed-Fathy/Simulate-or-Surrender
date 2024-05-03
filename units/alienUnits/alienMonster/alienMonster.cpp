@@ -68,6 +68,7 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 			}
 			else if (human->checkMaintenanceListViability())
 			{
+				human->setMaintenanceWaitStartTime(timeStep);
 				priQueue<earthUnit*>* mainList = humans->getUnitMaintenanceList();
 				switch ((int)pri) {
 				

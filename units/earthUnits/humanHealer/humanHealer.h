@@ -1,7 +1,7 @@
 #pragma once
 #include "../earthUnit.h"
 #include "../../basicDataStructures/priQueue.h"
-#include "../earthArmy.h"
+class earthArmy;
 
 class humanHealer : public earthUnit
 {

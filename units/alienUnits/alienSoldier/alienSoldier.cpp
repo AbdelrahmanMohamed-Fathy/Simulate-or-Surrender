@@ -38,6 +38,7 @@ void alienSoldier::attack(earthArmy* humans, queue<unit_Interface*>* deathList,i
 			}
 			else if ((earthUnit*)temp->checkMaintenanceListViability())
 			{
+				temp->setMaintenanceWaitStartTime(timeStep);
 				priQueue<earthUnit*>* mainList = humans->getUnitMaintenanceList();
 				mainList->enqueue((earthUnit*)temp, -(*temp->getHP()));
 			}

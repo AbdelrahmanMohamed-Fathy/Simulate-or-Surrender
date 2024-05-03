@@ -309,6 +309,7 @@ void gameManager::produceOutputFile()
 	double humanSoldierCount = humans->getSoldiers()->getCount();
 	double humanTankCount = humans->getTanks()->getCount();
 	double humanGunnerCount = humans->getGunners()->getCount();
+	double humanHealerCount = humans->getHealers()->getCount();
 	double totalHumanCount = humanSoldierCount + humanTankCount + humanGunnerCount;
 	double humanDeadSoldierCount = humans->getDeathCountES();
 	double humanDeadTankCount = humans->getDeathCountET();
@@ -319,7 +320,8 @@ void gameManager::produceOutputFile()
 		<< "Total number of units left: "
 		<< humanSoldierCount << " ES, "
 		<< humanTankCount << " ET, "
-		<< humanGunnerCount << " EG\n"
+		<< humanGunnerCount << " EG, "
+		<< humanHealerCount << " EH\n"
 		<< "Percentage of dead units relative to their total: "
 		<< humanDeadSoldierCount / (humanSoldierCount + humanDeadSoldierCount) * 100 << "% ES,"
 		<< humanDeadTankCount / (humanTankCount + humanDeadTankCount) * 100 << "% ET,"

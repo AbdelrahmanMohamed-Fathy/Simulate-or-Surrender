@@ -159,4 +159,11 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	if (gunners->peek(gunner, temp)) {
 		gunner->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
 	}
+
+	//Human Healer:
+	humanHealer* healer;
+	if (healers->pop(healer))
+	{
+		healer->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
+	}
 }
