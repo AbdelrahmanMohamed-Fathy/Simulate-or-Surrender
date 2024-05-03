@@ -30,6 +30,11 @@ void humanHealer::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 		while ( exists && ((timeStep - temp->getMaintenanceWaitStartTime()) >= 10)) {
 			temp->setDestructionTime(timeStep);
 			deathList->enqueue(temp);
+			if (dummy == -INFINITY)
+				army->setDeathCountET(army->getDeathCountET() + 1);
+			else
+				army->setDeathCountES(army->getDeathCountES() + 1);
+
 			exists = unitMaintenanceList->dequeue(temp, dummy);
 		}
 		if (exists) heal.enqueue(temp, dummy);
@@ -44,7 +49,6 @@ void humanHealer::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 
 	for (int i = 0; i < count; i++) {
 		if (heal.dequeue(temp, dummy)) {
-			
 			*temp->getHP() += (power * (health / 100.0)) / sqrt(*temp->getHP());
 			if (dummy == -INFINITY) {
 				army->getTanks()->push((humanTank*)(temp));
@@ -55,11 +59,8 @@ void humanHealer::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 		}
 	}
 	this->setDestructionTime(timeStep);
+	this->setFirstAttackedTime(timeStep);
+	army->setDeathCountEH(army->getDeathCountEH() + 1);
 	deathList->enqueue(this);
-}
-
-int humanHealer::getDeathCount()
-{
-    return deathCount;
 }
 

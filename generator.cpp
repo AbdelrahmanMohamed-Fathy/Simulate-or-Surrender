@@ -77,6 +77,7 @@ void generator::generate(int timeStep)
 	if (generateNumber() <= generationProbability)
 	{
 		int generatedNumber;
+		//Humans generation
 		for (int i = 0; i < generationCount; i++)
 		{
 			if (humanNextFreeID >= 1999) break;
@@ -120,6 +121,7 @@ void generator::generate(int timeStep)
 			humanNextFreeID++;
 		}
 	}
+	//Aliens generation
 	if (generateNumber() <= generationProbability)
 	{
 		int generatedNumber;
