@@ -12,6 +12,7 @@ earthArmy::earthArmy(gameManager* GM) : gm(GM)
 	healers = new stack<humanHealer*>;
 	unitMaintenanceList = new priQueue<earthUnit*>;
 	humanHealer::setUnitMaintenanceList(unitMaintenanceList);
+	humanHealer::setEarthArmy(this);
 }
 
 earthArmy::~earthArmy()
