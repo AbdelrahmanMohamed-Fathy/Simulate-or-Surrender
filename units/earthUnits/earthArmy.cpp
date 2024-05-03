@@ -115,6 +115,8 @@ void earthArmy::print()
 	gunners->print();
 	cout << healers->getCount() << " Human Healers: ";
 	healers->print();
+	cout << unitMaintenanceList->getCount() << " Human Units inside Maintenance List: ";
+	unitMaintenanceList->print();
 }
 
 void earthArmy::attack(alienArmy* aliens, bool printed)
