@@ -55,6 +55,14 @@ void alienDrone::attack(earthArmy* humans, queue<unit_Interface*>* deathList, in
 				}
 
 			}
+			else if(unit->checkMaintenanceListViability())
+			{
+				priQueue<earthUnit*>*mainList = humans->getUnitMaintenanceList();
+				switch ((int)priority) {
+				case 1:mainList->enqueue(unit, -INFINITY);
+					break;
+				}
+			}
 			else
 			{
 				switch ((int)priority) {

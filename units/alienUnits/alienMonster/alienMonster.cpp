@@ -66,6 +66,18 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 					humans->setDeathCountET(tempCount);
 				}
 			}
+			else if (human->checkMaintenanceListViability())
+			{
+				priQueue<earthUnit*>* mainList = humans->getUnitMaintenanceList();
+				switch ((int)pri) {
+				
+				case 0:mainList->enqueue(human, -(*human->getHP()));
+					break;
+
+				case 1:mainList->enqueue(human, -INFINITY);
+					break;
+				}
+			}
 			else
 			{
 				switch ((int)pri)
