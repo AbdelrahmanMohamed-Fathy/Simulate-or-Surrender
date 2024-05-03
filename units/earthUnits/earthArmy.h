@@ -57,4 +57,3 @@ public:
 	void print();
 	void attack(alienArmy* aliens, bool printed);
 };
-

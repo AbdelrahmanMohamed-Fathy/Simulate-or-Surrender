@@ -42,6 +42,15 @@ void gameManager::start()
 		filePath += "weakEarth_weakAliens.txt";
 		break;
 	case 4:
+
+		break;
+	case 5:
+
+		break;
+	case 6:
+
+		break;
+	case 7:
 		system("cls");
 		structureTest = true;
 		if (!readInputFile(filePath + "TEST.txt", false))
@@ -140,6 +149,7 @@ void gameManager::runSilent()
 {
 	cout << "Press any key to start simulation.\n";
 	_getch();
+	cout << "Simulation running...\n";
 	while (CheckWinner() == 0)
 	{
 		runStep(false);
@@ -435,4 +445,3 @@ void gameManager::fight(bool printed)
 	humans->attack(aliens, printed);
 	aliens->attack(humans, printed);
 }
-

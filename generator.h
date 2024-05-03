@@ -50,4 +50,3 @@ public:
 	bool assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[]);
 	void generate(int timeStep);
 };
-
