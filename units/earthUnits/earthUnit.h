@@ -14,5 +14,6 @@ public:
 	virtual void attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed) = 0;
 	void setMaintenanceWaitStartTime(int timeStep);
 	int getMaintenanceWaitStartTime();
+	bool checkMaintenanceListViability();
 };
 

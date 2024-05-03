@@ -51,6 +51,7 @@ public:
 	void addTank(humanTank*& tank);
 	void addGunner(humanGunner*& gunner);
 	void addHealer(humanHealer*& healer);
+	void addToMaintenance(earthUnit*& human, double pri);
 	
 	//Miscellaneous:
 	bool isEmpty();
