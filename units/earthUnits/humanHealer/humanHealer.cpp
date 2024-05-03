@@ -2,6 +2,7 @@
 #include "../../alienUnits/alienArmy.h"
 
 priQueue<earthUnit*>* humanHealer::unitMaintenanceList = nullptr;
+earthArmy* humanHealer::army = nullptr;
 
 priQueue<earthUnit*>* humanHealer::getUnitMaintenanceList()
 {
@@ -11,6 +12,11 @@ priQueue<earthUnit*>* humanHealer::getUnitMaintenanceList()
 void humanHealer::setUnitMaintenanceList(priQueue<earthUnit*>* UML)
 {
     unitMaintenanceList = UML;
+}
+
+void humanHealer::setEarthArmy(earthArmy* EA)
+{
+	army = EA;
 }
 
 void humanHealer::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed)
@@ -38,10 +44,10 @@ void humanHealer::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 			
 			*temp->getHP() += (power * (health / 100.0)) / sqrt(*temp->getHP());
 			if (dummy == -INFINITY) {
-				
+				army->getTanks()->push((humanTank*)(temp));
 			}
 			else {
-
+				army->getSoldiers()->enqueue((humanSoldier*)(temp));
 			}
 		}
 	}
