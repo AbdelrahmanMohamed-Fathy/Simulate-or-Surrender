@@ -97,6 +97,7 @@ void alienArmy::print()
 	monsters->print();
 	cout << drones->getCount() << " Alien Drones: ";
 	drones->print();
+	cout << endl;
 }
 
 void alienArmy::attack(earthArmy* humans, bool printed)

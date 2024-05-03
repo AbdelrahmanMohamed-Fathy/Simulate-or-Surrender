@@ -25,6 +25,7 @@ private:
 	unsigned int deathCountES = 0;
 	unsigned int deathCountET = 0;
 	unsigned int deathCountEG = 0;
+	unsigned int deathCountEH = 0;
 
 	priQueue<earthUnit*>* unitMaintenanceList;
 public:
@@ -40,11 +41,13 @@ public:
 	int getDeathCountET();
 	int getDeathCountEG();
 	int getDeathCountES();
+	int getDeathCountEH();
 
 	//Setters:
 	void setDeathCountET(int);
 	void setDeathCountEG(int);
 	void setDeathCountES(int);
+	void setDeathCountEH(int);
 
 	//Adders: (only for generator use)
 	void addSoldier(humanSoldier*& soldier);

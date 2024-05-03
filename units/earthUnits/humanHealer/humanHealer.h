@@ -14,6 +14,5 @@ public:
 	static void setUnitMaintenanceList(priQueue<earthUnit*>* unitMaintenanceList);
 	static void setEarthArmy(earthArmy* EA);
 	void attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed);
-	static int getDeathCount();
 };
 

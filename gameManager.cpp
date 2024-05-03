@@ -310,11 +310,12 @@ void gameManager::produceOutputFile()
 	double humanTankCount = humans->getTanks()->getCount();
 	double humanGunnerCount = humans->getGunners()->getCount();
 	double humanHealerCount = humans->getHealers()->getCount();
-	double totalHumanCount = humanSoldierCount + humanTankCount + humanGunnerCount;
+	double totalHumanCount = humanSoldierCount + humanTankCount + humanGunnerCount + humanHealerCount;
 	double humanDeadSoldierCount = humans->getDeathCountES();
 	double humanDeadTankCount = humans->getDeathCountET();
 	double humanDeadGunnerCount = humans->getDeathCountEG();
-	double totalHumanDeadCount = humanDeadSoldierCount + humanDeadTankCount + humanDeadGunnerCount;
+	double humanDeadHealerCount = humans->getDeathCountEH();
+	double totalHumanDeadCount = humanDeadSoldierCount + humanDeadTankCount + humanDeadGunnerCount + humanDeadHealerCount;
 
 	outputFile << "Earth army stats:\n"
 		<< "Total number of units left: "
@@ -325,7 +326,8 @@ void gameManager::produceOutputFile()
 		<< "Percentage of dead units relative to their total: "
 		<< humanDeadSoldierCount / (humanSoldierCount + humanDeadSoldierCount) * 100 << "% ES,"
 		<< humanDeadTankCount / (humanTankCount + humanDeadTankCount) * 100 << "% ET,"
-		<< humanDeadGunnerCount / (humanGunnerCount + humanDeadGunnerCount) * 100 << "% EG\n"
+		<< humanDeadGunnerCount / (humanGunnerCount + humanDeadGunnerCount) * 100 << "% EG,"
+		<< humanDeadGunnerCount / (humanHealerCount + humanDeadHealerCount) * 100 << "% EH\n"
 		<< "Percentage of total dead units to total units: "
 		<< totalHumanDeadCount / (totalHumanCount + totalHumanDeadCount) * 100 << "%\n"
 		<< "Average delay values: "
@@ -445,4 +447,5 @@ void gameManager::fight(bool printed)
 	}
 	humans->attack(aliens, printed);
 	aliens->attack(humans, printed);
+	if (printed) cout << endl;
 }

@@ -45,33 +45,50 @@ stack<humanHealer*>* earthArmy::getHealers()
 {
 	return healers;
 }
+
 priQueue<earthUnit*>* earthArmy::getUnitMaintenanceList()
 {
 	return unitMaintenanceList;
 }
+
 int earthArmy::getDeathCountET()
 {
 	return deathCountET;
 }
+
 int earthArmy::getDeathCountEG()
 {
 	return deathCountEG;
 }
+
 int earthArmy::getDeathCountES()
 {
 	return deathCountES;
 }
+
+int earthArmy::getDeathCountEH()
+{
+	return deathCountEH;
+}
+
 void earthArmy::setDeathCountET(int deathCount)
 {
 	deathCountET = deathCount;
 }
+
 void earthArmy::setDeathCountEG(int deathCount)
 {
 	deathCountEG = deathCount;
 }
+
 void earthArmy::setDeathCountES(int deathCount)
 {
 	deathCountES = deathCount;
+}
+
+void earthArmy::setDeathCountEH(int deathCount)
+{
+	deathCountEH = deathCount;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Adders														//
@@ -123,6 +140,7 @@ void earthArmy::print()
 	healers->print();
 	cout << unitMaintenanceList->getCount() << " Human Units inside Maintenance List: ";
 	unitMaintenanceList->print();
+	cout << endl;
 }
 
 void earthArmy::attack(alienArmy* aliens, bool printed)
