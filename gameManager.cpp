@@ -239,6 +239,20 @@ void gameManager::testStructures()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												File management													//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*Input file format:
+{N} {Prob}
+
+{Earth unit percentages}
+{health range}
+{power range}
+{attack capacity range}
+
+{Alien unit percentages}
+{health range}
+{power range}
+{attack capacity range}
+*/
 bool gameManager::readInputFile(const string filePath,bool grandSimulation)
 {
 	ifstream inputFile(filePath,ios::in);
