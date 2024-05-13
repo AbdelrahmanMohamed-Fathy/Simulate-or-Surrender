@@ -41,8 +41,3 @@ void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, 
 		}
 	}
 }
-
-int humanSoldier::getDeathCount()
-{
-	return deathCount;
-}

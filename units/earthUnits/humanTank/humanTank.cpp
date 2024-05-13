@@ -105,8 +105,3 @@ void humanTank::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int
 		}
 	}
 }
-
-int humanTank::getDeathCount()
-{
-	return deathCount;
-}

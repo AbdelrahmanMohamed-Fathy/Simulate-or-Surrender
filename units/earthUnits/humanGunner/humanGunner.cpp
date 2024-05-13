@@ -79,8 +79,3 @@ double humanGunner::getPriority()
 {
     return (double)power*(maxHealth/100);
 }
-
-int humanGunner::getDeathCount()
-{
-	return deathCount;
-}

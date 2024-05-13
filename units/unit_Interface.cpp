@@ -1,7 +1,5 @@
 #include "unit_Interface.h"
 
-unsigned int unit_Interface::deathCount = 0;
-
 string unit_Interface::generateUnitLine() const
 {
 	return string	( "Td: "  + to_string(destructionTime)
@@ -44,11 +42,6 @@ int unit_Interface::getDestructionDelay() const
 int unit_Interface::getBattleTime()
 {
 	return battleTime;
-}
-
-int unit_Interface::getDeathCount()
-{
-	return deathCount;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Setters														//

@@ -63,7 +63,6 @@ bool deQueue<T>::enqueueBack(const T &backentry)
 template<typename T>
 bool deQueue<T>::dequeuefront(T& front)
 {	
-	
 	if (isEmpty())
 	{
 		return false;

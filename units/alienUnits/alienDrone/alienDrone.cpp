@@ -55,7 +55,7 @@ void alienDrone::attack(earthArmy* humans, queue<unit_Interface*>* deathList, in
 				}
 
 			}
-			else if(unit->checkMaintenanceListViability())
+			else if(unit->checkMaintenanceListViability() && (int)priority==1)
 			{
 				unit->setMaintenanceWaitStartTime(timeStep);
 				priQueue<earthUnit*>*mainList = humans->getUnitMaintenanceList();
@@ -75,9 +75,4 @@ void alienDrone::attack(earthArmy* humans, queue<unit_Interface*>* deathList, in
 			}
 		}	
 	}
-}
-
-int alienDrone::getDeathCount()
-{
-	return deathCount;
 }

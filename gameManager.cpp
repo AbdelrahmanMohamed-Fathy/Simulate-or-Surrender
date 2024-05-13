@@ -341,7 +341,7 @@ void gameManager::produceOutputFile()
 		<< humanDeadSoldierCount / (humanSoldierCount + humanDeadSoldierCount) * 100 << "% ES,"
 		<< humanDeadTankCount / (humanTankCount + humanDeadTankCount) * 100 << "% ET,"
 		<< humanDeadGunnerCount / (humanGunnerCount + humanDeadGunnerCount) * 100 << "% EG,"
-		<< humanDeadGunnerCount / (humanHealerCount + humanDeadHealerCount) * 100 << "% EH\n"
+		<< humanDeadHealerCount / (humanHealerCount + humanDeadHealerCount) * 100 << "% EH\n"
 		<< "Percentage of total dead units to total units: "
 		<< totalHumanDeadCount / (totalHumanCount + totalHumanDeadCount) * 100 << "%\n"
 		<< "Average delay values: "
