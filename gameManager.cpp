@@ -257,8 +257,8 @@ bool gameManager::readInputFile(const string filePath,bool grandSimulation)
 {
 	ifstream inputFile(filePath,ios::in);
 
-	int N; int Prob; 
-	inputFile >> N >> Prob;
+	int N; int Prob; int infectProb;
+	inputFile >> N >> Prob >> infectProb;
 	(grandSimulation) ? (N *= 10):(N=N);
 	if (!unitGenerator->assignGeneralParamteres(N, Prob))
 	{
@@ -281,7 +281,7 @@ bool gameManager::readInputFile(const string filePath,bool grandSimulation)
 	(inputFile >> HP[0]).ignore(1) >> HP[1];
 	(inputFile >> PW[0]).ignore(1) >> PW[1];
 	(inputFile >> AC[0]).ignore(1) >> AC[1];
-	if (!unitGenerator->assignAlienArmyParamters(AS, AM, AD, HP, PW, AC))
+	if (!unitGenerator->assignAlienArmyParamters(AS, AM, AD, HP, PW, AC, infectProb))
 	{
 		return false;
 	};

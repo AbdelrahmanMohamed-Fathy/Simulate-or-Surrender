@@ -2,9 +2,12 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+
+
 using namespace std;
 
-class unit_Interface
+
+class unit_Interface 
 {
 protected:
     const unsigned int ID;
@@ -75,3 +78,5 @@ static ofstream& operator<<(ofstream& out, const unit_Interface& unit)
     out << unit.generateUnitLine();
     return out;
 }
+
+

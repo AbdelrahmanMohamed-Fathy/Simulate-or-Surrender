@@ -41,3 +41,23 @@ void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, 
 		}
 	}
 }
+
+bool humanSoldier::getImmunity() const
+{
+	return immune;
+}
+
+bool humanSoldier::getInfection() const
+{
+	return infected;
+}
+
+void humanSoldier::setImmunity(bool immunity)
+{
+	immune = immunity;
+}
+
+void humanSoldier::setInfection(bool infection)
+{
+	infected = infection;
+}

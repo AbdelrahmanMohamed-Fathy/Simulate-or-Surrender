@@ -50,7 +50,7 @@ bool generator::assignEarthArmyParamters(int ES, int ET, int EG, int EHU, int HP
 	return true;
 }
 
-bool generator::assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[])
+bool generator::assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[], int AMI)
 {
 	bool incorrectPercentages = (AS + AM + AD != 100);
 	bool invalidHealthRange = (HP[0] < 0 || HP[1] < HP[0]);
@@ -62,6 +62,7 @@ bool generator::assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int P
 	}
 	alienSoldierPercentage = AS;
 	alienMonsterPercentage = AM;
+	alienMonsterInfection = AMI;
 	alienDronePercentage = AD;
 	alienHealthMin = HP[0];
 	alienHealthMax = HP[1];

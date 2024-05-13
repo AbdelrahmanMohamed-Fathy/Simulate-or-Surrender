@@ -9,7 +9,6 @@ private:
 	gameManager* gm;
 	queue<unit_Interface*> units;
 
-	//Generatiuon paramaters:
 		//General parameters:
 		int generationProbability;
 		int generationCount;
@@ -39,9 +38,12 @@ private:
 		int alienMonsterPercentage;
 		int alienDronePercentage;
 
+    int alienMonsterInfection;
+  
 	//IDs
 		int humanNextFreeID;
 		int alienNextFreeID;
+  
 public:
 	generator(gameManager* GM, int humanIDStart = 1, int alienIDStart = 2001);
 	~generator();
@@ -49,4 +51,5 @@ public:
 	bool assignEarthArmyParamters(int ES, int ET, int EG, int EHU, int HP[], int PW[], int AC[]);
 	bool assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[]);
 	void generate(int timeStep);
+	bool assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[], int AMI);
 };

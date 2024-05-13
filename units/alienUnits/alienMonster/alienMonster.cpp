@@ -45,9 +45,23 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 			{
 				human->setFirstAttackedTime(timeStep);
 			}
-			double* humanHP = human->getHP();
-			*humanHP -= (((power * health) / 100) / sqrt(*humanHP));
-			human->setFirstAttackedTime(timeStep);
+
+			if (pri == 0) 
+			{
+				int cCheck = generateNumber();
+				if (cCheck <= infectionRate)
+				{
+					if (!((humanSoldier*)human)->getImmunity())
+					{
+						((humanSoldier*)human)->setInfection(true);
+					}
+				}
+			}
+
+				double* humanHP = human->getHP();
+				*humanHP -= (((power * health) / 100) / sqrt(*humanHP));
+				human->setFirstAttackedTime(timeStep);
+	
 			if (*humanHP <= 0)
 			{
 				human->setDestructionTime(timeStep);
@@ -90,6 +104,7 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 					humans->getTanks()->push((humanTank*)human);
 				}
 			}
+
 		}
 	}
 }
