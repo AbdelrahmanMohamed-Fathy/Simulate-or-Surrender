@@ -22,27 +22,51 @@ void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, 
 	}
 
 	int count = attack.getCount();
-
-	for (int i = 0; i < count; i++) {
-		if (attack.dequeue(temp)) {
-			if (temp->getFirstAttackedTime()==-1) {
-				temp->setFirstAttackedTime(timeStep);
+	if (!infected) {
+		for (int i = 0; i < count; i++) {
+			if (attack.dequeue(temp)) {
+				if (temp->getFirstAttackedTime() == -1) {
+					temp->setFirstAttackedTime(timeStep);
+				}
+				*temp->getHP() -= (power * (health / 100.0)) / sqrt(*temp->getHP());
+				if (*temp->getHP() <= 0) {
+					temp->setDestructionTime(timeStep);
+					deathList->enqueue(temp);
+					int tempCount;
+					tempCount = aliens->getDeathCountAS();
+					tempCount++;
+					aliens->setDeathCountAS(tempCount);
+				}
+				else aliensoldier->enqueue(temp);
 			}
-			*temp->getHP() -= (power * (health / 100.0)) / sqrt(*temp->getHP());
-			if (*temp->getHP() <= 0) {
-				temp->setDestructionTime(timeStep);
-				deathList->enqueue(temp);
-				int tempCount;
-				tempCount = aliens->getDeathCountAS();
-				tempCount++;
-				aliens->setDeathCountAS(tempCount);
-			}
-			else aliensoldier->enqueue(temp);
 		}
+	}
+	else {
+
 	}
 }
 
 int humanSoldier::getDeathCount()
 {
 	return deathCount;
+}
+
+bool humanSoldier::getImmunity()
+{
+	return immune;
+}
+
+bool humanSoldier::getInfection()
+{
+	return infected;
+}
+
+void humanSoldier::setImmunity(bool immunity)
+{
+	immune = immunity;
+}
+
+void humanSoldier::setInfection(bool infection)
+{
+	infected == infection;
 }
