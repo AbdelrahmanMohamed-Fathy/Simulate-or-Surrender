@@ -14,7 +14,6 @@ class earthArmy
 {
 private:
 	gameManager* gm;
-	unsigned int nextFreeID;
 
 	//Units:
 	queue<humanSoldier*>* soldiers;
@@ -26,6 +25,7 @@ private:
 	unsigned int deathCountES = 0;
 	unsigned int deathCountET = 0;
 	unsigned int deathCountEG = 0;
+	unsigned int deathCountEH = 0;
 
 	priQueue<earthUnit*>* unitMaintenanceList;
 public:
@@ -41,21 +41,23 @@ public:
 	int getDeathCountET();
 	int getDeathCountEG();
 	int getDeathCountES();
+	int getDeathCountEH();
 
 	//Setters:
 	void setDeathCountET(int);
 	void setDeathCountEG(int);
 	void setDeathCountES(int);
+	void setDeathCountEH(int);
 
 	//Adders: (only for generator use)
-	void addSoldier(int HP, int PW, int AC);
-	void addTank(int HP, int PW, int AC);
-	void addGunner(int HP, int PW, int AC);
-	void addHealer(int HP, int PW, int AC);
+	void addSoldier(humanSoldier*& soldier);
+	void addTank(humanTank*& tank);
+	void addGunner(humanGunner*& gunner);
+	void addHealer(humanHealer*& healer);
+	void addToMaintenance(earthUnit*& human, double pri);
 	
 	//Miscellaneous:
 	bool isEmpty();
 	void print();
 	void attack(alienArmy* aliens, bool printed);
 };
-

@@ -11,7 +11,6 @@ class unit_Interface
 {
 protected:
     const unsigned int ID;
-    static unsigned int deathCount;
 
     //Attributes:
     double health;
@@ -39,6 +38,8 @@ public:
         ,joinTime(Tj)
     {};
 
+    virtual ~unit_Interface() {};
+
     //Getters:
     int getID() const;
     double* getHP();
@@ -46,7 +47,6 @@ public:
     int getFirstAttackedDelay() const;
     int getDestructionDelay() const;
     int getBattleTime();
-    static int getDeathCount();
     //Setters:
     void setDestructionTime(int dt);
     void setFirstAttackedTime(int at);
