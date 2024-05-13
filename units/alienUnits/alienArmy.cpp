@@ -80,9 +80,9 @@ void alienArmy::addSoldier(int HP, int PW, int AC)
 	soldiers->enqueue(newUnit);
 }
 
-void alienArmy::addMonster(int HP, int PW, int AC)
+void alienArmy::addMonster(int HP, int PW, int AC, int AMI)
 {
-	alienMonster* newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
+	alienMonster* newUnit = new alienMonster(nextFreeID++, HP, PW, AC,AMI, gm->getTimeStep());
 	monsters->addElement(newUnit);
 }
 

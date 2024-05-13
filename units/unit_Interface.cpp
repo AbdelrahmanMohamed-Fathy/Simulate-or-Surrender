@@ -1,5 +1,6 @@
 #include "unit_Interface.h"
 
+
 unsigned int unit_Interface::deathCount = 0;
 
 string unit_Interface::generateUnitLine() const

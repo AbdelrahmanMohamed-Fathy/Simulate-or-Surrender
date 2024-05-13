@@ -47,12 +47,12 @@ int humanSoldier::getDeathCount()
 	return deathCount;
 }
 
-bool humanSoldier::getImmunity()
+bool humanSoldier::getImmunity() const
 {
 	return immune;
 }
 
-bool humanSoldier::getInfection()
+bool humanSoldier::getInfection() const
 {
 	return infected;
 }
@@ -64,5 +64,5 @@ void humanSoldier::setImmunity(bool immunity)
 
 void humanSoldier::setInfection(bool infection)
 {
-	infected == infection;
+	infected = infection;
 }

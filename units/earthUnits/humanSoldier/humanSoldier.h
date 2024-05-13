@@ -12,7 +12,35 @@ public:
 	static int getDeathCount();
 	void setInfection(bool infection);
 	void setImmunity(bool immunity);
-	bool getInfection();
-	bool getImmunity();
+	bool getInfection() const;
+	bool getImmunity() const;
 };
+
+static ostream& operator<<(ostream& out, const humanSoldier* soldier)
+{
+    if (soldier->getInfection())
+    {
+        out << soldier->getID() << "*";
+        return out;
+    }
+    else
+    {
+        out << soldier->getID();
+        return out;
+    }
+}
+
+static ostream& operator<<(ostream& out, const humanSoldier& soldier)
+{
+    if (soldier.getInfection())
+    {
+        out << soldier.getID() << "*";
+        return out;
+    }
+    else
+    {
+        out << soldier.getID();
+        return out;
+    }
+}
 

@@ -35,11 +35,13 @@ private:
 	int alienSoldierPercentage;
 	int alienMonsterPercentage;
 	int alienDronePercentage;
+
+	int alienMonsterInfection;
 public:
 	generator(gameManager* GM);
 	bool assignGeneralParamteres(int N, int Prob);
 	bool assignEarthArmyParamters(int ES, int ET, int EG, int EHU, int HP[], int PW[], int AC[]);
-	bool assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[]);
+	bool assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[], int AMI);
 	void generate();
 };
 
