@@ -46,3 +46,23 @@ int humanSoldier::getDeathCount()
 {
 	return deathCount;
 }
+
+bool humanSoldier::getImmunity()
+{
+	return immune;
+}
+
+bool humanSoldier::getInfection()
+{
+	return infected;
+}
+
+void humanSoldier::setImmunity(bool immunity)
+{
+	immune = immunity;
+}
+
+void humanSoldier::setInfection(bool infection)
+{
+	infected == infection;
+}
