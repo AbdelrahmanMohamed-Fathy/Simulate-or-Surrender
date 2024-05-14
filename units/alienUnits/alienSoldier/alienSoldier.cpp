@@ -34,6 +34,12 @@ void alienSoldier::attack(earthArmy* humans, queue<unit_Interface*>* deathList,i
 				tempCount = humans->getDeathCountES();
 				tempCount++;
 				humans->setDeathCountES(tempCount);
+				if (((humanSoldier*)temp)->getInfection())
+				{
+					int infectionCount = humans->getInfectionCountES();
+					infectionCount--;
+					humans->setInfectionCountES(infectionCount);
+				}
 				deathList->enqueue(temp);
 			}
 			else if ((earthUnit*)temp->checkMaintenanceListViability())
