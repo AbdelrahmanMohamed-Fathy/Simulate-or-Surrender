@@ -195,6 +195,7 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 			while (soldiers->dequeue(soldier)) {
 				if (toBeInfectedIndex <= 1) {
 					soldier->setInfection(true);
+					break;
 				}
 				toBeInfectedIndex--;
 				soldiers->enqueue(soldier);
