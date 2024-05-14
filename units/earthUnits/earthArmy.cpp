@@ -87,7 +87,6 @@ int earthArmy::getTotalInfectionCountES()
 {
 	return totalInfectionCountES;
 }
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Setters														//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -176,7 +175,7 @@ void earthArmy::print()
 	cout << unitMaintenanceList->getCount() << " Human Units inside Maintenance List: ";
 	unitMaintenanceList->print();
 	if(soldiers->getCount() != 0)
-		cout << endl << " Human Soldiers Infection Rate: " << infectionCountES / soldiers->getCount() << "%";
+		cout << endl << " Human Soldiers Infection Rate: " << (double)infectionCountES / (double)soldiers->getCount() << "%";
 	cout << endl;
 }
 
@@ -187,12 +186,14 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	if (soldiers->peek(soldier)) {
 		soldier->attack(gm, gm->getDeathList(), gm->getTimeStep(), printed);
 	}
+	
+	//Infection spread:
 	for (int i = 0; i < infectionCountES; i++) {
 		int infectionSpread = generateNumber();
 		if (infectionSpread <= 2) {
 			int toBeInfectedIndex = generateNumber(1, soldiers->getCount());
 			while (soldiers->dequeue(soldier)) {
-				if (toBeInfectedIndex == 1) {
+				if (toBeInfectedIndex <= 1) {
 					soldier->setInfection(true);
 				}
 				toBeInfectedIndex--;
@@ -240,4 +241,17 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	{
 		healer->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
 	}
+
+	//Saviour unit check
+	if (gm->getAllyArmy()->getRescueState()) 
+	{
+		if (infectionCountES == 0)
+			gm->getAllyArmy()->setRescue(false);
+	}
+	else
+	{
+		if (soldiers->getCount() != 0 && infectionCountES / soldiers->getCount());
+			gm->getAllyArmy()->setRescue(true);
+	}
+		
 }
