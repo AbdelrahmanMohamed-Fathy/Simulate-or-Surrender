@@ -20,7 +20,7 @@ void humanSoldier::attack(gameManager* gm, queue<unit_Interface*>* deathList, in
 	{
 		if (getInfection())
 		{
-			if (!betrayed->getInfection())
+			if (earthsoldier->dequeue(betrayed))
 			{
 				betrayal.enqueue(betrayed);
 			}
@@ -30,10 +30,15 @@ void humanSoldier::attack(gameManager* gm, queue<unit_Interface*>* deathList, in
 			attack.enqueue(temp);
 		}
 	}
-
+	
 	if (printed) {
-		cout << "ES " << ID << " attacking: ";
-		attack.print();
+		cout << "ES " << this << " attacking: ";
+		if (!getInfection()) {
+			attack.print();
+		}
+		else {
+			betrayal.print();
+		}
 	}
 
 	int count = attack.getCount();

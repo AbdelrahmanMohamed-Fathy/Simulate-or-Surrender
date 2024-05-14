@@ -23,8 +23,6 @@ void humanHealer::setEarthArmy(earthArmy* EA)
 void humanHealer::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed)
 {
 	earthUnit* temp;
-	army->getCuredSoldiers()->dequeue((humanSoldier*&)(temp));
-	army->getSoldiers()->enqueue(((humanSoldier*)temp));
 	double dummy;
 	priQueue<earthUnit*> heal;
 	for (int i = 0; i < (int)attackCapacity; i++) {

@@ -11,6 +11,7 @@ earthArmy::earthArmy(gameManager* GM) : gm(GM)
 	gunners = new priQueue<humanGunner*>;
 	healers = new stack<humanHealer*>;
 	unitMaintenanceList = new priQueue<earthUnit*>;
+	curedSoldiers = new queue<humanSoldier*>;
 	humanHealer::setUnitMaintenanceList(unitMaintenanceList);
 	humanHealer::setEarthArmy(this);
 }
@@ -22,6 +23,7 @@ earthArmy::~earthArmy()
 	delete gunners;
 	delete healers;
 	delete unitMaintenanceList;
+	delete curedSoldiers;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Getters														//
@@ -155,7 +157,8 @@ void earthArmy::print()
 	healers->print();
 	cout << unitMaintenanceList->getCount() << " Human Units inside Maintenance List: ";
 	unitMaintenanceList->print();
-	cout << endl << " Human Soldiers Infection Rate: " << infectionCountES / soldiers->getCount() << "%";
+	if(soldiers->getCount() != 0)
+		cout << endl << " Human Soldiers Infection Rate: " << infectionCountES / soldiers->getCount() << "%";
 	cout << endl;
 }
 
@@ -192,6 +195,12 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	double temp;
 	if (gunners->peek(gunner, temp)) {
 		gunner->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
+	}
+
+	//Human Cured Soldiers:
+	humanSoldier* curedSoldier;
+	while (getCuredSoldiers()->dequeue((humanSoldier*&)(curedSoldier))) {
+		getSoldiers()->enqueue(((humanSoldier*&)curedSoldier));
 	}
 
 	//Human Healer:
