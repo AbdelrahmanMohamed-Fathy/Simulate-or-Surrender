@@ -103,8 +103,8 @@ void generator::generate(int timeStep)
 			generatedNumber = generateNumber();
 			if (generatedNumber <= humanSoldierPercentage)
 			{
-				int HP = generateNumber(0.6*humanHealthMin,0.8* humanHealthMax);
-				int PW = generateNumber(0.5*humanPowerMin,0.6* humanPowerMax);
+				int HP = generateNumber(0.3*humanHealthMin,0.4* humanHealthMax);
+				int PW = generateNumber(0.25*humanPowerMin,0.3* humanPowerMax);
 				int AC = generateNumber(humanAttackCapacityMin, humanAttackCapacityMax);
 				humanSoldier* newUnit = new humanSoldier(humanNextFreeID, HP, PW, AC, timeStep);
 				gm->getEarthArmy()->addSoldier(newUnit);
@@ -112,8 +112,8 @@ void generator::generate(int timeStep)
 			}
 			else if (generatedNumber <= (humanTankPercentage + humanSoldierPercentage))
 			{
-				int HP = generateNumber(1.25*humanHealthMin,1.5* humanHealthMax);
-				int PW = generateNumber(1.25*humanPowerMin,2* humanPowerMax);
+				int HP = generateNumber(0.625*humanHealthMin,0.75* humanHealthMax);
+				int PW = generateNumber(0.625*humanPowerMin, humanPowerMax);
 				int AC = generateNumber(humanAttackCapacityMin, humanAttackCapacityMax);
 				humanTank* newUnit = new humanTank(humanNextFreeID, HP, PW, AC, timeStep);
 				gm->getEarthArmy()->addTank(newUnit);
@@ -121,8 +121,8 @@ void generator::generate(int timeStep)
 			}
 			else if (generatedNumber <= (humanTankPercentage + humanSoldierPercentage + humanGunnerPercentage))
 			{
-				int HP = generateNumber(0.75*humanHealthMin,0.85* humanHealthMax);
-				int PW = generateNumber(1.25*humanPowerMin,1.5* humanPowerMax);
+				int HP = generateNumber(0.375*humanHealthMin,0.425* humanHealthMax);
+				int PW = generateNumber(0.625*humanPowerMin,0.75* humanPowerMax);
 				int AC = generateNumber(2*humanAttackCapacityMin,1.25* humanAttackCapacityMax);
 				humanGunner* newUnit = new humanGunner(humanNextFreeID, HP, PW, AC, timeStep);
 				gm->getEarthArmy()->addGunner(newUnit);
@@ -148,8 +148,8 @@ void generator::generate(int timeStep)
 		for (int i = 0; i < generationCount; i++)
 		{
 			if (allyNextFreeID >= 6999) break;
-			int HP = generateNumber(0.5 * allyHealthMin, 0.75 * allyHealthMax);
-			int PW = generateNumber(0.7 * allyPowerMin, 0.8 * allyPowerMax);
+			int HP = generateNumber( allyHealthMin,  allyHealthMax);
+			int PW = generateNumber( allyPowerMin,  allyPowerMax);
 			int AC = generateNumber(allyAttackCapacityMin, allyAttackCapacityMax);
 			saviourUnit* newUnit = new saviourUnit(allyNextFreeID, HP, PW, AC, timeStep);
 			gm->getAllyArmy()->addSaviour(newUnit);
@@ -167,8 +167,8 @@ void generator::generate(int timeStep)
 			generatedNumber = generateNumber();
 			if (generatedNumber <= alienSoldierPercentage)
 			{
-				int HP = generateNumber(0.5*alienHealthMin,0.75* alienHealthMax);
-				int PW = generateNumber(0.7*alienPowerMin,0.8* alienPowerMax);
+				int HP = generateNumber(0.25*alienHealthMin,0.625* alienHealthMax);
+				int PW = generateNumber(0.35*alienPowerMin,0.4* alienPowerMax);
 				int AC = generateNumber(alienAttackCapacityMin, alienAttackCapacityMax);
 				alienSoldier* newUnit = new alienSoldier(alienNextFreeID, HP, PW, AC, timeStep);
 				gm->getAlienArmy()->addSoldier(newUnit);
@@ -176,8 +176,8 @@ void generator::generate(int timeStep)
 			}
 			else if (generatedNumber <= (alienMonsterPercentage + alienSoldierPercentage))
 			{
-				int HP = generateNumber(1.5*alienHealthMin,2* alienHealthMax);
-				int PW = generateNumber(1.5*alienPowerMin,2* alienPowerMax);
+				int HP = generateNumber(0.75*alienHealthMin, alienHealthMax);
+				int PW = generateNumber(0.75*alienPowerMin, alienPowerMax);
 				int AC = generateNumber(alienAttackCapacityMin, alienAttackCapacityMax);
 				alienMonster* newUnit = new alienMonster(alienNextFreeID, HP, PW, AC, alienMonsterInfection, timeStep);
 				gm->getAlienArmy()->addMonster(newUnit);
@@ -185,8 +185,8 @@ void generator::generate(int timeStep)
 			}
 			else
 			{
-				int HP = generateNumber(0.5*alienHealthMin,0.75* alienHealthMax);
-				int PW = generateNumber(1.5*alienPowerMin,1.75* alienPowerMax);
+				int HP = generateNumber(0.25*alienHealthMin,0.625* alienHealthMax);
+				int PW = generateNumber(0.75*alienPowerMin,0.875* alienPowerMax);
 				int AC = generateNumber(2*alienAttackCapacityMin,1.5* alienAttackCapacityMax);
 				alienDrone* newUnit = new alienDrone(alienNextFreeID, HP, PW, AC, timeStep);
 				gm->getAlienArmy()->addDrone(newUnit);
