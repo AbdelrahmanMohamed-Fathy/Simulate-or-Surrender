@@ -27,7 +27,9 @@ private:
 	unsigned int deathCountEG = 0;
 	unsigned int deathCountEH = 0;
 
+	//Miscellaneous:
 	priQueue<earthUnit*>* unitMaintenanceList;
+	int emergencyThreshhold;
 public:
 	earthArmy(gameManager* GM);
 	~earthArmy();
@@ -48,6 +50,7 @@ public:
 	void setDeathCountEG(int);
 	void setDeathCountES(int);
 	void setDeathCountEH(int);
+	void setEmergencyThreshhold(int);
 
 	//Adders: (only for generator use)
 	void addSoldier(humanSoldier*& soldier);

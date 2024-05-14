@@ -1,6 +1,7 @@
 #pragma once
 #include "units/alienUnits/alienArmy.h"
 #include "units/earthUnits/earthArmy.h"
+#include "units/allyUnits/allyArmy.h"
 #include "units/unit_Interface.h"
 #include "generator.h"
 
@@ -10,6 +11,7 @@ private:
 	int timeStep;
 	earthArmy* humans;
 	alienArmy* aliens;
+	allyArmy* helldivers;
 	queue<unit_Interface*>* deathList;
 	generator* unitGenerator;
 	bool earthVictory;	// true if humans are the winner, false if aliens are the winner
@@ -34,9 +36,11 @@ public:
 	int getTimeStep();
 	earthArmy* getEarthArmy();
 	alienArmy* getAlienArmy();
+	allyArmy* getAllyArmy();
 	queue<unit_Interface*>* getDeathList();
 
 	//Miscellaneous:
+	void signalForHelp(bool rescueNeeded);
 	int CheckWinner();
 	void runStep(bool printed);
 	void printAlive();

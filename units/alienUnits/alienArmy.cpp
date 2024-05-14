@@ -34,26 +34,34 @@ deQueue<alienDrone*>* alienArmy::getDrones()
 {
 	return drones;
 }
+
 int alienArmy::getDeathCountAS()
 {
 	return deathCountAS;
 }
+
 int alienArmy::getDeathCountAD()
 {
 	return deathCountAD;
 }
+
 int alienArmy::getDeathCountAM()
 {
 	return deathCountAM;
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//													Setters														//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void alienArmy::setDeathCountAS(int deathCount)
 {
 	deathCountAS = deathCount;
 }
+
 void alienArmy::setDeathCountAD(int deathCount)
 {
 	deathCountAD = deathCount;
 }
+
 void alienArmy::setDeathCountAM(int deathCount)
 {
 	deathCountAM = deathCount;

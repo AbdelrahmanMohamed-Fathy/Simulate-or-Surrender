@@ -26,6 +26,16 @@ private:
 		int humanGunnerPercentage;
 		int humanHealUnitPercentage;
 
+		//Ally army parameters:
+		int allyHealthMin;
+		int allyHealthMax;
+		int allyPowerMin;
+		int allyPowerMax;
+		int allyAttackCapacityMin;
+		int allyAttackCapacityMax;
+
+		bool emergencyState = false;
+
 		//Alien army paramters:
 		int alienHealthMin;
 		int alienHealthMax;
@@ -43,13 +53,17 @@ private:
 	//IDs
 		int humanNextFreeID;
 		int alienNextFreeID;
+		int allyNextFreeID;
   
 public:
-	generator(gameManager* GM, int humanIDStart = 1, int alienIDStart = 2001);
+	generator(gameManager* GM, int humanIDStart = 1, int alienIDStart = 2001, int allyIDStart = 5001);
 	~generator();
 	bool assignGeneralParamteres(int N, int Prob);
 	bool assignEarthArmyParamters(int ES, int ET, int EG, int EHU, int HP[], int PW[], int AC[]);
-	bool assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[]);
+	bool assignAllyArmyParamters(int HP[], int PW[], int AC[]);
+	bool assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[], int AMI);
 	void generate(int timeStep);
 	bool assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[], int AMI);
+
+	void setEmergencyState(bool rescueNeeded);
 };

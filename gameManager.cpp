@@ -11,8 +11,21 @@ gameManager::gameManager()
 	structureTest = false;
 	humans = new earthArmy(this);
 	aliens = new alienArmy(this);
+	helldivers = new allyArmy(this);
 	unitGenerator = new generator(this);
 	deathList = new queue<unit_Interface*>();
+}
+
+gameManager::~gameManager()
+{
+	if (!structureTest)
+		produceOutputFile();
+	delete humans;
+	delete aliens;
+	delete helldivers;
+
+	delete deathList;
+	delete unitGenerator;
 }
 
 void gameManager::start()
@@ -115,17 +128,6 @@ void gameManager::start()
 	}
 	cout << "Simulation complete.";
 	return;
-}
-
-gameManager::~gameManager()
-{
-	if (!structureTest)
-		produceOutputFile();
-	delete humans;
-	delete aliens;
-
-	delete deathList;
-	delete unitGenerator;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Modes														//
@@ -400,6 +402,11 @@ alienArmy* gameManager::getAlienArmy()
 	return aliens;
 }
 
+allyArmy* gameManager::getAllyArmy()
+{
+	return helldivers;
+}
+
 queue<unit_Interface*>* gameManager::getDeathList()
 {
 	return deathList;
@@ -407,6 +414,11 @@ queue<unit_Interface*>* gameManager::getDeathList()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												Miscellaneous													//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void gameManager::signalForHelp(bool rescueNeeded)
+{
+	unitGenerator->setEmergencyState(rescueNeeded);
+}
+
 int gameManager::CheckWinner()
 {
 	if (timeStep < 40)
@@ -460,6 +472,8 @@ void gameManager::fight(bool printed)
 		cout << "======================= Units fighting at current timestep =======================\n";
 	}
 	humans->attack(aliens, printed);
+	helldivers->attack(aliens, printed);
 	aliens->attack(humans, printed);
+	if()
 	if (printed) cout << endl;
 }

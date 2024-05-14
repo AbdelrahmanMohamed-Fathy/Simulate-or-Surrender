@@ -4,7 +4,7 @@
 #include "utils/generateNumber.cpp"
 #include "basicDataStructures/queue.cpp"
 
-generator::generator(gameManager* GM, int humanIDStart, int alienIDStart) : gm(GM), humanNextFreeID(humanIDStart), alienNextFreeID(alienIDStart)
+generator::generator(gameManager* GM, int humanIDStart, int alienIDStart, int allyIDStart) : gm(GM), humanNextFreeID(humanIDStart), alienNextFreeID(alienIDStart), allyNextFreeID(allyIDStart)
 {
 }
 
@@ -47,6 +47,24 @@ bool generator::assignEarthArmyParamters(int ES, int ET, int EG, int EHU, int HP
 	humanPowerMax = PW[1];
 	humanAttackCapacityMin = AC[0];
 	humanAttackCapacityMax = AC[1];
+	return true;
+}
+
+bool generator::assignAllyArmyParamters(int HP[], int PW[], int AC[])
+{
+	bool invalidHealthRange = (HP[0] < 0 || HP[1] < HP[0]);
+	bool invalidPowerRange = (PW[0] < 0 || PW[1] < PW[0]);
+	bool invalidAttackCapacityRange = (AC[0] < 0 || AC[1] < AC[0]);
+	if (invalidHealthRange || invalidPowerRange || invalidAttackCapacityRange)
+	{
+		return false;
+	}
+	allyHealthMin = HP[0];
+	allyHealthMax = HP[1];
+	allyPowerMin = PW[0];
+	allyPowerMax = PW[1];
+	allyAttackCapacityMin = AC[0];
+	allyAttackCapacityMax = AC[1];
 	return true;
 }
 
@@ -122,6 +140,23 @@ void generator::generate(int timeStep)
 			humanNextFreeID++;
 		}
 	}
+
+	//Ally generation
+	if(emergencyState && generateNumber() <= generationProbability)
+	{
+		
+		for (int i = 0; i < generationCount; i++)
+		{
+			if (allyNextFreeID >= 6999) break;
+			int HP = generateNumber(0.5 * allyHealthMin, 0.75 * allyHealthMax);
+			int PW = generateNumber(0.7 * allyPowerMin, 0.8 * allyPowerMax);
+			int AC = generateNumber(allyAttackCapacityMin, allyAttackCapacityMax);
+			saviourUnit* newUnit = new saviourUnit(allyNextFreeID, HP, PW, AC, timeStep);
+			gm->getAllyArmy()->addSaviour(newUnit);
+			units.enqueue(newUnit);
+		}
+	}
+
 	//Aliens generation
 	if (generateNumber() <= generationProbability)
 	{
@@ -160,4 +195,9 @@ void generator::generate(int timeStep)
 			alienNextFreeID++;
 		}
 	}
+}
+
+void generator::setEmergencyState(bool rescueNeeded)
+{
+	emergencyState = rescueNeeded;
 }

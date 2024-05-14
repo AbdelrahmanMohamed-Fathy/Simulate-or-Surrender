@@ -81,6 +81,12 @@
     <ClCompile Include="units\earthUnits\humanHealer\humanHealer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="units\allyUnits\allyArmy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="units\allyUnits\saviourUnit\saviourUnit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basicDataStructures\nodes\node.h">
@@ -153,6 +159,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="units\earthUnits\humanHealer\humanHealer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="units\allyUnits\allyArmy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="units\allyUnits\saviourUnit\saviourUnit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
