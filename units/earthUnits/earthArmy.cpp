@@ -188,20 +188,20 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	}
 	
 	//Infection spread:
-	if (infectionCountES > 0)
-	{
-		for (int i = 0; i < infectionCountES; i++) {
-			int infectionSpread = generateNumber();
-			if (infectionSpread <= 2) {
-				int toBeInfectedIndex = generateNumber(1, soldiers->getCount());
-				while (soldiers->dequeue(soldier)) {
-					if (toBeInfectedIndex <= 1) {
-						soldier->setInfection(true);
-						break;
-					}
-					toBeInfectedIndex--;
+	for (int i = 0; i <infectionCountES; i++) {
+		int infectionSpread = generateNumber();
+		if (infectionSpread <= 2) {
+			int toBeInfectedIndex = generateNumber(0, soldiers->getCount());
+			while (soldiers->dequeue(soldier)) {
+				if (toBeInfectedIndex <= 0) {
+					soldier->setInfection(true);
+					infectionCountES++;
+					totalInfectionCountES++;
 					soldiers->enqueue(soldier);
+					break;
 				}
+				toBeInfectedIndex--;
+				soldiers->enqueue(soldier);
 			}
 		}
 	}
