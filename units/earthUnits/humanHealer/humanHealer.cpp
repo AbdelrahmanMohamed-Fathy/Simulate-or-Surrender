@@ -54,7 +54,17 @@ void humanHealer::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 				army->getTanks()->push((humanTank*)(temp));
 			}
 			else {
-				army->getSoldiers()->enqueue((humanSoldier*)(temp));
+				if (((humanSoldier*)temp)->getInfection())
+				{
+					((humanSoldier*)temp)->setInfection(false);
+					((humanSoldier*)temp)->setImmunity(true);
+					army->setInfectionCountES(army->getInfectionCountES() - 1);
+					army->getCuredSoldiers()->enqueue(((humanSoldier*)temp));
+				}
+				else
+				{
+					army->getSoldiers()->enqueue((humanSoldier*)(temp));
+				}
 			}
 		}
 	}

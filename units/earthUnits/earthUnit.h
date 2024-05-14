@@ -9,6 +9,8 @@ class earthUnit : public unit_Interface
 protected:
 	const int maxHealth;
 	int maintenanceWaitStartTime;
+	bool infected = false;
+	bool immune = false;
 public:
 	earthUnit(int iD, int Hp, int Pr, int Ac, int Tj) : unit_Interface(iD, Hp, Pr, Ac, Tj), maxHealth(Hp) {};
 	virtual void attack(gameManager* gm, queue<unit_Interface*>* deathList, int timeStep, bool printed);
@@ -18,3 +20,16 @@ public:
 	bool checkMaintenanceListViability();
 };
 
+static ostream& operator<<(ostream& out, const humanSoldier& soldier)
+{
+	if (soldier.getInfection())
+	{
+		out << soldier.getID() << "*";
+		return out;
+	}
+	else
+	{
+		out << soldier.getID();
+		return out;
+	}
+}

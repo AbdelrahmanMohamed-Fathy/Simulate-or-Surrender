@@ -54,6 +54,12 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 					if (!((humanSoldier*)human)->getImmunity())
 					{
 						((humanSoldier*)human)->setInfection(true);
+						int infectionCount = humans->getInfectionCountES();
+						infectionCount++;
+						humans->setInfectionCountES(infectionCount);
+						int totalInfectionCount = humans->getTotalInfectionCountES();
+						totalInfectionCount++;
+						humans->setTotalInfectionCountES(infectionCount);
 					}
 				}
 			}
@@ -73,6 +79,12 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 					tempCount = humans->getDeathCountES();
 					tempCount++;
 					humans->setDeathCountES(tempCount);
+					if (((humanSoldier*)human)->getInfection())
+					{
+						int infectionCount = humans->getInfectionCountES();
+						infectionCount--;
+						humans->setInfectionCountES(infectionCount);
+					}
 					break;
 				case 1:
 					tempCount = humans->getDeathCountET();

@@ -20,12 +20,17 @@ private:
 	stack<humanTank*>* tanks;
 	priQueue<humanGunner*>* gunners;
 	stack<humanHealer*>* healers;
+	queue<humanSoldier*>* curedSoldiers;
 
 	//Death Counts:
 	unsigned int deathCountES = 0;
 	unsigned int deathCountET = 0;
 	unsigned int deathCountEG = 0;
 	unsigned int deathCountEH = 0;
+
+	//Infection Count:
+	unsigned int infectionCountES = 0;
+	unsigned int totalInfectionCountES = 0;
 
 	//Miscellaneous:
 	priQueue<earthUnit*>* unitMaintenanceList;
@@ -40,16 +45,21 @@ public:
 	priQueue<humanGunner*>* getGunners();
 	stack<humanHealer*>* getHealers();
 	priQueue<earthUnit*>* getUnitMaintenanceList();
+	queue<humanSoldier*>* getCuredSoldiers();
 	int getDeathCountET();
 	int getDeathCountEG();
 	int getDeathCountES();
 	int getDeathCountEH();
+	int getInfectionCountES();
+	int getTotalInfectionCountES();
 
 	//Setters:
 	void setDeathCountET(int);
 	void setDeathCountEG(int);
 	void setDeathCountES(int);
 	void setDeathCountEH(int);
+	void setInfectionCountES(int);
+	void setTotalInfectionCountES(int);
 	void setEmergencyThreshhold(int);
 
 	//Adders: (only for generator use)
