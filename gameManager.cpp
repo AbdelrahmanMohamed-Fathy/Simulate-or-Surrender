@@ -263,13 +263,14 @@ bool gameManager::readInputFile(const string filePath,bool grandSimulation)
 {
 	ifstream inputFile(filePath,ios::in);
 
-	int N; int Prob; int infectProb;
-	inputFile >> N >> Prob >> infectProb;
+	int N; int Prob; int infectProb; int saviourThreshHold;
+	inputFile >> N >> Prob >> infectProb >> saviourThreshHold;
 	(grandSimulation) ? (N *= 10):(N=N);
 	if (!unitGenerator->assignGeneralParamteres(N, Prob))
 	{
 		return false;
 	};
+	humans->setEmergencyThreshhold(saviourThreshHold);
 
 	int ES; int ET; int EG; int EH; int HP[2]; int PW[2]; int AC[2];
 	inputFile >> ES >> ET >> EG >> EH;
@@ -298,7 +299,6 @@ bool gameManager::readInputFile(const string filePath,bool grandSimulation)
 	{
 		return false;
 	};
-
 	inputFile.close();
 	return true;
 }
