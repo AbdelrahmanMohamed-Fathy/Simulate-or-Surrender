@@ -1,10 +1,13 @@
 #pragma once
+#include "../basicDataStructures/queue.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 
 
 using namespace std;
+class gameManager;
+
 
 
 class unit_Interface 
@@ -38,6 +41,7 @@ public:
         ,joinTime(Tj)
     {};
 
+    virtual void attack(gameManager* gm, queue<unit_Interface*>* deathList, int timeStep, bool printed)=0;
     virtual ~unit_Interface() {};
 
     //Getters:
