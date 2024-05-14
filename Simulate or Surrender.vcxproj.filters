@@ -162,5 +162,7 @@
     <Text Include="scenarios\weakEarth_strongAliens.txt" />
     <Text Include="scenarios\weakEarth_weakAliens.txt" />
     <Text Include="scenarios\TEST.txt" />
+    <Text Include="scenarios\strongEarth_moderateAliens.txt" />
+    <Text Include="scenarios\weakEarth_moderateAliens.txt" />
   </ItemGroup>
 </Project>

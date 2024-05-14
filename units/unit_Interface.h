@@ -1,14 +1,19 @@
 #pragma once
+#include "../basicDataStructures/queue.h"
 #include <iostream>
 #include <fstream>
 #include <string>
-using namespace std;
 
-class unit_Interface
+
+using namespace std;
+class gameManager;
+
+
+
+class unit_Interface 
 {
 protected:
     const unsigned int ID;
-    static unsigned int deathCount;
 
     //Attributes:
     double health;
@@ -36,6 +41,9 @@ public:
         ,joinTime(Tj)
     {};
 
+    virtual void attack(gameManager* gm, queue<unit_Interface*>* deathList, int timeStep, bool printed)=0;
+    virtual ~unit_Interface() {};
+
     //Getters:
     int getID() const;
     double* getHP();
@@ -43,7 +51,6 @@ public:
     int getFirstAttackedDelay() const;
     int getDestructionDelay() const;
     int getBattleTime();
-    static int getDeathCount();
     //Setters:
     void setDestructionTime(int dt);
     void setFirstAttackedTime(int at);
@@ -75,3 +82,5 @@ static ofstream& operator<<(ofstream& out, const unit_Interface& unit)
     out << unit.generateUnitLine();
     return out;
 }
+
+

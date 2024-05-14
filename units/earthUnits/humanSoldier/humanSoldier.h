@@ -16,3 +16,31 @@ public:
 	bool getImmunity();
 };
 
+static ostream& operator<<(ostream& out, const humanSoldier* soldier)
+{
+    if (soldier->getInfection())
+    {
+        out << soldier->getID() << "*";
+        return out;
+    }
+    else
+    {
+        out << soldier->getID();
+        return out;
+    }
+}
+
+static ostream& operator<<(ostream& out, const humanSoldier& soldier)
+{
+    if (soldier.getInfection())
+    {
+        out << soldier.getID() << "*";
+        return out;
+    }
+    else
+    {
+        out << soldier.getID();
+        return out;
+    }
+}
+

@@ -24,7 +24,9 @@ void gameManager::start()
 		<< "(1) strongEarth, weakAliens\n"
 		<< "(2) weakEarth, StrongAliens\n"
 		<< "(3) weakEarth, weakAliens\n"
-		<< "(4) data-structure test\n";
+		<< "(4) strongEarth, ModerateAliens\n"
+		<< "(5) weakEarth, ModerateAliens\n"
+		<< "(6) data-structure test\n";
 	
 	cin >> x;
 	switch (x)
@@ -42,6 +44,12 @@ void gameManager::start()
 		filePath += "weakEarth_weakAliens.txt";
 		break;
 	case 4:
+		filePath += "strongEarth_moderateAliens.txt";
+		break;
+	case 5:
+		filePath += "weakEarth_moderateAliens.txt";
+		break;
+	case 6:
 		system("cls");
 		structureTest = true;
 		if (!readInputFile(filePath + "TEST.txt", false))
@@ -116,10 +124,6 @@ gameManager::~gameManager()
 	delete humans;
 	delete aliens;
 
-	unit_Interface* temp;
-	while (deathList->dequeue(temp))
-		delete temp;
-
 	delete deathList;
 	delete unitGenerator;
 }
@@ -144,6 +148,7 @@ void gameManager::runSilent()
 {
 	cout << "Press any key to start simulation.\n";
 	_getch();
+	cout << "Simulation running...\n";
 	while (CheckWinner() == 0)
 	{
 		runStep(false);
@@ -157,7 +162,7 @@ void gameManager::testStructures()
 	_getch();
 	while (timeStep != 50)
 	{
-		unitGenerator->generate();
+		unitGenerator->generate(timeStep);
 		int x = generateNumber();
 		if (x >= 1 && x <= 10)
 		{
@@ -234,12 +239,26 @@ void gameManager::testStructures()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												File management													//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*Input file format:
+{N} {Prob}
+
+{Earth unit percentages}
+{health range}
+{power range}
+{attack capacity range}
+
+{Alien unit percentages}
+{health range}
+{power range}
+{attack capacity range}
+*/
 bool gameManager::readInputFile(const string filePath,bool grandSimulation)
 {
 	ifstream inputFile(filePath,ios::in);
 
-	int N; int Prob; 
-	inputFile >> N >> Prob;
+	int N; int Prob; int infectProb;
+	inputFile >> N >> Prob >> infectProb;
 	(grandSimulation) ? (N *= 10):(N=N);
 	if (!unitGenerator->assignGeneralParamteres(N, Prob))
 	{
@@ -262,7 +281,7 @@ bool gameManager::readInputFile(const string filePath,bool grandSimulation)
 	(inputFile >> HP[0]).ignore(1) >> HP[1];
 	(inputFile >> PW[0]).ignore(1) >> PW[1];
 	(inputFile >> AC[0]).ignore(1) >> AC[1];
-	if (!unitGenerator->assignAlienArmyParamters(AS, AM, AD, HP, PW, AC))
+	if (!unitGenerator->assignAlienArmyParamters(AS, AM, AD, HP, PW, AC, infectProb))
 	{
 		return false;
 	};
@@ -280,12 +299,13 @@ void gameManager::produceOutputFile()
 		outputFile << alienVictoryScreen;
 
 	double totalHumanDf = 0; double totalAlienDf = 0; double totalHumanDd = 0; double totalAlienDd = 0; double totalHumanDb = 0; double totalAlienDb = 0;
-	outputFile << "\n\nKilled units:\n";
+	outputFile << "\n\nFinal timestep: " << timeStep << endl;
+	outputFile << "Killed units:\n";
 	unit_Interface* temp = nullptr;
 	while (deathList->dequeue(temp))
 	{
 		outputFile << temp;
-		if (temp->getID() < 1000)
+		if (temp->getID() < 2000)
 		{
 			totalHumanDf += temp->getFirstAttackedDelay();
 			totalHumanDd += temp->getDestructionDelay();
@@ -303,21 +323,25 @@ void gameManager::produceOutputFile()
 	double humanSoldierCount = humans->getSoldiers()->getCount();
 	double humanTankCount = humans->getTanks()->getCount();
 	double humanGunnerCount = humans->getGunners()->getCount();
-	double totalHumanCount = humanSoldierCount + humanTankCount + humanGunnerCount;
+	double humanHealerCount = humans->getHealers()->getCount();
+	double totalHumanCount = humanSoldierCount + humanTankCount + humanGunnerCount + humanHealerCount;
 	double humanDeadSoldierCount = humans->getDeathCountES();
 	double humanDeadTankCount = humans->getDeathCountET();
 	double humanDeadGunnerCount = humans->getDeathCountEG();
-	double totalHumanDeadCount = humanDeadSoldierCount + humanDeadTankCount + humanDeadGunnerCount;
+	double humanDeadHealerCount = humans->getDeathCountEH();
+	double totalHumanDeadCount = humanDeadSoldierCount + humanDeadTankCount + humanDeadGunnerCount + humanDeadHealerCount;
 
 	outputFile << "Earth army stats:\n"
 		<< "Total number of units left: "
 		<< humanSoldierCount << " ES, "
 		<< humanTankCount << " ET, "
-		<< humanGunnerCount << " EG\n"
+		<< humanGunnerCount << " EG, "
+		<< humanHealerCount << " EH\n"
 		<< "Percentage of dead units relative to their total: "
 		<< humanDeadSoldierCount / (humanSoldierCount + humanDeadSoldierCount) * 100 << "% ES,"
 		<< humanDeadTankCount / (humanTankCount + humanDeadTankCount) * 100 << "% ET,"
-		<< humanDeadGunnerCount / (humanGunnerCount + humanDeadGunnerCount) * 100 << "% EG\n"
+		<< humanDeadGunnerCount / (humanGunnerCount + humanDeadGunnerCount) * 100 << "% EG,"
+		<< humanDeadHealerCount / (humanHealerCount + humanDeadHealerCount) * 100 << "% EH\n"
 		<< "Percentage of total dead units to total units: "
 		<< totalHumanDeadCount / (totalHumanCount + totalHumanDeadCount) * 100 << "%\n"
 		<< "Average delay values: "
@@ -408,7 +432,7 @@ int gameManager::CheckWinner()
 
 void gameManager::runStep(bool printed)
 {
-	unitGenerator->generate();
+	unitGenerator->generate(timeStep);
 	if (printed) printAlive();
 	fight(printed);
 	if (printed) printDead();
@@ -437,5 +461,5 @@ void gameManager::fight(bool printed)
 	}
 	humans->attack(aliens, printed);
 	aliens->attack(humans, printed);
+	if (printed) cout << endl;
 }
-

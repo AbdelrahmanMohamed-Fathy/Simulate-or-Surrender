@@ -9,23 +9,10 @@ alienArmy::alienArmy(gameManager* GM) : gm(GM)
 	soldiers = new queue<alienSoldier*>;
 	monsters = new randomBag<alienMonster*>;
 	drones = new deQueue<alienDrone*>;
-	nextFreeID = 2000;
 }
 
 alienArmy::~alienArmy()
 {
-	alienSoldier* temp1;
-	while (soldiers->dequeue(temp1))
-		delete temp1;
-
-	alienMonster* temp2;
-	while (monsters->remove(temp2))
-		delete temp2;
-
-	alienDrone* temp3;
-	while (drones->dequeuefront(temp3))
-		delete temp3;
-
 	delete soldiers;
 	delete monsters;
 	delete drones;
@@ -74,25 +61,22 @@ void alienArmy::setDeathCountAM(int deathCount)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Adders														//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void alienArmy::addSoldier(int HP, int PW, int AC)
+void alienArmy::addSoldier(alienSoldier*& soldier)
 {
-	alienSoldier* newUnit = new alienSoldier(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	soldiers->enqueue(newUnit);
+	soldiers->enqueue(soldier);
 }
 
-void alienArmy::addMonster(int HP, int PW, int AC)
+void alienArmy::addMonster(alienMonster*& monster)
 {
-	alienMonster* newUnit = new alienMonster(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	monsters->addElement(newUnit);
+	monsters->addElement(monster);
 }
 
-void alienArmy::addDrone(int HP, int PW, int AC)
+void alienArmy::addDrone(alienDrone*& drone)
 {
-	alienDrone* newUnit = new alienDrone(nextFreeID++, HP, PW, AC, gm->getTimeStep());
 	if (gm->getTimeStep() % 2 == 0)
-		drones->enqueueFront(newUnit);
+		drones->enqueueFront(drone);
 	else
-		drones->enqueueBack(newUnit);
+		drones->enqueueBack(drone);
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												Miscellaneous													//
@@ -113,6 +97,7 @@ void alienArmy::print()
 	monsters->print();
 	cout << drones->getCount() << " Alien Drones: ";
 	drones->print();
+	cout << endl;
 }
 
 void alienArmy::attack(earthArmy* humans, bool printed)

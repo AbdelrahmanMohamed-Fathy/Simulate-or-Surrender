@@ -12,31 +12,11 @@ earthArmy::earthArmy(gameManager* GM) : gm(GM)
 	healers = new stack<humanHealer*>;
 	unitMaintenanceList = new priQueue<earthUnit*>;
 	humanHealer::setUnitMaintenanceList(unitMaintenanceList);
-	nextFreeID = 1;
+	humanHealer::setEarthArmy(this);
 }
 
 earthArmy::~earthArmy()
 {
-	humanSoldier* temp1;
-	while (soldiers->dequeue(temp1))
-		delete temp1;
-
-	humanTank* temp2;
-	while (tanks->pop(temp2))
-		delete temp2;
-
-	humanGunner* temp3; double dummy;
-	while (gunners->dequeue(temp3, dummy))
-		delete temp3;
-
-	humanHealer* temp4;
-	while (healers->pop(temp4))
-		delete temp4;
-
-	earthUnit* temp5;
-	while (unitMaintenanceList->dequeue(temp5, dummy))
-		delete temp5;
-
 	delete soldiers;
 	delete tanks;
 	delete gunners;
@@ -65,66 +45,84 @@ stack<humanHealer*>* earthArmy::getHealers()
 {
 	return healers;
 }
+
 priQueue<earthUnit*>* earthArmy::getUnitMaintenanceList()
 {
 	return unitMaintenanceList;
 }
+
 int earthArmy::getDeathCountET()
 {
 	return deathCountET;
 }
+
 int earthArmy::getDeathCountEG()
 {
 	return deathCountEG;
 }
+
 int earthArmy::getDeathCountES()
 {
 	return deathCountES;
 }
+
+int earthArmy::getDeathCountEH()
+{
+	return deathCountEH;
+}
+
 void earthArmy::setDeathCountET(int deathCount)
 {
 	deathCountET = deathCount;
 }
+
 void earthArmy::setDeathCountEG(int deathCount)
 {
 	deathCountEG = deathCount;
 }
+
 void earthArmy::setDeathCountES(int deathCount)
 {
 	deathCountES = deathCount;
 }
+
+void earthArmy::setDeathCountEH(int deathCount)
+{
+	deathCountEH = deathCount;
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Adders														//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void earthArmy::addSoldier(int HP, int PW, int AC)
+void earthArmy::addSoldier(humanSoldier*& soldier)
 {
-	humanSoldier* newUnit = new humanSoldier(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	soldiers->enqueue(newUnit);
+	soldiers->enqueue(soldier);
 }
 
-void earthArmy::addTank(int HP, int PW, int AC)
+void earthArmy::addTank(humanTank*& tank)
 {
-	humanTank* newUnit = new humanTank(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	tanks->push(newUnit);
+	tanks->push(tank);
 }
 
-void earthArmy::addGunner(int HP, int PW, int AC)
+void earthArmy::addGunner(humanGunner*& gunner)
 {
-	humanGunner* newUnit = new humanGunner(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	gunners->enqueue(newUnit, newUnit->getPriority());
+	gunners->enqueue(gunner, gunner->getPriority());
 }
 
-void earthArmy::addHealer(int HP, int PW, int AC)
+void earthArmy::addHealer(humanHealer*& healer)
 {
-	humanHealer* newUnit = new humanHealer(nextFreeID++, HP, PW, AC, gm->getTimeStep());
-	healers->push(newUnit);
+	healers->push(healer);
+}
+
+void earthArmy::addToMaintenance(earthUnit*& human, double pri)
+{
+	unitMaintenanceList->enqueue(human, pri);
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //												Miscellaneous													//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool earthArmy::isEmpty()
 {
-	if (soldiers->isEmpty() && tanks->isEmpty() && gunners->isEmpty() && healers->isEmpty())
+	if (soldiers->isEmpty() && tanks->isEmpty() && gunners->isEmpty())
 		return true;
 	return false;
 }
@@ -140,6 +138,9 @@ void earthArmy::print()
 	gunners->print();
 	cout << healers->getCount() << " Human Healers: ";
 	healers->print();
+	cout << unitMaintenanceList->getCount() << " Human Units inside Maintenance List: ";
+	unitMaintenanceList->print();
+	cout << endl;
 }
 
 void earthArmy::attack(alienArmy* aliens, bool printed)
@@ -175,5 +176,12 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	double temp;
 	if (gunners->peek(gunner, temp)) {
 		gunner->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
+	}
+
+	//Human Healer:
+	humanHealer* healer;
+	if (healers->pop(healer))
+	{
+		healer->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
 	}
 }

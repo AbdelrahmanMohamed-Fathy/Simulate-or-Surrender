@@ -43,4 +43,3 @@ public:
 	void printDead();
 	void fight(bool printed);
 };
-
