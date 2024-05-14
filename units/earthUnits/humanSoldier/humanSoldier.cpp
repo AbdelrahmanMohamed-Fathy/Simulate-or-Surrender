@@ -15,14 +15,24 @@ void humanSoldier::attack(gameManager* gm, queue<unit_Interface*>* deathList, in
 	humanSoldier* betrayed;
 	queue<alienSoldier*> attack;
 	queue<humanSoldier*> betrayal;
+	queue<humanSoldier*> toBeReturned;
 
 	for (int i = 0; i < (int)attackCapacity; i++)
 	{
 		if (getInfection())
 		{
-			if (!betrayed->getInfection())
+			while (earthsoldier->dequeue(betrayed))
 			{
-				betrayal.enqueue(betrayed);
+				if (!betrayed->getInfection())
+				{
+					betrayal.enqueue(betrayed);
+					break;
+				}
+				toBeReturned.enqueue(betrayed);
+			}
+			while (toBeReturned.dequeue(betrayed))
+			{
+				earthsoldier->enqueue(betrayed);
 			}
 		}
 		else if (aliensoldier->dequeue(temp))
