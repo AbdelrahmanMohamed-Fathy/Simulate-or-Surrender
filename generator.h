@@ -48,7 +48,7 @@ private:
 		int alienMonsterPercentage;
 		int alienDronePercentage;
 
-    int alienMonsterInfection;
+		int alienMonsterInfection;
   
 	//IDs
 		int humanNextFreeID;

@@ -11,6 +11,7 @@ earthArmy::earthArmy(gameManager* GM) : gm(GM)
 	gunners = new priQueue<humanGunner*>;
 	healers = new stack<humanHealer*>;
 	unitMaintenanceList = new priQueue<earthUnit*>;
+	curedSoldiers = new queue<humanSoldier*>;
 	humanHealer::setUnitMaintenanceList(unitMaintenanceList);
 	humanHealer::setEarthArmy(this);
 }
@@ -22,6 +23,7 @@ earthArmy::~earthArmy()
 	delete gunners;
 	delete healers;
 	delete unitMaintenanceList;
+	delete curedSoldiers;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Getters														//
@@ -51,6 +53,11 @@ priQueue<earthUnit*>* earthArmy::getUnitMaintenanceList()
 	return unitMaintenanceList;
 }
 
+queue<humanSoldier*>* earthArmy::getCuredSoldiers()
+{
+	return curedSoldiers;
+}
+
 int earthArmy::getDeathCountET()
 {
 	return deathCountET;
@@ -70,6 +77,17 @@ int earthArmy::getDeathCountEH()
 {
 	return deathCountEH;
 }
+
+int earthArmy::getInfectionCountES()
+{
+	return infectionCountES;
+}
+
+int earthArmy::getTotalInfectionCountES()
+{
+	return totalInfectionCountES
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Setters														//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -91,6 +109,16 @@ void earthArmy::setDeathCountES(int deathCount)
 void earthArmy::setDeathCountEH(int deathCount)
 {
 	deathCountEH = deathCount;
+}
+
+void earthArmy::setInfectionCountES(int infectionCount)
+{
+	infectionCountES = infectionCount;
+}
+
+void earthArmy::setTotalInfectionCountES(int totalInfectionCount)
+{
+	totalInfectionCountES = totalInfectionCount;
 }
 
 void earthArmy::setEmergencyThreshhold(int threshHold)
@@ -147,6 +175,8 @@ void earthArmy::print()
 	healers->print();
 	cout << unitMaintenanceList->getCount() << " Human Units inside Maintenance List: ";
 	unitMaintenanceList->print();
+	if(soldiers->getCount() != 0)
+		cout << endl << " Human Soldiers Infection Rate: " << infectionCountES / soldiers->getCount() << "%";
 	cout << endl;
 }
 
@@ -155,7 +185,20 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	//Human Soldier:
 	humanSoldier* soldier;
 	if (soldiers->peek(soldier)) {
-		soldier->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
+		soldier->attack(gm, gm->getDeathList(), gm->getTimeStep(), printed);
+	}
+	for (int i = 0; i < infectionCountES; i++) {
+		int infectionSpread = generateNumber();
+		if (infectionSpread <= 2) {
+			int toBeInfectedIndex = generateNumber(1, soldiers->getCount());
+			while (soldiers->dequeue(soldier)) {
+				if (toBeInfectedIndex == 1) {
+					soldier->setInfection(true);
+				}
+				toBeInfectedIndex--;
+				soldiers->enqueue(soldier);
+			}
+		}
 	}
 
 	//Human Tank:
@@ -183,6 +226,12 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	double temp;
 	if (gunners->peek(gunner, temp)) {
 		gunner->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
+	}
+
+	//Human Cured Soldiers:
+	humanSoldier* curedSoldier;
+	while (getCuredSoldiers()->dequeue((humanSoldier*&)(curedSoldier))) {
+		getSoldiers()->enqueue(((humanSoldier*&)curedSoldier));
 	}
 
 	//Human Healer:

@@ -179,7 +179,7 @@ void generator::generate(int timeStep)
 				int HP = generateNumber(1.5*alienHealthMin,2* alienHealthMax);
 				int PW = generateNumber(1.5*alienPowerMin,2* alienPowerMax);
 				int AC = generateNumber(alienAttackCapacityMin, alienAttackCapacityMax);
-				alienMonster* newUnit = new alienMonster(alienNextFreeID, HP, PW, AC, timeStep);
+				alienMonster* newUnit = new alienMonster(alienNextFreeID, HP, PW, AC, alienMonsterInfection, timeStep);
 				gm->getAlienArmy()->addMonster(newUnit);
 				units.enqueue(newUnit);
 			}
