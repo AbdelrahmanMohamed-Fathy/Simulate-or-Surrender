@@ -51,6 +51,11 @@ priQueue<earthUnit*>* earthArmy::getUnitMaintenanceList()
 	return unitMaintenanceList;
 }
 
+queue<humanSoldier*>* earthArmy::getCuredSoldiers()
+{
+	return curedSoldiers;
+}
+
 int earthArmy::getDeathCountET()
 {
 	return deathCountET;
@@ -71,6 +76,11 @@ int earthArmy::getDeathCountEH()
 	return deathCountEH;
 }
 
+int earthArmy::getInfectionCountES()
+{
+	return infectionCountES;
+}
+
 void earthArmy::setDeathCountET(int deathCount)
 {
 	deathCountET = deathCount;
@@ -89,6 +99,11 @@ void earthArmy::setDeathCountES(int deathCount)
 void earthArmy::setDeathCountEH(int deathCount)
 {
 	deathCountEH = deathCount;
+}
+
+void earthArmy::setInfectionCountES(int infectionCount)
+{
+	infectionCountES = infectionCount;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Adders														//
@@ -140,6 +155,7 @@ void earthArmy::print()
 	healers->print();
 	cout << unitMaintenanceList->getCount() << " Human Units inside Maintenance List: ";
 	unitMaintenanceList->print();
+	cout << endl << " Human Soldiers Infection Rate: " << infectionCountES / soldiers->getCount() << "%";
 	cout << endl;
 }
 
@@ -148,7 +164,7 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	//Human Soldier:
 	humanSoldier* soldier;
 	if (soldiers->peek(soldier)) {
-		soldier->attack(aliens, gm->getDeathList(), gm->getTimeStep(), printed);
+		soldier->attack(gm, gm->getDeathList(), gm->getTimeStep(), printed);
 	}
 
 	//Human Tank:

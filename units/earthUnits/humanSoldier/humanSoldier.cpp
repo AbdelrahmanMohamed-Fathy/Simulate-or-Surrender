@@ -1,21 +1,36 @@
 #include "humanSoldier.h"
 #include "../earthArmy.h"
 #include "../../alienUnits/alienArmy.h"
+#include"../../gameManager.h"
 #include <cmath>
 
 
-void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed) {
-	queue<alienSoldier*>* aliensoldier;
-	aliensoldier=aliens->getSoldiers();
+void humanSoldier::attack(gameManager* gm, queue<unit_Interface*>* deathList, int timeStep, bool printed) {
+
+	queue<alienSoldier*>* aliensoldier = gm->getAlienArmy()->getSoldiers();
+	queue<humanSoldier*>* earthsoldier = gm->getEarthArmy()->getSoldiers();
+	alienArmy* aliens = gm->getAlienArmy();
+	earthArmy* humans = gm->getEarthArmy();
 	alienSoldier* temp;
+	humanSoldier* betrayed;
 	queue<alienSoldier*> attack;
-	
-	for (int i = 0; i < (int)attackCapacity; i++) {
-		if (aliensoldier->dequeue(temp)) {
+	queue<humanSoldier*> betrayal;
+
+	for (int i = 0; i < (int)attackCapacity; i++)
+	{
+		if (getInfection())
+		{
+			if (!betrayed->getInfection())
+			{
+				betrayal.enqueue(betrayed);
+			}
+		}
+		else if (aliensoldier->dequeue(temp))
+		{
 			attack.enqueue(temp);
 		}
 	}
-	
+
 	if (printed) {
 		cout << "ES " << ID << " attacking: ";
 		attack.print();
@@ -25,7 +40,7 @@ void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, 
 
 	for (int i = 0; i < count; i++) {
 		if (attack.dequeue(temp)) {
-			if (temp->getFirstAttackedTime()==-1) {
+			if (temp->getFirstAttackedTime() == -1) {
 				temp->setFirstAttackedTime(timeStep);
 			}
 			*temp->getHP() -= (power * (health / 100.0)) / sqrt(*temp->getHP());
@@ -38,6 +53,30 @@ void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, 
 				aliens->setDeathCountAS(tempCount);
 			}
 			else aliensoldier->enqueue(temp);
+		}
+
+		if (betrayal.dequeue(betrayed))
+		{
+			if (betrayed->getFirstAttackedTime() == -1)
+			{
+				betrayed->setFirstAttackedTime(timeStep);
+			}
+			*betrayed->getHP() -= (power * (health / 100.0)) / sqrt(*temp->getHP());
+			if (*betrayed->getHP() <= 0) {
+				betrayed->setDestructionTime(timeStep);
+				deathList->enqueue(betrayed);
+				if (betrayed->getInfection())
+				{
+					int infectionCount = humans->getInfectionCountES();
+					infectionCount--;
+					humans->setInfectionCountES(infectionCount);
+				}
+				int tempCount;
+				tempCount = humans->getDeathCountES();
+				tempCount++;
+				humans->setDeathCountES(tempCount);
+			}
+			else earthsoldier->enqueue(betrayed);
 		}
 	}
 }
