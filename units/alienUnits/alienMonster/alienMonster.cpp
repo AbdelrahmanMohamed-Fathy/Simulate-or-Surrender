@@ -57,6 +57,9 @@ void alienMonster::attack(earthArmy* humans, queue<unit_Interface*>* deathList, 
 						int infectionCount = humans->getInfectionCountES();
 						infectionCount++;
 						humans->setInfectionCountES(infectionCount);
+						int totalInfectionCount = humans->getTotalInfectionCountES();
+						totalInfectionCount++;
+						humans->setTotalInfectionCountES(infectionCount);
 					}
 				}
 			}

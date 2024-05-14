@@ -83,6 +83,11 @@ int earthArmy::getInfectionCountES()
 	return infectionCountES;
 }
 
+int earthArmy::getTotalInfectionCountES()
+{
+	return totalInfectionCountES
+}
+
 void earthArmy::setDeathCountET(int deathCount)
 {
 	deathCountET = deathCount;
@@ -106,6 +111,11 @@ void earthArmy::setDeathCountEH(int deathCount)
 void earthArmy::setInfectionCountES(int infectionCount)
 {
 	infectionCountES = infectionCount;
+}
+
+void earthArmy::setTotalInfectionCountES(int totalInfectionCount)
+{
+	totalInfectionCountES = totalInfectionCount;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //													Adders														//

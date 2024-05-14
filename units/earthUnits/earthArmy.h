@@ -30,6 +30,7 @@ private:
 
 	//Infection Count:
 	unsigned int infectionCountES = 0;
+	unsigned int totalInfectionCountES = 0;
 
 	priQueue<earthUnit*>* unitMaintenanceList;
 public:
@@ -48,6 +49,7 @@ public:
 	int getDeathCountES();
 	int getDeathCountEH();
 	int getInfectionCountES();
+	int getTotalInfectionCountES();
 
 	//Setters:
 	void setDeathCountET(int);
@@ -55,6 +57,7 @@ public:
 	void setDeathCountES(int);
 	void setDeathCountEH(int);
 	void setInfectionCountES(int);
+	void setTotalInfectionCountES(int);
 
 	//Adders: (only for generator use)
 	void addSoldier(humanSoldier*& soldier);
