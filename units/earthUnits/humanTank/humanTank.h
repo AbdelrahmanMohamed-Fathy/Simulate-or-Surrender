@@ -10,6 +10,5 @@ public:
 	static void setpctCheck(bool set);
 	static bool getpctCheck();
 	void attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed);
-	static int getDeathCount();
 };
 

@@ -63,7 +63,6 @@ public:
 	bool assignAllyArmyParamters(int HP[], int PW[], int AC[]);
 	bool assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[], int AMI);
 	void generate(int timeStep);
-	bool assignAlienArmyParamters(int AS, int AM, int AD, int HP[], int PW[], int AC[], int AMI);
 
 	void setEmergencyState(bool rescueNeeded);
 };

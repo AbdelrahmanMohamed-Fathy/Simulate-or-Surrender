@@ -474,6 +474,5 @@ void gameManager::fight(bool printed)
 	humans->attack(aliens, printed);
 	helldivers->attack(aliens, printed);
 	aliens->attack(humans, printed);
-	if()
 	if (printed) cout << endl;
 }

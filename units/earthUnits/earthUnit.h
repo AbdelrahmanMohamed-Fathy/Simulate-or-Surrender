@@ -18,9 +18,13 @@ public:
 	void setMaintenanceWaitStartTime(int timeStep);
 	int getMaintenanceWaitStartTime();
 	bool checkMaintenanceListViability();
+	void setInfection(bool infection);
+	void setImmunity(bool immunity);
+	bool getInfection() const;
+	bool getImmunity() const;
 };
 
-static ostream& operator<<(ostream& out, const humanSoldier& soldier)
+static ostream& operator<<(ostream& out, const earthUnit& soldier)
 {
 	if (soldier.getInfection())
 	{

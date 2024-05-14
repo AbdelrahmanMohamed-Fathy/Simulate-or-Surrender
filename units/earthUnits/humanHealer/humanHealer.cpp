@@ -50,20 +50,29 @@ void humanHealer::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 	for (int i = 0; i < count; i++) {
 		if (heal.dequeue(temp, dummy)) {
 			*temp->getHP() += (power * (health / 100.0)) / sqrt(*temp->getHP());
-			if (dummy == -INFINITY) {
-				army->getTanks()->push((humanTank*)(temp));
+			if (temp->checkMaintenanceListViability())
+			{
+				if (dummy == -INFINITY)
+					unitMaintenanceList->enqueue(temp, dummy);
+				else
+					unitMaintenanceList->enqueue(temp, -1 * (*temp->getHP()));
 			}
 			else {
-				if (((humanSoldier*)temp)->getInfection())
-				{
-					((humanSoldier*)temp)->setInfection(false);
-					((humanSoldier*)temp)->setImmunity(true);
-					army->setInfectionCountES(army->getInfectionCountES() - 1);
-					army->getCuredSoldiers()->enqueue(((humanSoldier*)temp));
+				if (dummy == -INFINITY) {
+					army->getTanks()->push((humanTank*)(temp));
 				}
-				else
-				{
-					army->getSoldiers()->enqueue((humanSoldier*)(temp));
+				else {
+					if (((humanSoldier*)temp)->getInfection())
+					{
+						((humanSoldier*)temp)->setInfection(false);
+						((humanSoldier*)temp)->setImmunity(true);
+						army->setInfectionCountES(army->getInfectionCountES() - 1);
+						army->getCuredSoldiers()->enqueue(((humanSoldier*)temp));
+					}
+					else
+					{
+						army->getSoldiers()->enqueue((humanSoldier*)(temp));
+					}
 				}
 			}
 		}

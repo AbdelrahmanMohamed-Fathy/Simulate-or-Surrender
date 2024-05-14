@@ -21,3 +21,23 @@ void earthUnit::attack(gameManager* gm, queue<unit_Interface*>* deathList, int t
 {
 	attack(gm->getAlienArmy(), deathList, timeStep, printed);
 }
+
+bool earthUnit::getImmunity() const
+{
+	return immune;
+}
+
+bool earthUnit::getInfection() const
+{
+	return infected;
+}
+
+void earthUnit::setImmunity(bool immunity)
+{
+	immune = immunity;
+}
+
+void earthUnit::setInfection(bool infection)
+{
+	infected = infection;
+}

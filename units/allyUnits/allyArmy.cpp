@@ -1,5 +1,6 @@
 #include "allyArmy.h"
 #include "../../gameManager.h"
+#include "../../basicDataStructures/queue.cpp"
 
 allyArmy::allyArmy(gameManager* GM) : gm(GM)
 {
@@ -23,6 +24,7 @@ bool allyArmy::getRescueState()
 void allyArmy::setRescue(bool needRescue)
 {
 	rescueRequired = needRescue;
+	gm->signalForHelp(needRescue);
 	if (!needRescue)
 	{
 		delete saviours;
