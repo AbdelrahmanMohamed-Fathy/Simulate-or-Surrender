@@ -1,4 +1,5 @@
 #include "earthUnit.h"
+#include "../../gameManager.h"
 
 void earthUnit::setMaintenanceWaitStartTime(int timeStep)
 {
@@ -16,3 +17,7 @@ bool earthUnit::checkMaintenanceListViability()
 	return false;
 }
 
+void earthUnit::attack(gameManager* gm, queue<unit_Interface*>* deathList, int timeStep, bool printed)
+{
+	attack(gm->getAlienArmy(), deathList, timeStep, printed);
+}
