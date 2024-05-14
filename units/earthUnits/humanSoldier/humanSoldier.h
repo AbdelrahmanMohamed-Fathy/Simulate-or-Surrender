@@ -12,8 +12,8 @@ public:
 	static int getDeathCount();
 	void setInfection(bool infection);
 	void setImmunity(bool immunity);
-	bool getInfection();
-	bool getImmunity();
+	bool getInfection() const;
+	bool getImmunity() const;
 };
 
 static ostream& operator<<(ostream& out, const humanSoldier* soldier)

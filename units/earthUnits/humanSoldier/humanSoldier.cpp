@@ -6,16 +6,16 @@
 
 void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, int timeStep, bool printed) {
 	queue<alienSoldier*>* aliensoldier;
-	aliensoldier=aliens->getSoldiers();
+	aliensoldier = aliens->getSoldiers();
 	alienSoldier* temp;
 	queue<alienSoldier*> attack;
-	
+
 	for (int i = 0; i < (int)attackCapacity; i++) {
 		if (aliensoldier->dequeue(temp)) {
 			attack.enqueue(temp);
 		}
 	}
-	
+
 	if (printed) {
 		cout << "ES " << ID << " attacking: ";
 		attack.print();
@@ -41,7 +41,7 @@ void humanSoldier::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, 
 			}
 		}
 	}
-	else {
+}
 
 bool humanSoldier::getImmunity() const
 {
