@@ -250,6 +250,10 @@ void gameManager::testStructures()
 {power range}
 {attack capacity range}
 
+{health range}
+{power range}
+{attack capacity range}
+
 {Alien unit percentages}
 {health range}
 {power range}
@@ -277,8 +281,15 @@ bool gameManager::readInputFile(const string filePath,bool grandSimulation)
 		return false;
 	};
 
-	int AS; int AM; int AD;
+	(inputFile >> HP[0]).ignore(1) >> HP[1];
+	(inputFile >> PW[0]).ignore(1) >> PW[1];
+	(inputFile >> AC[0]).ignore(1) >> AC[1];
+	if (!unitGenerator->assignAllyArmyParamters(HP, PW, AC))
+	{
+		return false;
+	};
 
+	int AS; int AM; int AD;
 	inputFile >> AS >> AM >> AD;
 	(inputFile >> HP[0]).ignore(1) >> HP[1];
 	(inputFile >> PW[0]).ignore(1) >> PW[1];
