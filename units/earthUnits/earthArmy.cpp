@@ -179,6 +179,19 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 	if (soldiers->peek(soldier)) {
 		soldier->attack(gm, gm->getDeathList(), gm->getTimeStep(), printed);
 	}
+	for (int i = 0; i < infectionCountES; i++) {
+		int infectionSpread = generateNumber();
+		if (infectionSpread <= 2) {
+			int toBeInfectedIndex = generateNumber(1, soldiers->getCount());
+			while (soldiers->dequeue(soldier)) {
+				if (toBeInfectedIndex == 1) {
+					soldier->setInfection(true);
+				}
+				toBeInfectedIndex--;
+				soldiers->enqueue(soldier);
+			}
+		}
+	}
 
 	//Human Tank:
 	if (humanTank::getpctCheck() || aliens->getSoldiers()->isEmpty())
