@@ -243,7 +243,7 @@ void gameManager::testStructures()
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*Input file format:
-{N} {Prob}
+{N} {Prob} {infectProb} {saviourThreshHold}
 
 {Earth unit percentages}
 {health range}
@@ -357,6 +357,7 @@ void gameManager::produceOutputFile()
 		<< humanDeadHealerCount / (humanHealerCount + humanDeadHealerCount) * 100 << "% EH\n"
 		<< "Percentage of total dead units to total units: "
 		<< totalHumanDeadCount / (totalHumanCount + totalHumanDeadCount) * 100 << "%\n"
+		<< "Percentage of total infected units: " << humans->getTotalInfectionCountES() / (humanDeadSoldierCount)+(humanSoldierCount) << "%\n"
 		<< "Average delay values: "
 		<< totalHumanDf / totalHumanCount << " Df, "
 		<< totalHumanDd / totalHumanCount << " Dd, "
