@@ -194,9 +194,12 @@ void earthArmy::attack(alienArmy* aliens, bool printed)
 			int toBeInfectedIndex = generateNumber(0, soldiers->getCount());
 			while (soldiers->dequeue(soldier)) {
 				if (toBeInfectedIndex <= 0) {
-					soldier->setInfection(true);
-					infectionCountES++;
-					totalInfectionCountES++;
+					if (!(soldier->getInfection() || soldier->getImmunity()))
+					{
+						soldier->setInfection(true);
+						infectionCountES++;
+						totalInfectionCountES++;
+					}
 					soldiers->enqueue(soldier);
 					break;
 				}

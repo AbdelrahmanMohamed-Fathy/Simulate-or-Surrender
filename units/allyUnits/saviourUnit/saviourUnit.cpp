@@ -20,7 +20,7 @@ void saviourUnit::attack(alienArmy* aliens, queue<unit_Interface*>* deathList, i
 	}
 
 	if (printed) {
-		cout << "ES " << ID << " attacking: ";
+		cout << "SU " << ID << " attacking: ";
 		attack.print();
 	}
 

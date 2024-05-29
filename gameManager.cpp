@@ -468,6 +468,7 @@ void gameManager::printAlive()
 	cout << "current timestep: " << timeStep << endl;
 	humans->print();
 	aliens->print();
+	helldivers->print();
 }
 
 void gameManager::printDead()

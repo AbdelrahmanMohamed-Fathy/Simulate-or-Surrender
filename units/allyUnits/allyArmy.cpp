@@ -48,6 +48,7 @@ bool allyArmy::isEmpty()
 
 void allyArmy::print()
 {
+	if (!rescueRequired) return;
 	cout << "================================= ally army unit =================================\n";
 	cout << saviours->getCount() << " Saviours: ";
 	saviours->print();
